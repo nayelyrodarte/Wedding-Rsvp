@@ -2,15 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
+  color: white;
+  background: black;
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid palevioletred;
+  border: none;
   border-radius: 3px;
+  justify-self: center;
 `;
 
-const Rsvp = styled.form`
-  border: 2px;
+const RSVP = styled.form`
+  display: inline-block;
+  background-color: lightgray;
+  text-align: center;
+  padding: 0.5em 0.2em;
+  border-radius: 5px;
+`;
+
+const Input = styled.input`
+  display: grid;
+  padding: 0.25em 1em;
+  width: 10em;
+  justify-self: center;
+  margin: 1em;
 `;
 
 class Form extends React.Component {
@@ -36,23 +51,23 @@ class Form extends React.Component {
 
   render() {
     return (
-      <Rsvp>
+      <RSVP>
         {'Primer nombre:'}
-        <input
+        <Input
           type='text'
           name='name'
           value={this.state.name}
           onChange={this.changeHandler}
         />
         {'Primer apellido'}
-        <input
+        <Input
           type='text'
           name='lastName'
           value={this.state.lastName}
           onChange={this.changeHandler}
         />
-        <Button onClick={this.onSubmit}>Confirma tu asistencia</Button>
-      </Rsvp>
+        <Button onClick={this.onSubmit}>Enviar</Button>
+      </RSVP>
     );
   }
 }

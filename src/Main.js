@@ -1,12 +1,25 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Header = styled.h1``;
 
 class Main extends React.Component {
+  counter = () => {
+    const wedDay = new Date('2020,05,24 20:00:00');
+    let dateNow = Date.now();
+
+    let daysRemaining = Math.round((wedDay - dateNow) / (1000 * 60 * 60 * 24));
+
+    console.log(daysRemaining);
+  };
+
   render() {
     return (
       <div>
-        <h1> ¡Nos casamos! </h1>
-        <h3> B & A </h3>
-        <h4> 23 DE MAYO DE 2020 </h4>
+        <Header> ¡Nos casamos! </Header>
+        <h3> Brenda & Aarón </h3>
+        <h4> 23 de mayo de 2020 </h4>
+        <h4> Faltan ${this.count} días</h4>
       </div>
     );
   }
