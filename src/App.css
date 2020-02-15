@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
 
 body {
-    font-family: 'Verdana'
-}
-
-h3 {
-    font-family: 'Dancing Script';
-    font-size: 2em;
-    margin: 0;
+    font-family: 'Playfair Display';
+    font-weight: lighter;
 }
