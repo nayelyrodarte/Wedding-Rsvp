@@ -5,8 +5,7 @@ const Button = styled.button`
   font-size: inherit;
   color: white;
   background: black;
-  font-family: 'inherit';
-  font-size: 1em;
+  font-family: inherit;
   margin: 1em;
   padding: 0.25em 2em;
   border: none;
@@ -14,14 +13,14 @@ const Button = styled.button`
   outline: none;
 
   &:hover {
-    background: lightgray;
+    background: gray;
   }
 `;
 
 const RSVP = styled.form`
-  display: inline-block;
+  display: grid;
+  align-items: center;
   background-color: transparent;
-  text-align: center;
   padding: 0.5em 0.2em;
   border-radius: 5px;
 `;
@@ -32,10 +31,8 @@ const Input = styled.input`
   border: none;
   border-bottom: 2px solid black;
   background-color: transparent;
-  display: grid;
   padding: 0.25em 1em;
   width: 10em;
-  justify-self: center;
   margin: 1em;
   outline: none;
 `;
@@ -64,6 +61,10 @@ class Form extends React.Component {
   render() {
     return (
       <RSVP>
+        <h1>Confirma tu asistencia</h1>
+        {'Ayudanos a encontrarte en nuestra lista de invitados.'}
+        {' No utilices números o signos de puntuación al registarte.'}
+
         <Input
           type='text'
           name='name'

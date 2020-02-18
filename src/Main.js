@@ -15,7 +15,10 @@ class Main extends React.Component {
         <h1> ¡Nos casamos! </h1>
         <Header> Brenda & Aarón </Header>
         <h1> 23 de mayo de 2020 </h1>
-        <Counter />
+        <h1>
+          {' '}
+          Faltan <Counter /> días
+        </h1>
       </div>
     );
   }
