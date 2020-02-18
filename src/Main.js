@@ -4,21 +4,25 @@ import Counter from './Counter';
 
 const Header = styled.h2`
   font-family: 'Parisienne';
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: regular;
+`;
+
+const Content = styled.h1`
+  font-size: 1.3em;
+  font-weight: light;
 `;
 
 class Main extends React.Component {
   render() {
     return (
       <div>
-        <h1> ¡Nos casamos! </h1>
         <Header> Brenda & Aarón </Header>
-        <h1> 23 de mayo de 2020 </h1>
-        <h1>
+        <Content> 23 de mayo de 2020 </Content>
+        <Content>
           {' '}
           Faltan <Counter /> días
-        </h1>
+        </Content>
       </div>
     );
   }

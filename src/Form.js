@@ -71,7 +71,6 @@ class Form extends React.Component {
           placeholder='Primer nombre'
           value={this.state.name}
           onChange={this.changeHandler}
-          required
         />
         <Input
           type='text'
