@@ -20,7 +20,6 @@ class Main extends React.Component {
         <Header> Brenda & Aarón </Header>
         <Content> 23 de mayo de 2020 </Content>
         <Content>
-          {' '}
           Faltan <Counter /> días
         </Content>
       </div>

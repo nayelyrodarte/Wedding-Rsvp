@@ -11,10 +11,7 @@ const Button = styled.button`
   border: none;
   border-radius: 12px;
   outline: none;
-
-  &:hover {
-    background: gray;
-  }
+}
 `;
 
 const RSVP = styled.form`
@@ -23,16 +20,16 @@ const RSVP = styled.form`
   background-color: transparent;
   padding: 0.5em 0.2em;
   border-radius: 5px;
+  font-size: 1.2em;
 `;
 
 const Input = styled.input`
-  font-size: inherit;
+  font-size: 1.1em;
   font-family: inherit;
   border: none;
   border-bottom: 2px solid black;
   background-color: transparent;
   padding: 0.25em 1em;
-  width: 10em;
   margin: 1em;
   outline: none;
 `;
@@ -61,8 +58,8 @@ class Form extends React.Component {
   render() {
     return (
       <RSVP>
-        <h1>Confirma tu asistencia</h1>
-        {'Ayudanos a encontrarte en nuestra lista de invitados.'}
+        <h3>Confirma tu asistencia</h3>
+        {'Ayúdanos a encontrarte en nuestra lista de invitados.'}
         {' No utilices números o signos de puntuación al registarte.'}
 
         <Input
