@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
-export class Itinerary extends Component {
+const Title = styled.h3`
+  font-size: 1.4em;
+`;
+
+class Itinerary extends Component {
   render() {
     return (
       <div>
-        <h3> Horarios y ubicaciones </h3>{' '}
+        <Title> Horarios y ubicaciones </Title>
+        <h3>Ceremonia</h3>
+        <p>Iglesia</p>
+        <p>00:00 hrs</p>
+        <button>Ir a Google Maps</button>
+        <h3>Recepción</h3>
       </div>
     );
   }
