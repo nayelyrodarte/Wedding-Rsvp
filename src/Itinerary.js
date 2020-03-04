@@ -14,6 +14,12 @@ const Subtitle = styled.h4`
   margin-bottom: 0em;
 `;
 
+const Subcontent = styled.p`
+  @media (max-width: 2560px) {
+    flex-direction: row;
+  }
+`;
+
 const Button = styled.a`
   font-size: 1em;
   color: white;
@@ -33,9 +39,16 @@ const Button = styled.a`
   &:active {
     color: none;
   }
+
+  @media (max-width: 2560px) {
+    width: 10%;
+    align-self: center;
+  }
 `;
 
 const Content = styled.div`
+  display: flex;
+  flex-direction: column;
   font-size: 1.2em;
   justify-content: center;
   background: #dae0e0;
@@ -49,7 +62,8 @@ class Itinerary extends Component {
       <div>
         <Content>
           <Title> Horarios y ubicaciones </Title>
-          <Subtitle> Ceremonia </Subtitle> <p> Templo de la Sagrada Familia </p>{' '}
+          <Subtitle> Ceremonia </Subtitle>
+          <p> Templo de la Sagrada Familia </p>{' '}
           <p>
             Av.Venustiano Carranza 1810, Bolívar, Zona Centro, Chihuahua, Chih.{' '}
           </p>{' '}

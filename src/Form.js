@@ -13,10 +13,15 @@ const Button = styled.button`
   outline: none;
   width: 50%;
   justify-self: center;
+
+  @media (max-width: 2560px) {
+    width: 20%;
+  }
 `;
 
 const RSVP = styled.form`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   background: #dae0e0;
   padding: 0.5em 0.2em;
