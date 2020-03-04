@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Counter from './Counter';
 
-const Header = styled.h2`
+const Header = styled.h1`
   font-family: 'Parisienne';
   font-size: 3em;
   font-weight: regular;
 `;
 
-const Content = styled.h1`
-  font-size: 1.3em;
+const Content = styled.h2`
+  font-size: 1.5em;
   font-weight: light;
 `;
 

@@ -11,13 +11,14 @@ const Button = styled.button`
   border: none;
   border-radius: 12px;
   outline: none;
-}
+  width: 50%;
+  justify-self: center;
 `;
 
 const RSVP = styled.form`
   display: grid;
   align-items: center;
-  background-color: transparent;
+  background: #dae0e0;
   padding: 0.5em 0.2em;
   border-radius: 5px;
   font-size: 1.2em;
@@ -29,7 +30,7 @@ const Input = styled.input`
   border: none;
   border-bottom: 2px solid black;
   background-color: transparent;
-  padding: 0.25em 1em;
+  padding: 0.2em 1em;
   margin: 1em;
   outline: none;
 `;
@@ -39,8 +40,7 @@ class Form extends React.Component {
     super();
     this.state = {
       name: '',
-      lastName: '',
-      guests: ''
+      lasName: ''
     };
   }
 
@@ -72,10 +72,11 @@ class Form extends React.Component {
         <Input
           type='text'
           name='lastName'
-          placeholder='Primer apellido'
+          placeholder='Apellido paterno'
           value={this.state.lastName}
           onChange={this.changeHandler}
         />
+
         <Button onClick={this.onSubmit}>Enviar</Button>
       </RSVP>
     );

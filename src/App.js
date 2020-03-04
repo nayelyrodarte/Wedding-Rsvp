@@ -2,6 +2,7 @@ import React from 'react';
 import Main from './Main';
 import Form from './Form';
 import './App.css';
+import Insta from './Insta';
 import styled from 'styled-components';
 import Itinerary from './Itinerary';
 
@@ -14,7 +15,9 @@ class App extends React.Component {
     return (
       <Wrapper>
         <Main />
+
         <Itinerary />
+        <Insta />
         <Form />
       </Wrapper>
     );
