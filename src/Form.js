@@ -1,43 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.button`
-  font-size: inherit;
-  color: white;
-  background: black;
-  font-family: inherit;
-  margin: 1em;
-  padding: 0.25em 2em;
-  border: none;
-  border-radius: 12px;
-  outline: none;
-  width: 50%;
-  justify-self: center;
-
-  @media (max-width: 2560px) {
-    width: 20%;
-  }
-`;
-
-const RSVP = styled.form`
+const RSVP = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #dae0e0;
-  padding: 0.5em 0.2em;
-  border-radius: 5px;
-  font-size: 1.2em;
-`;
+  background-color: #ededeb;
 
-const Input = styled.input`
-  font-size: 1.1em;
-  font-family: inherit;
-  border: none;
-  border-bottom: 2px solid black;
-  background-color: transparent;
-  padding: 0.2em 1em;
-  margin: 1em;
-  outline: none;
+  input {
+    width: 30%;
+    text-align: center;
+  }
 `;
 
 class Form extends React.Component {
@@ -63,18 +36,20 @@ class Form extends React.Component {
   render() {
     return (
       <RSVP>
-        <h3>Confirma tu asistencia</h3>
-        {'Ayúdanos a encontrarte en nuestra lista de invitados.'}
-        {' No utilices números o signos de puntuación al registarte.'}
+        <h2 style={{ marginBottom: '0' }}>Confirma tu asistencia</h2>
+        <p>
+          Ayúdanos a encontrarte en nuestra lista de invitados. No utilices
+          números o signos de puntuación al registarte.
+        </p>
 
-        <Input
+        <input
           type='text'
           name='name'
           placeholder='Primer nombre'
           value={this.state.name}
           onChange={this.changeHandler}
         />
-        <Input
+        <input
           type='text'
           name='lastName'
           placeholder='Apellido paterno'
@@ -82,7 +57,7 @@ class Form extends React.Component {
           onChange={this.changeHandler}
         />
 
-        <Button onClick={this.onSubmit}>Enviar</Button>
+        <button onClick={this.onSubmit}>Enviar</button>
       </RSVP>
     );
   }
