@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { animateScroll as scroll } from 'react-scroll';
 
 const RSVP = styled.div`
   display: flex;
@@ -11,6 +12,15 @@ const RSVP = styled.div`
     width: 30%;
     text-align: center;
   }
+
+  .toTop {
+    background: none;
+    color: black;
+    text-decoration-line: underline;
+  }
+
+  .toTop:hover {
+    color: gray
 `;
 
 class Form extends React.Component {
@@ -31,6 +41,10 @@ class Form extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     console.log(this.state);
+  };
+
+  scrollToTop = () => {
+    scroll.scrollToTop();
   };
 
   render() {
@@ -58,6 +72,12 @@ class Form extends React.Component {
         />
 
         <button onClick={this.onSubmit}>Enviar</button>
+
+        <button onClick={this.scrollToTop} className='toTop'>
+          {' '}
+          <i class='fa fa-angle-double-up' aria-hidden='true'></i> Volver al
+          inicio{' '}
+        </button>
       </RSVP>
     );
   }

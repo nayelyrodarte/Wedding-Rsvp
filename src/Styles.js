@@ -1,8 +1,7 @@
-import {
-    createGlobalStyle
-} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-const Styles = createGlobalStyle `
+const Styles = createGlobalStyle`
+
 body {
   font-family: 'EB Garamond';
   margin: 0;
@@ -49,7 +48,7 @@ input {
   border: none;
   border-bottom: 2px solid black;
   background-color: transparent;
-  padding: 0.2em 4em;
+  padding: 0.2em 3em;
   margin: 1em;
   outline: none;
 }

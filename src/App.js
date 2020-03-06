@@ -5,6 +5,7 @@ import './App.css';
 import Insta from './Insta';
 import Itinerary from './Itinerary';
 import Styles from './Styles';
+import Gifts from './Gifts';
 
 class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
         <Styles />
         <Main />
         <Itinerary />
+        <Gifts />
         <Insta />
         <Form />
       </div>
