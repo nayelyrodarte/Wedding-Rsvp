@@ -1,3 +1,6 @@
-
-
-        {id: 0, name: "Sergio Delgado", acc: ["Sergio Delgado", "Nayely Rodarte", "Theo"], attending: []}
+{
+        "id": 1,
+        "name": "Sergio Delgado",
+        "acc": ["Sergio Delgado", "Nayely Rodarte", "Theo"],
+        "att": []
+}

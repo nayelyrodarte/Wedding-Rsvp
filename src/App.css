@@ -1,2 +1,56 @@
-@import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
+
+body {
+
+    font-family: 'EB Garamond';
+    margin: 0;
+
+    text-align: center;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Parisienne';
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+button {
+    font-size: inherit;
+    color: white;
+    background: black;
+    font-family: inherit;
+    margin: 1em;
+    padding: 0.3em;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    width: 10em;
+}
+
+input {
+    font-size: 1.1em;
+    font-family: inherit;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    padding: 0.2em 3em;
+    margin: 1em;
+    outline: none;
+}
