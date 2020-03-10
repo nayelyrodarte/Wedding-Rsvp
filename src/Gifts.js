@@ -7,6 +7,7 @@ const Layout = styled.div`
 
   button {
     align-self: center;
+    width: 12em;
   }
 `;
 
