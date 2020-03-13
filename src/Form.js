@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import { animateScroll as scroll } from 'react-scroll';
+import Styled from 'styled-components';
+import { animateScroll as Scroll } from 'react-scroll';
 
-const RSVP = styled.div`
+const RSVP = Styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,14 +13,11 @@ const RSVP = styled.div`
     text-align: center;
   }
 
-  .toTop {
+  .top {
     background: none;
     color: black;
     text-decoration-line: underline;
   }
-
-  .toTop:hover {
-    color: gray
 `;
 
 class Form extends React.Component {
@@ -44,7 +41,7 @@ class Form extends React.Component {
   };
 
   scrollToTop = () => {
-    scroll.scrollToTop();
+    Scroll.scrollToTop();
   };
 
   render() {
@@ -73,9 +70,9 @@ class Form extends React.Component {
 
         <button onClick={this.onSubmit}>Enviar</button>
 
-        <button onClick={this.scrollToTop} className='toTop'>
+        <button onClick={this.scrollToTop} className='top'>
           {' '}
-          <i class='fa fa-angle-double-up' aria-hidden='true'></i> Volver al
+          <i className='fa fa-angle-double-up' aria-hidden='true'></i> Volver al
           inicio{' '}
         </button>
       </RSVP>

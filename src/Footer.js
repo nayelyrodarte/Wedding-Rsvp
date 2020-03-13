@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import Styled from 'styled-components';
 
-const Foot = styled.div`
+const Foot = Styled.div`
   background: black;
   color: white;
   font-size: 0.7em;
@@ -12,8 +12,8 @@ function Footer() {
   return (
     <div>
       <Foot>
-        <p>© Diseño web: Nayely Rodarte | Fotografía: Jonathan Guajardo</p>
-      </Foot>
+        <p> © Diseño web: Nayely Rodarte | Fotografía: Jonathan Guajardo </p>{' '}
+      </Foot>{' '}
     </div>
   );
 }

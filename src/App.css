@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+
+a {
+    text-decoration: none;
+    color: white;
+}
 
 body {
 
