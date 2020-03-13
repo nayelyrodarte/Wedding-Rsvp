@@ -1,12 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import Styled from 'styled-components';
 
-const Layout = styled.div`
+const Layout = Styled.div`
   display: flex;
   flex-direction: column;
 
   button {
     align-self: center;
+    width: 12em;
   }
 `;
 
