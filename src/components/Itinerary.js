@@ -5,7 +5,6 @@ function Itinerary() {
     <div>
       <div
         style={{
-          backgroundColor: '#EDEDEB',
           padding: '1em'
         }}
       >

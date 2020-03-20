@@ -1,11 +1,11 @@
 import React from 'react';
-import Main from './Main';
-import Form from './Form';
+import Main from './components/Main';
+import Form from './components/Form';
+import Insta from './components/Insta';
+import Itinerary from './components/Itinerary';
+import Gifts from './components/Gifts';
+import Footer from './components/Footer';
 import './App.css';
-import Insta from './Insta';
-import Itinerary from './Itinerary';
-import Gifts from './Gifts';
-import Footer from './Footer';
 
 class App extends React.Component {
   render() {
@@ -13,8 +13,9 @@ class App extends React.Component {
       <div>
         <Main />
         <Itinerary />
-        <Gifts />
         <Insta />
+        <Gifts />
+
         <Form />
         <Footer />
       </div>

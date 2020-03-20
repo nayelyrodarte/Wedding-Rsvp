@@ -2,16 +2,20 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
 a {
     text-decoration: none;
     color: white;
 }
 
 body {
-
     font-family: 'EB Garamond';
     margin: 0;
-
     text-align: center;
 }
 
@@ -19,10 +23,13 @@ h1,
 h2,
 h3 {
     font-family: 'Parisienne';
+    padding: .7em;
 }
 
 h1 {
-    font-size: 2.8em;
+    font-size: 3.5em;
+    padding-bottom: 0;
+    line-height: .2em;
 }
 
 h2 {
@@ -59,4 +66,8 @@ input {
     padding: 0.2em 3em;
     margin: 1em;
     outline: none;
+}
+
+.main-pic {
+    height: 100vh;
 }
