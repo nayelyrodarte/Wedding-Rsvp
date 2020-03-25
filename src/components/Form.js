@@ -6,7 +6,7 @@ const RSVP = Styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ededeb;
+  background-color: #CFD3D6;
 
   input {
     width: 30%;

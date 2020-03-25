@@ -27,13 +27,14 @@ h3 {
 }
 
 h1 {
-    font-size: 3.5em;
+    font-size: 4.5em;
     padding-bottom: 0;
     line-height: .2em;
 }
 
 h2 {
     font-size: 2em;
+    text-shadow: 1px 1px 5px gray;
 }
 
 h3 {
@@ -41,7 +42,7 @@ h3 {
 }
 
 p {
-    font-size: 1.2em;
+    font-size: 1.2em
 }
 
 button {
@@ -66,8 +67,4 @@ input {
     padding: 0.2em 3em;
     margin: 1em;
     outline: none;
-}
-
-.main-pic {
-    height: 100vh;
 }

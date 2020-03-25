@@ -14,7 +14,7 @@ const Layout = Styled.div`
 function Gifts() {
   return (
     <Layout>
-      <h2> ¿Quieres hacernos un regalo ? </h2>{' '}
+      <h2> ¿Quieres hacernos un regalo? </h2>{' '}
       <button> Mesa de regalos Liverpool </button> <h3>Datos bancarios</h3>
       <p>NOMBRE</p>
       <p>Banco</p>

@@ -1,8 +1,20 @@
 import React from 'react';
+import Styled from 'styled-components';
+
+const ItinerGrid = Styled.div`
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+
+@media screen and (min-width: 1024px) and (max-height: 1310px) {
+  grid-template-columns: repeat(3, 1fr)
+}
+
+
+`;
 
 function Itinerary() {
   return (
-    <div>
+    <ItinerGrid>
       <div
         style={{
           padding: '1em'
@@ -26,8 +38,8 @@ function Itinerary() {
         </button>{' '}
         <h3> Vestimenta </h3> <p> FORMAL / RIGUROSA </p>{' '}
         <p> Traje o vestido largo </p>{' '}
-      </div>{' '}
-    </div>
+      </div>
+    </ItinerGrid>
   );
 }
 
