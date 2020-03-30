@@ -23,10 +23,7 @@ const RSVP = Styled.div`
 class Form extends React.Component {
   constructor() {
     super();
-    this.state = {
-      name: '',
-      lasName: ''
-    };
+    this.state = {};
   }
 
   changeHandler = event => {

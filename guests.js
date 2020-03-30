@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const User = require('./models/Guest');
 
 // @route GET api/guests
 router.get('/', (req, res) => {
@@ -8,6 +9,6 @@ router.get('/', (req, res) => {
 
 // @route PUT api/guests/:id
 
-router.put('/:id', (req, res));
+//router.put('/:id', (req, res));
 
 module.exports = router;

@@ -1,0 +1,24 @@
+const express = require('express');
+const app = express();
+const dotenv = require('dotenv').config();
+const mongoose = require('mongoose');
+
+const db = process.env.MONGODB;
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+// Define route
+app.use('/api/guests', require('./guests'));
+
+// Middleware
+app.use(express.json());
+
+mongoose
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('connected with Mongo');
+  })
+  .catch(function(err) {
+    console.error(err);
+  });

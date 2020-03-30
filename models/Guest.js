@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const guestSchema = mongoose.Schema({
+  rsvpd: false,
   grp: Number,
   name: String,
   acc: Array
 });
 
-module.exports = moongose.model('Guest', guestSchema);
+module.exports = mongoose.model('guest', guestSchema);
