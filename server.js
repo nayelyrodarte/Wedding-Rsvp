@@ -8,8 +8,8 @@ const PORT = process.env.PORT;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
-// Define route
-app.use('/api/guests', require('./guests'));
+// Define routes
+app.use('/api/guests', require('./routes/guests'));
 
 // Middleware
 app.use(express.json());

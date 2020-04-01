@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const guestSchema = mongoose.Schema({
-  rsvpd: false,
-  grp: Number,
-  name: String,
-  acc: Array
-});
+const guestSchema = new mongoose.Schema(
+  {
+    name: String,
+    acc: Array,
+    rsvpd: Boolean
+  },
+  { collection: 'guests' }
+);
 
-module.exports = mongoose.model('guest', guestSchema);
+module.exports = mongoose.model('Guest', guestSchema);

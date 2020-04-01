@@ -1,5 +1,5 @@
 import React from 'react';
-import InstaPic from '../img/BA-Horizon.jpg';
+import InstaPic from '../img/BA-Walk-Close.jpg';
 import Styled from 'styled-components';
 
 const InstaComp = Styled.div`

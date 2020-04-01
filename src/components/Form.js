@@ -14,7 +14,7 @@ const RSVP = Styled.div`
   }
 
   .top {
-    background: none;
+    background: none;w2
     color: black;
     text-decoration-line: underline;
   }
@@ -23,18 +23,19 @@ const RSVP = Styled.div`
 class Form extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = '';
   }
 
   changeHandler = event => {
-    this.setState({
-      [event.target.name]: event.target.value.toUpperCase()
-    });
+    this.setState({ [event.target.name]: event.target.value.toUpperCase() });
   };
 
-  onSubmit = e => {
-    e.preventDefault();
-    console.log(this.state);
+  onSubmit = event => {
+    event.preventDefault();
+    this.props.getGuests({
+      name: this.state.name,
+      lastName: this.state.lastName
+    });
   };
 
   scrollToTop = () => {
