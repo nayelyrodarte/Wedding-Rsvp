@@ -5,6 +5,11 @@ const Guest = require('../models/Guest');
 // @route GET api/guests
 // Get all guests
 
+router.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 router.get('/', async (req, res) => {
   try {
     const guests = await Guest.find({ rsvpd: false });

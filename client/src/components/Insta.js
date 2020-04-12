@@ -1,5 +1,5 @@
 import React from 'react';
-import InstaPic from '../img/BA-Walk-Close.jpg';
+import InstaPic from '../img/Hand.jpg';
 import Styled from 'styled-components';
 
 const InstaComp = Styled.div`
@@ -23,7 +23,7 @@ function Insta() {
         <p
           style={{
             fontSize: '1.3em',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
           }}
         >
           {' '}

@@ -2,9 +2,10 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const db = process.env.MONGODB;
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
@@ -19,6 +20,6 @@ mongoose
   .then(() => {
     console.log('connected with Mongo');
   })
-  .catch(function(err) {
+  .catch(function (err) {
     console.error(err);
   });

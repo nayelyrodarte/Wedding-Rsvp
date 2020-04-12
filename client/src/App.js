@@ -5,25 +5,32 @@ import Insta from './components/Insta';
 import Itinerary from './components/Itinerary';
 import Gifts from './components/Gifts';
 import Footer from './components/Footer';
-import Search from './components/Search';
-import axios from 'axios';
+import Search from './Search';
 import './App.css';
+//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   state = {
-    fullName: null,
-    guests: null,
-    loading: false
+    guests: '',
+    loading: false,
   };
 
-  getGuests = async ({ name, lastName }) => {
-    this.setState({ loading: true });
-    const res = await axios.get(`https://localhost:5000/api/guests`);
-
-    this.setState({
-      guests: res.data
-    });
-  };
+  componentDidMount() {
+    fetch('http://localhost:8000/api/guests', {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+        this.setState = {
+          guests: data,
+          loading: true,
+        };
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
 
   render() {
     return (
@@ -32,8 +39,8 @@ class App extends React.Component {
         <Itinerary />
         <Insta />
         <Gifts />
+        <Search />
         <Form />
-        <Search searchGuests={this.getGuests} />
         <Footer />
       </div>
     );

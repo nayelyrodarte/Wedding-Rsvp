@@ -17,7 +17,6 @@ height: 100vh;
 
 div {
   
-  display: flex;
 
   @media (min-width: 800px) {
 
@@ -29,8 +28,10 @@ div {
 
 
 h1 {
+  margin-bottom: 1em;
   line-height: .8em;
-  text-shadow: 1px 2px 1px gray;   
+  text-shadow: 1px 2px 1px gray;  
+  text-align: center 
 }
 
 }
@@ -44,7 +45,7 @@ function Main() {
           Brenda <div>&</div> Aarón
         </h1>
       </div>
-      <SubCounter>23 de mayo de 2020</SubCounter>
+      <SubCounter>11 de octubre de 2020</SubCounter>
       <SubCounter>
         Faltan <Counter /> días
       </SubCounter>
