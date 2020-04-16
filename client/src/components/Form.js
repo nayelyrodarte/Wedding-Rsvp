@@ -1,81 +1,91 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Styled from 'styled-components';
-import { animateScroll as Scroll } from 'react-scroll';
+import Checkbox from './Checkbox';
 
-const RSVP = Styled.div`
+const Input = Styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #CFD3D6;
 
   input {
-    width: 30%;
+    width: 50%;
     text-align: center;
   }
 
-  .top {
-    background: none;w2
-    color: black;
-    text-decoration-line: underline;
-  }
+  
 `;
 
-class Form extends React.Component {
-  constructor() {
-    super();
-    this.state = '';
+const Form = () => {
+  const [name, setName] = useState();
+  const [lastName, setLastName] = useState();
+  const [phone, setPhone] = useState();
+  const [guests, setGuests] = useState();
+  const [loading, setLoading] = useState(false);
+
+  // TODO: figuring out which dependency is useful for the fetch
+  // a button can update a hook?
+  // try passing data from app.js
+
+  async function requestGuests() {
+    setLoading(true);
+
+    const req = await fetch('http://localhost:8000/api/guests');
+    const list = await req.json();
+
+    setGuests(list || []);
+    setLoading(false);
+
+    console.log([guests]);
   }
 
-  changeHandler = event => {
-    this.setState({ [event.target.name]: event.target.value.toUpperCase() });
-  };
+  // track checkbox changes
+  const onChange = (e) => {};
 
-  onSubmit = event => {
-    event.preventDefault();
-    this.props.getGuests({
-      name: this.state.name,
-      lastName: this.state.lastName
-    });
-  };
+  useEffect(() => {
+    requestGuests();
+  }, []);
 
-  scrollToTop = () => {
-    Scroll.scrollToTop();
-  };
+  return (
+    <Input>
+      <input
+        type='text'
+        name={name}
+        placeholder='Primer nombre'
+        value={name}
+        onChange={(e) => setName(e.target.value.toUpperCase())}
+      />
+      <input
+        type='text'
+        name={lastName}
+        placeholder='Apellido paterno'
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value.toUpperCase())}
+      />
+      <input
+        type='text'
+        name='phone'
+        placeholder='Teléfono celular'
+        value={phone}
+        onChange={(e) => setPhone(e.target.value.toUpperCase())}
+        maxLength='10'
+      />
 
-  render() {
-    return (
-      <RSVP>
-        <h2 style={{ marginBottom: '0' }}>Confirma tu asistencia</h2>
-        <p>
-          Ayúdanos a encontrarte en nuestra lista de invitados. No utilices
-          números o signos de puntuación al registarte.
-        </p>
+      <button>Buscar</button>
 
-        <input
-          type='text'
-          name='name'
-          placeholder='Primer nombre'
-          value={this.state.name}
-          onChange={this.changeHandler}
-        />
-        <input
-          type='text'
-          name='lastName'
-          placeholder='Apellido paterno'
-          value={this.state.lastName}
-          onChange={this.changeHandler}
-        />
+      <div>
+        {'Selecciona los invitados que asistirán:'}
+        <div></div>
+        <button>Enviar</button>
+      </div>
 
-        <button onClick={this.onSubmit}>Enviar</button>
-
-        <button onClick={this.scrollToTop} className='top'>
-          {' '}
-          <i className='fa fa-angle-double-up' aria-hidden='true'></i> Volver al
-          inicio{' '}
-        </button>
-      </RSVP>
-    );
-  }
-}
+      <button>
+        {' '}
+        <i className='fa fa-angle-double-up' aria-hidden='true'>
+          Volver al inicio{' '}
+        </i>
+      </button>
+    </Input>
+  );
+};
 
 export default Form;

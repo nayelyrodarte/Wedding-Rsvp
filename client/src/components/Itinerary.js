@@ -17,7 +17,7 @@ function Itinerary() {
     <ItinerGrid>
       <div
         style={{
-          padding: '1em'
+          padding: '1em',
         }}
       >
         <h2> Horarios y ubicaciones </h2> <h3> Ceremonia </h3>{' '}
@@ -36,8 +36,8 @@ function Itinerary() {
         <button>
           <a href='https://goo.gl/maps/U7Zzdo4LRmcELCay8'>Ir a al mapa </a>
         </button>{' '}
-        <h3> Vestimenta </h3> <p> FORMAL / RIGUROSA </p>{' '}
-        <p> Traje o vestido largo </p>{' '}
+        <h3> Vestimenta </h3> <p> FORMAL RIGUROSA </p>{' '}
+        <p> Traje / vestido largo </p>{' '}
       </div>
     </ItinerGrid>
   );

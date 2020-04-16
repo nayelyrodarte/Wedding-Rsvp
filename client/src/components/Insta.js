@@ -4,10 +4,9 @@ import Styled from 'styled-components';
 
 const InstaComp = Styled.div`
 text-align: right;
-background: url(${InstaPic}) bottom/100% no-repeat;
-background-size: cover;
+background: url(${InstaPic}) center/100% no-repeat;
 width: 100wh;
-height: 50vh;
+height: 60vh;
 `;
 
 function Insta() {
