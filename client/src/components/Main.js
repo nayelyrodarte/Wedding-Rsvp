@@ -11,9 +11,9 @@ const SubCounter = Styled.h3`
 `;
 
 const Header = Styled.div`
-background: url(${HeaderPic}) center / 220% no-repeat;
+background: url(${HeaderPic}) bottom / 200% no-repeat;
 background-size: cover;
-height: 100vh;
+height: 70vh;
 
 div {
   
@@ -28,7 +28,7 @@ div {
 
 
 h1 {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   line-height: .8em;
   text-shadow: 1px 2px 1px gray;  
   text-align: center 
@@ -41,9 +41,7 @@ function Main() {
   return (
     <Header>
       <div>
-        <h1 style={{ paddingTop: '1em' }}>
-          Brenda <div>&</div> Aarón
-        </h1>
+        <h1>Brenda & Aarón</h1>
       </div>
       <SubCounter>11 de octubre de 2020</SubCounter>
       <SubCounter>

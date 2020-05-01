@@ -1,38 +1,34 @@
 import React from 'react';
+import CheckItem from './CheckItem';
+import Spinner from './Spinner';
 import Styled from 'styled-components';
 
-const Label = Styled.label`
-display: grid;
-grid-template-columns: 1fr 1fr;
+const Items = Styled.div`
+      display: grid;
+      grid-row: auto;
+      
 `;
 
-const Checkbox = ({
-  type = 'checkbox',
-  name,
-  checked = 'false',
-  onChange,
-  key,
-}) => {
-  // state = { checked: false };
-  // handleCheckboxChange = (event) =>
-  //   this.setState({ checked: event.target.checked });
+const Checkbox = ({ guests, name, loading }) => {
+  const findGuest = guests
+    .filter((guest) => guest.name === name)
+    .map((foundGuest) => foundGuest.acc);
 
-  // render() {
-  //   const companion = this.props.check.acc;
-  //   let guest;
-
-  //   for (let i = 0; i < companion.length; i++) {
-  //     guest = companion[i];
+  //   if (loading) {
+  //     return <Spinner />;
   //   }
 
-  //   console.log(companion);
+  //;
+
+  //  />
+  let items = findGuest[0].map((item) => <CheckItem name={item} key={item} />);
 
   return (
-    <Label>
-      <input type='type' checked={checked} onChange={onChange} name={name} />
-      <p>{name}</p>
-    </Label>
+    <div>
+      {' '}
+      <p>Selecciona los invitados que asistirán:</p>
+      <Items>{items}</Items>
+    </div>
   );
 };
-
 export default Checkbox;

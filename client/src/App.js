@@ -4,18 +4,19 @@ import Insta from './components/Insta';
 import Itinerary from './components/Itinerary';
 import Gifts from './components/Gifts';
 import Footer from './components/Footer';
-import Form from './components/Form';
+
+import Rsvp from './components/Rsvp';
 import './App.css';
 //import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
   return (
     <div>
-      |<Main />
+      <Main />
       <Itinerary />
       <Insta />
       <Gifts />
-      <Form />
+      <Rsvp />
       <Footer />
     </div>
   );
