@@ -1,20 +1,28 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const onChange = () => {
   console.log('checkbox working');
 };
+
 const Checkbox = ({ name }) => {
   return (
-    <Fragment>
-      <input
-        type='checkbox'
-        checked={null}
-        onChange={onChange}
-        name={name}
-        key={name}
-      />
-      <p>{name}</p>
-    </Fragment>
+    <div
+      style={{
+        width: '10em',
+        textAlign: 'left',
+      }}
+    >
+      <label htmlFor={name}>
+        <input
+          type='checkbox'
+          checked={null}
+          onChange={onChange}
+          name='name'
+          key={name}
+        />
+        <p style={{ display: 'inline', lineHeight: '1.7' }}>{name}</p>
+      </label>
+    </div>
   );
 };
 

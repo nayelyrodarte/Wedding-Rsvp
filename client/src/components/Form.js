@@ -3,7 +3,6 @@ import Styled from 'styled-components';
 import Checkbox from './Checkbox';
 
 //TODO
-//add form labels
 //fix checkboxes grid
 // complete DB
 // add put route @ server
@@ -50,21 +49,27 @@ const Form = () => {
   return (
     <Input>
       <Fragment>
-        <input
-          type='text'
-          name={name}
-          placeholder='Primer nombre y apellido paterno'
-          value={name}
-          onChange={(e) => setName(e.target.value.toUpperCase())}
-        />
-        <input
-          type='text'
-          name='phone'
-          placeholder='Teléfono celular'
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          maxLength='10'
-        />
+        <label htmlFor='name'>
+          Primer nombre y apellido paterno:
+          <input
+            type='text'
+            name={name}
+            value={name}
+            onChange={(e) => setName(e.target.value.toUpperCase())}
+          />
+        </label>
+
+        <label htmlFor='phone'>
+          Teléfono celular:
+          <input
+            type='text'
+            name='phone'
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            maxLength='10'
+          />
+        </label>
+
         <button onClick={getGuest}>Buscar</button>
       </Fragment>
 
