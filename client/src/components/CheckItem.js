@@ -6,12 +6,7 @@ const onChange = () => {
 
 const Checkbox = ({ name }) => {
   return (
-    <div
-      style={{
-        width: '10em',
-        textAlign: 'left',
-      }}
-    >
+    <div className='checkbox_container'>
       <label htmlFor={name}>
         <input
           type='checkbox'
@@ -20,8 +15,8 @@ const Checkbox = ({ name }) => {
           name='name'
           key={name}
         />
-        <p style={{ display: 'inline', lineHeight: '1.7' }}>{name}</p>
       </label>
+      <p>{name}</p>
     </div>
   );
 };

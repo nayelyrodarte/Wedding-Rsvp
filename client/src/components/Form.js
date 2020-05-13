@@ -3,7 +3,6 @@ import Styled from 'styled-components';
 import Checkbox from './Checkbox';
 
 //TODO
-//fix checkboxes grid
 // complete DB
 // add put route @ server
 
