@@ -26,9 +26,7 @@ const Form = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/guests', {
-      method: 'GET',
-    })
+    fetch('http://localhost:8000/api/guests')
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data);
@@ -73,7 +71,7 @@ const Form = () => {
       </Fragment>
 
       {loading ? (
-        <Checkbox guests={guests} loading={loading} name={name} />
+        <Checkbox guests={guests} loading={loading} name={name} phone={phone} />
       ) : (
         <Fragment>
           <p>No se encontró registro</p>

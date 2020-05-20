@@ -1,10 +1,6 @@
 import React from 'react';
 
-const onChange = () => {
-  console.log('checkbox working');
-};
-
-const Checkbox = ({ name }) => {
+const CheckItem = ({ name, onChange }) => {
   return (
     <div className='checkbox_container'>
       <label htmlFor={name}>
@@ -14,6 +10,7 @@ const Checkbox = ({ name }) => {
           onChange={onChange}
           name='name'
           key={name}
+          value={name}
         />
       </label>
       <p>{name}</p>
@@ -21,4 +18,4 @@ const Checkbox = ({ name }) => {
   );
 };
 
-export default Checkbox;
+export default CheckItem;

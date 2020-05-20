@@ -5,7 +5,7 @@ const guestSchema = new mongoose.Schema(
   {
     name: String,
     acc: Array,
-    rsvpd: Boolean
+    rsvpd: Boolean,
   },
   { collection: 'guests' }
 );
