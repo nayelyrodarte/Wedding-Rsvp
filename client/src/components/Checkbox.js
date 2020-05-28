@@ -3,9 +3,14 @@ import CheckItem from './CheckItem';
 import Spinner from './Spinner';
 
 const Checkbox = ({ guests, name, phone, loading }) => {
+  // Get registered guest
   const findGuest = guests.filter((guest) => guest.name === name);
+
+  // Guest's id from DB
   const id = findGuest.map((guest) => guest._id);
-  const guestParty = findGuest.map((guest) => guest.acc);
+
+  // Guest's family members / partner
+  const guestParty = findGuest.map((guest) => guest.guest_party);
 
   //   if (loading) {
   //     return <Spinner />;
@@ -26,9 +31,10 @@ const Checkbox = ({ guests, name, phone, loading }) => {
   ));
 
   const sendRsvp = () => {
+    // Updating guest to send to DB
     guest.rsvpd = true;
-    //guest.phone = phone;
-    //guest.acc = attending
+    guest.phone = phone;
+    guest.guest_party = attending;
     console.log(guest);
 
     const put = {
@@ -47,6 +53,15 @@ const Checkbox = ({ guests, name, phone, loading }) => {
       .catch((error) => {
         console.error('Error:', error);
       });
+
+    // fetch('http://localhost:8000/api/guests')
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log('Success:', data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error:', error);
+    //   });
   };
 
   return (

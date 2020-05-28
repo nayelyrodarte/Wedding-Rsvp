@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 const guestSchema = new mongoose.Schema(
   {
     name: String,
-    acc: Array,
+    guest_party: Array,
     rsvpd: Boolean,
+    phone: String,
   },
   { collection: 'guests' }
 );

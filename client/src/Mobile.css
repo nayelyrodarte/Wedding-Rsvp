@@ -1,0 +1,31 @@
+@media (max-width: 768px) {
+    .itinerary {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat (3, 1fr);
+        align-items: center;
+    }
+
+    .img_box {
+        grid-column: 1/5;
+        height: 50vh;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.4em;
+    }
+
+    .formContainer {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr)
+    }
+
+    .bank {
+        grid-template-columns: 1fr;
+        width: 60vw;
+        gap: 1em;
+    }
+}

@@ -1,23 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import Styled from 'styled-components';
 import Checkbox from './Checkbox';
 
 //TODO
 // complete DB
-// add put route @ server
-
-const Input = Styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  input {
-    width: 50%;
-    text-align: center;
-  }
-
-  
-`;
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -25,6 +10,7 @@ const Form = () => {
   const [guests, setGuests] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  //Get all guests from DB
   useEffect(() => {
     fetch('http://localhost:8000/api/guests')
       .then((response) => response.json())
@@ -38,13 +24,15 @@ const Form = () => {
   }, []);
 
   const getGuest = () => {
-    if (guests !== []) {
+    if (guests.length > 0) {
       setLoading(true);
     }
   };
 
+  const isEnabled = name.length > 0 && phone.length == 10;
+
   return (
-    <Input>
+    <section>
       <Fragment>
         <label htmlFor='name'>
           Primer nombre y apellido paterno:
@@ -53,11 +41,12 @@ const Form = () => {
             name={name}
             value={name}
             onChange={(e) => setName(e.target.value.toUpperCase())}
+            required
           />
         </label>
 
         <label htmlFor='phone'>
-          Teléfono celular:
+          Teléfono celular (10 dígitos):
           <input
             type='text'
             name='phone'
@@ -67,15 +56,22 @@ const Form = () => {
           />
         </label>
 
-        <button onClick={getGuest}>Buscar</button>
+        <button disabled={!isEnabled} className='findButton' onClick={getGuest}>
+          Buscar
+        </button>
       </Fragment>
 
       {loading ? (
-        <Checkbox guests={guests} loading={loading} name={name} phone={phone} />
-      ) : (
         <Fragment>
-          <p>No se encontró registro</p>
+          <Checkbox
+            guests={guests}
+            loading={loading}
+            name={name}
+            phone={phone}
+          />
         </Fragment>
+      ) : (
+        <p></p>
       )}
 
       <button>
@@ -83,7 +79,7 @@ const Form = () => {
           Volver al inicio{' '}
         </i>
       </button>
-    </Input>
+    </section>
   );
 };
 
