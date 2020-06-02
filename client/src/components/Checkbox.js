@@ -1,63 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CheckItem from './CheckItem';
-import Spinner from './Spinner';
 
-const Checkbox = ({ guests, name, phone, loading }) => {
-  // Get registered guest
-  const findGuest = guests.filter((guest) => guest.name === name);
+//TODO
+// Add validation when succesfull / failed registration
+// Arrange checkboxes styling
+
+const Checkbox = ({ guest, phone }) => {
+  const [register, setRegister] = useState(false);
+
+  const registered = guest[0];
 
   // Guest's id from DB
-  const id = findGuest.map((guest) => guest._id);
+  const id = registered._id;
 
   // Guest's family members / partner
-  const guestParty = findGuest.map((guest) => guest.guest_party);
-
-  //   if (loading) {
-  //     return <Spinner />;
-  //   }
-
-  //;
+  const guestParty = registered.guest_party;
 
   let attending = [];
-  let guest = findGuest[0];
-  console.log(guest);
 
-  const guestAttend = (e) => {
+  const addAttendingGuest = (e) => {
     attending.push(e.target.value);
   };
 
-  let list = guestParty[0].map((guest) => (
-    <CheckItem name={guest} key={guest} onChange={guestAttend} />
+  const list = guestParty.map((guest) => (
+    <CheckItem name={guest} key={guest} onChange={addAttendingGuest} />
   ));
 
   const sendRsvp = () => {
-    // Updating guest to send to DB
+    // Updating guest
     guest.rsvpd = true;
     guest.phone = phone;
     guest.guest_party = attending;
     console.log(guest);
 
-    const put = {
-      method: 'put',
-      body: JSON.stringify(guest),
-      headers: {
-        'Content-type': 'application/json',
-      },
-    };
+    setRegister(true);
 
-    fetch(`http://localhost:8000/api/guests/${id}`, put)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    // Sending updated guest to DB
+    // const put = {
+    //   method: 'put',
+    //   body: JSON.stringify(guest),
+    //   headers: {
+    //     'Content-type': 'application/json',
+    //   },
+    // };
 
-    // fetch('http://localhost:8000/api/guests')
+    // fetch(`http://localhost:8000/api/guests/${id}`, put)
     //   .then((response) => response.json())
     //   .then((data) => {
-    //     console.log('Success:', data);
+    //     console.log(data);
     //   })
     //   .catch((error) => {
     //     console.error('Error:', error);
@@ -65,12 +55,19 @@ const Checkbox = ({ guests, name, phone, loading }) => {
   };
 
   return (
-    <div>
-      <p>Selecciona los invitados que asistirán:</p>
-      {list}
-
-      <button onClick={sendRsvp}>Confirmar</button>
-    </div>
+    <section>
+      {register ? (
+        <div>
+          Tu registro ha quedado confirmado. ¡Muchas gracias por acompañarnos!
+        </div>
+      ) : (
+        <div>
+          <p>Selecciona los invitados que asistirán:</p>
+          {list}
+          <button onClick={sendRsvp}>Confirmar</button>
+        </div>
+      )}
+    </section>
   );
 };
 

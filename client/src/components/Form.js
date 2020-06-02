@@ -24,54 +24,54 @@ const Form = () => {
   }, []);
 
   const getGuest = () => {
-    if (guests.length > 0) {
-      setLoading(true);
-    }
+    setLoading(true);
   };
 
-  const isEnabled = name.length > 0 && phone.length == 10;
+  // Get registered guest
+  const guest = guests.filter((guest) => guest.name === name);
+
+  // Disable / enable submit button
+  const enabled =
+    guests.length > 0 &&
+    name.length > 0 &&
+    phone.length === 10 &&
+    guest.length === 1;
 
   return (
     <section>
-      <Fragment>
-        <label htmlFor='name'>
-          Primer nombre y apellido paterno:
-          <input
-            type='text'
-            name={name}
-            value={name}
-            onChange={(e) => setName(e.target.value.toUpperCase())}
-            required
-          />
-        </label>
-
-        <label htmlFor='phone'>
-          Teléfono celular (10 dígitos):
-          <input
-            type='text'
-            name='phone'
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            maxLength='10'
-          />
-        </label>
-
-        <button disabled={!isEnabled} className='findButton' onClick={getGuest}>
-          Buscar
-        </button>
-      </Fragment>
-
       {loading ? (
         <Fragment>
-          <Checkbox
-            guests={guests}
-            loading={loading}
-            name={name}
-            phone={phone}
-          />
+          <Checkbox guest={guest} phone={phone} />
         </Fragment>
       ) : (
-        <p></p>
+        <Fragment>
+          <label htmlFor='name'>
+            Primer nombre y apellido paterno:
+            <input
+              type='text'
+              name={name}
+              value={name}
+              onChange={(e) => setName(e.target.value.toUpperCase())}
+              required
+            />
+          </label>
+
+          <label htmlFor='phone'>
+            Teléfono celular (10 dígitos):
+            <input
+              type='text'
+              name='phone'
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              maxLength='10'
+              required
+            />
+          </label>
+
+          <button disabled={!enabled} className='findButton' onClick={getGuest}>
+            Buscar
+          </button>
+        </Fragment>
       )}
 
       <button>

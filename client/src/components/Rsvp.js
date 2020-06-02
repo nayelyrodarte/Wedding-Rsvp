@@ -10,8 +10,6 @@ export class Rsvp extends Component {
           <img src={FormPhoto} alt='' />
           <div>
             <h2>Confirma tu asistencia</h2>
-            <p>Ayúdanos a encontrarte en nuestra lista de invitados. </p>
-            <p>No utilices signos de puntuación al registarte.</p>
             <Form />
           </div>
         </section>

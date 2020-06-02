@@ -102,6 +102,8 @@ button {
 }
 
 input[type=text] {
+    font-family: inherit;
+    font-size: 1em;
     width: 45%;
     border: none;
     border-bottom: 2px solid black;
@@ -115,6 +117,11 @@ input[type=text] {
 input[type=checkbox] {
     height: 15px;
     margin: 1em;
+}
+
+.findButton {
+    display: block;
+    margin: auto;
 }
 
 .findButton:disabled {
@@ -166,4 +173,5 @@ input[type=checkbox] {
     color: white;
     font-size: .8em;
     padding: 1.5em;
+    border: 1px solid black;
 }

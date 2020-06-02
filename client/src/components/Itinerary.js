@@ -39,7 +39,7 @@ function Itinerary() {
       {/*Gifts section*/}
       <section>
         <h2> ¿Quieres hacernos un regalo? </h2>
-        <h3>Mesas de regalos</h3>
+        <h3>Mesas de regalo</h3>
         <button>
           <a href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50345156'>
             Liverpool
