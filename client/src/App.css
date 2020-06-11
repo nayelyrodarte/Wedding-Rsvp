@@ -1,177 +1,117 @@
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
 
-
-/*General styling*/
-
 :root {
-    font-size: 1.2em;
-    font-family: 'EB Garamond';
-    text-align: center;
+  font-size: 1.2em;
+  font-family: 'EB Garamond';
+  text-align: center;
 }
-
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 h1,
 h2,
 h3 {
-    font-family: 'Parisienne';
-    padding-top: .3em;
+  font-family: 'Parisienne';
+  padding-top: 0.3em;
 }
 
 h2 {
-    font-size: 2.3em;
+  font-size: 2.3em;
 }
 
 h3 {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 button {
-    font-size: inherit;
-    color: white;
-    background: black;
-    font-family: inherit;
-    margin: 1em;
-    padding: 0.3em;
-    border: none;
-    border-radius: 12px;
-    outline: none;
-    width: 10em;
-    box-shadow: 5px 6px 12px -6px rgba(0, 0, 0, 0.68)
+  font-size: inherit;
+  color: white;
+  background: black;
+  font-family: inherit;
+  margin: 1em;
+  padding: 0.3em;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  width: 12em;
+  box-shadow: 5px 6px 12px -6px rgba(0, 0, 0, 0.68);
 }
 
+header {
+  background-image: url('./img/BA-Walk.jpg');
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-color: #d0d4d7;
+  display: grid;
+  align-items: start;
 
-/* Header */
-
-.header {
-    background-image: url('./img/BA-Bus.jpg');
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    height: 60vh;
-    background-color: #D0D4D7;
 }
 
-.header>h1 {
-    font-size: 4em;
-    line-height: 1em;
-    text-shadow: 1px 2px 1px gray;
+h1 {
+  font-size: 4em;
+  line-height: 0.8em;
+  color: black;
 }
 
-.header p {
-    font-weight: bold;
-    font-size: 1.2em;
+header p {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 0.5em;
 }
-
-
 
 /* RSVP form */
 
-.checkbox_container {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+input[type='text'] {
+  font-family: inherit;
+  font-size: 1em;
+  height: 1em;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+  padding: 0.8em 4em;
+  display: block;
+  margin: auto;
+  outline: none;
+  width: 40%;
 }
 
-.formContainer label {
-    display: block;
-    padding: 1em;
+input[type='text']:focus {
+  background-color: #bab9b96d;
+  background-blend-mode: lighten;
 }
 
-.formContainer {
-    background-color: #CFD3D6;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+input[type='checkbox'] {
+  height: 15px;
+  margin: 1em;
 }
 
-.formContainer>img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+footer {
+  background: black;
+  color: white;
+  font-size: 0.8em;
+  padding: 1.5em;
+  border: 1px solid black;
+  bottom: 0;
 }
 
-input[type=text] {
-    font-family: inherit;
-    font-size: 1em;
-    width: 45%;
-    border: none;
-    border-bottom: 2px solid black;
-    background-color: transparent;
-    padding: 1em 4.5em;
-    outline: none;
-    display: block;
-    margin: auto;
-}
+@media (max-width: 768px) {
 
-input[type=checkbox] {
-    height: 15px;
-    margin: 1em;
-}
+  h2 {
+    font-size: 1.8em;
+  }
 
-.findButton {
-    display: block;
-    margin: auto;
-}
-
-.findButton:disabled {
-    background-color: #cccccc;
-    color: #5e5d5d;
-    box-shadow: none;
-}
-
-.findButton:enabled {
-    background-color: black;
-    color: white;
-    box-shadow: 5px 6px 12px -6px rgba(0, 0, 0, 0.68);
-}
-
-/* Itinerary section */
-
-.itinerary {
-    display: grid;
-    grid-template-columns: repeat(3, 30vw);
-    grid-template-rows: repeat(1, 40vh);
-    align-items: baseline;
-}
-
-/* Instagram/hashtag section */
-
-.img_box {
-    background-image: url('./img/B&A-21-2.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-color: #A89CA6;
-    width: 100%;
-    height: 40vh;
-}
-
-.bank {
-    display: grid;
-    width: 60vw;
-    margin: auto;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 1.5em;
-    justify-content: stretch;
-}
-
-/* Footer */
-
-.footer {
-    background: black;
-    color: white;
-    font-size: .8em;
-    padding: 1.5em;
-    border: 1px solid black;
+  h3 {
+    font-size: 1.4em;
+  }
 }

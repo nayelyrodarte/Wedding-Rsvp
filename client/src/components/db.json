@@ -1,0 +1,16 @@
+[
+  {
+    "_id": { "$oid": "5ec5b83fd0572caa39bc86dc" },
+    "name": "CONRADO ARIAS CASTAÑON",
+    "guest_party": ["OBDULIA QUINTANA", "KATHYA ARIAS"],
+    "rsvpd": false,
+    "phone": ""
+  },
+  {
+    "_id": { "$oid": "5ec5b83fd0572caa39b7778" },
+    "name": "SERGIO DELGADO",
+    "guest_party": ["NAYELY RODARTE", "THEO"],
+    "rsvpd": false,
+    "phone": ""
+  }
+]

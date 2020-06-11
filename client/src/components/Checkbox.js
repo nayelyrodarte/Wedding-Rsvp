@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
 import CheckItem from './CheckItem';
+import Styled from 'styled-components';
+
+const CheckboxContainer = Styled.div`
+  display: grid;
+  grid-auto-rows: auto;
+`;
 
 //TODO
-// Add validation when succesfull / failed registration
 // Arrange checkboxes styling
+// Check if there's a way to require at least one checkbox checked
 
 const Checkbox = ({ guest, phone }) => {
   const [register, setRegister] = useState(false);
 
-  const registered = guest[0];
+  console.log(guest);
 
-  // Guest's id from DB
-  const id = registered._id;
+  const id = guest._id;
 
   // Guest's family members / partner
-  const guestParty = registered.guest_party;
+  const guestParty = guest.guest_party;
 
+  // Save attending guests
   let attending = [];
 
   const addAttendingGuest = (e) => {
     attending.push(e.target.value);
   };
 
-  const list = guestParty.map((guest) => (
+  // Adding checkboxes for each family member / partner
+  let list = guestParty.map((guest) => (
     <CheckItem name={guest} key={guest} onChange={addAttendingGuest} />
   ));
 
@@ -63,7 +70,7 @@ const Checkbox = ({ guest, phone }) => {
       ) : (
         <div>
           <p>Selecciona los invitados que asistirán:</p>
-          {list}
+          <CheckboxContainer>{list}</CheckboxContainer>
           <button onClick={sendRsvp}>Confirmar</button>
         </div>
       )}
