@@ -71,17 +71,17 @@ const Form = () => {
       {loading && <div>Cargando</div>}
 
       <FormContainer>
-        <h2>Confirma tu asistencia</h2>
         {guest ? (
           <div>
             {' '}
+            <h2>Confirma tu asistencia</h2>
             <Checkbox guest={guest} phone={phone} />
           </div>
         ) : (
           <div>
             <div>
+              <h2>Confirma tu asistencia</h2>
               {error}
-
               <div className='form'>
                 <label htmlFor='name'>
                   Primer nombre:
@@ -120,17 +120,16 @@ const Form = () => {
                     required
                   />
                 </label>
-              </div>
-
-              <div>
-                <button
-                  className='searchButton'
-                  disabled={!enabled}
-                  onClick={getGuest}
-                >
-                  Buscar
-                </button>
-                <button>Volver al inicio</button>
+                <div>
+                  <button
+                    className='searchButton'
+                    disabled={!enabled}
+                    onClick={getGuest}
+                  >
+                    Buscar
+                  </button>
+                  <button>Volver al inicio</button>
+                </div>
               </div>
             </div>
           </div>
@@ -141,10 +140,10 @@ const Form = () => {
 };
 
 const FormContainer = Styled.section`
-  height: 30em;
+  height: 50vh;
   background-image: url(${FormPhoto});
-  background-size: 140%;
-  background-position: bottom right;
+  background-size: 130%;
+  background-position: bottom left;
   background-color: #cfd3d6;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -152,14 +151,6 @@ const FormContainer = Styled.section`
 
   .form {
     padding: 2em;
-  }
-  
-  h2 {
-    width: 4em;
-    align-self: center;
-    padding-bottom: 5em;
-    padding-left: 5em;
-    text-align: center;
   }
 
   label {
@@ -174,8 +165,8 @@ const FormContainer = Styled.section`
   }
 
   button {
-    margin: 1em;
-    width: 13em;
+    margin: 1.5em 1em;
+    width: 10em;
   }
 
   .searchButton:disabled {
@@ -185,11 +176,10 @@ const FormContainer = Styled.section`
     }
 
   @media (max-width: 768px) {
-    height: 40em;
+    height: 50vh;
     grid-template-columns: 1fr;
-    grid-template-rows: 5% 90%;
     background-size: cover;
-  background-position: bottom;
+  background-position: bottom center;
 
     img {
       grid-column: 1;

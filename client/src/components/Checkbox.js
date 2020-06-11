@@ -3,6 +3,7 @@ import CheckItem from './CheckItem';
 import Styled from 'styled-components';
 
 const CheckboxContainer = Styled.div`
+margin: auto;
   display: grid;
   grid-auto-rows: auto;
 `;
@@ -66,6 +67,7 @@ const Checkbox = ({ guest, phone }) => {
       {register ? (
         <div>
           Tu registro ha quedado confirmado. ¡Muchas gracias por acompañarnos!
+          <button>Volver al inicio</button>
         </div>
       ) : (
         <div>

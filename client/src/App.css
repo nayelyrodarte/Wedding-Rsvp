@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
 
 :root {
-  font-size: 1.2em;
+  font-size: 18px;
   font-family: 'EB Garamond';
   text-align: center;
 }
@@ -51,11 +51,10 @@ header {
   background-size: cover;
   background-position: right;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 50vh;
   background-color: #d0d4d7;
   display: grid;
   align-items: start;
-
 }
 
 h1 {
@@ -75,15 +74,16 @@ header p {
 input[type='text'] {
   font-family: inherit;
   font-size: 1em;
-  height: 1em;
+  height: 0.5em;
   border: none;
   border-bottom: 2px solid black;
   background-color: transparent;
-  padding: 0.8em 4em;
+  padding: 0.8em 2.5em;
   display: block;
   margin: auto;
   outline: none;
-  width: 40%;
+  width: 35%;
+  text-align: center;
 }
 
 input[type='text']:focus {
