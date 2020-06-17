@@ -15,7 +15,7 @@ label {
 
 `;
 
-const CheckItem = ({ name, onChange }) => {
+const CheckItem = ({ name, onChange, checked }) => {
   return (
     <CheckboxContainer>
       <label htmlFor={name}>

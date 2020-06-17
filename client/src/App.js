@@ -5,8 +5,10 @@ import Form from './components/Form';
 import Gifts from './components/Gifts';
 import Insta from './components/Insta';
 import './App.css';
-import Styled from 'styled-components';
-//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+//TODO
+// Add footer
+
 const App = () => {
   return (
     <div>

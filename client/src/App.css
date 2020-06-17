@@ -2,9 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
 
 :root {
-  font-size: 18px;
   font-family: 'EB Garamond';
+  font-size: 18px;
   text-align: center;
+  --disabled-color: #cccccc;
 }
 
 * {
@@ -13,87 +14,28 @@
 }
 
 a {
-  text-decoration: none;
   color: white;
-}
-
-h1,
-h2,
-h3 {
-  font-family: 'Parisienne';
-  padding-top: 0.3em;
-}
-
-h2 {
-  font-size: 2.3em;
-}
-
-h3 {
-  font-size: 1.5em;
+  text-decoration: none;
 }
 
 button {
-  font-size: inherit;
-  color: white;
   background: black;
-  font-family: inherit;
-  margin: 1em;
-  padding: 0.3em;
   border: none;
   border-radius: 12px;
-  outline: none;
-  width: 12em;
   box-shadow: 5px 6px 12px -6px rgba(0, 0, 0, 0.68);
-}
-
-header {
-  background-image: url('./img/BA-Walk.jpg');
-  background-size: cover;
-  background-position: right;
-  background-repeat: no-repeat;
-  height: 50vh;
-  background-color: #d0d4d7;
-  display: grid;
-  align-items: start;
-}
-
-h1 {
-  font-size: 4em;
-  line-height: 0.8em;
-  color: black;
-}
-
-header p {
-  font-weight: bold;
-  font-size: 1.2em;
-  padding: 0.5em;
-}
-
-/* RSVP form */
-
-input[type='text'] {
+  color: white;
   font-family: inherit;
-  font-size: 1em;
-  height: 0.5em;
-  border: none;
-  border-bottom: 2px solid black;
-  background-color: transparent;
-  padding: 0.8em 2.5em;
-  display: block;
-  margin: auto;
-  outline: none;
-  width: 35%;
-  text-align: center;
-}
-
-input[type='text']:focus {
-  background-color: #bab9b96d;
-  background-blend-mode: lighten;
-}
-
-input[type='checkbox'] {
-  height: 15px;
+  font-size: inherit;
   margin: 1em;
+  outline: none;
+  padding: 0.3em;
+  width: 12em;
+}
+
+button:disabled {
+  background-color: var(--disabled-color);
+  box-shadow: none;
+  color: #5e5d5d;
 }
 
 footer {
@@ -105,6 +47,73 @@ footer {
   bottom: 0;
 }
 
+
+h1,
+h2,
+h3 {
+  font-family: 'Parisienne';
+  padding-top: 0.3em;
+}
+
+h1 {
+  color: black;
+  font-size: 4em;
+  line-height: 0.8em;
+}
+
+h2 {
+  font-size: 2.3em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+header {
+  align-items: start;
+  display: grid;
+  min-height: 60vh;
+  background-color: #d0d4d7;
+  background-image: url('./img/BA-Walk.jpg');
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+}
+
+header p {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+/* RSVP form */
+
+input[type='checkbox'] {
+  height: 15px;
+  margin: 1em;
+}
+
+input[type='text'] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+  display: block;
+  font-family: inherit;
+  font-size: 1em;
+  height: 0.5em;
+  margin: auto;
+  outline: none;
+  padding: 0.8em 2.5em;
+  text-align: center;
+  width: 40%;
+}
+
+input[type='text']:focus {
+  background-color: var(--disabled-color);
+  background-blend-mode: lighten;
+}
+
 @media (max-width: 768px) {
 
   h2 {
@@ -114,4 +123,5 @@ footer {
   h3 {
     font-size: 1.4em;
   }
+
 }

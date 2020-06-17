@@ -1,7 +1,9 @@
 import React from 'react';
-import Counter from './Counter';
-import Styled from 'styled-components';
-import InstaPhoto from '../img/B&A-21-2.jpg';
+//import Counter from './Counter';
+
+//TODO
+// Relocate counter
+// Pick new main photo
 
 function Main() {
   return (

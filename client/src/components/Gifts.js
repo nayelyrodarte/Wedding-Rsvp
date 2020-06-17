@@ -18,8 +18,8 @@ const GiftsContainer = Styled.div`
 
 function Gifts() {
   return (
-    <section className='gifts'>
-      <h2> ¿Quieres hacernos un regalo? </h2>
+    <GiftsContainer>
+      <h3> Mesa de regalos </h3>
       <button>
         <a href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50345156'>
           Liverpool
@@ -45,7 +45,7 @@ function Gifts() {
           </div>
         </div>
       </section>
-    </section>
+    </GiftsContainer>
   );
 }
 

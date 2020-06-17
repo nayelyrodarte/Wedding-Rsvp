@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import CheckItem from './CheckItem';
+import Message from './Message';
 import Styled from 'styled-components';
 
-const CheckboxContainer = Styled.div`
-margin: auto;
-  display: grid;
-  grid-auto-rows: auto;
+const Section = Styled.section`
+display: grid;
+max-height: 80%;
+justify-content: strech;
+
+span {
+  height: 80%
+}
 `;
 
 //TODO
 // Arrange checkboxes styling
-// Check if there's a way to require at least one checkbox checked
+// Disable button w/no boxes checked
+// Add link to main component to return button (maybe scroll?)
 
 const Checkbox = ({ guest, phone }) => {
   const [register, setRegister] = useState(false);
+  const [error, setError] = useState('');
+  const [checkboxes, setCheckboxes] = useState(null);
 
   console.log(guest);
 
@@ -22,26 +30,47 @@ const Checkbox = ({ guest, phone }) => {
   // Guest's family members / partner
   const guestParty = guest.guest_party;
 
-  // Save attending guests
-  let attending = [];
+  // Save attending guests (selected from checkboxes)
+  let attending = new Map();
 
   const addAttendingGuest = (e) => {
-    attending.push(e.target.value);
+    const name = e.target.value;
+    const isChecked = e.target.checked;
+
+    list.map((item) => {
+      if (item.props.name === name) {
+        attending.set(name, isChecked);
+      }
+    });
   };
 
-  // Adding checkboxes for each family member / partner
+  console.log(attending);
+
+  // Checkboxes for each family member / partner
+
   let list = guestParty.map((guest) => (
     <CheckItem name={guest} key={guest} onChange={addAttendingGuest} />
   ));
 
   const sendRsvp = () => {
-    // Updating guest
-    guest.rsvpd = true;
-    guest.phone = phone;
-    guest.guest_party = attending;
-    console.log(guest);
+    console.log(attending);
 
-    setRegister(true);
+    // Verify - at least one checkbox checked
+    // if (attending.length) {
+    //   // Update guest
+    //   guest.rsvpd = true;
+    //   guest.phone = phone;
+    //   guest.guest_party = attending;
+    //   setRegister(true);
+    //   setError('');
+    // } else {
+    //   setRegister(false);
+    //   setError(<Message msg={'Favor de elegir al menos un invitado.'} />);
+    //   setTimeout(function () {
+    //     setError('');
+    //   }, 8000);
+    // }
+    // console.log(guest);
 
     // Sending updated guest to DB
     // const put = {
@@ -63,20 +92,22 @@ const Checkbox = ({ guest, phone }) => {
   };
 
   return (
-    <section>
+    <Section>
+      {error}
       {register ? (
         <div>
-          Tu registro ha quedado confirmado. ¡Muchas gracias por acompañarnos!
+          <p> Tu registro ha quedado confirmado.</p>
+          <p> ¡Muchas gracias por acompañarnos! </p>
           <button>Volver al inicio</button>
         </div>
       ) : (
         <div>
           <p>Selecciona los invitados que asistirán:</p>
-          <CheckboxContainer>{list}</CheckboxContainer>
+          <span>{list}</span>
           <button onClick={sendRsvp}>Confirmar</button>
         </div>
       )}
-    </section>
+    </Section>
   );
 };
 

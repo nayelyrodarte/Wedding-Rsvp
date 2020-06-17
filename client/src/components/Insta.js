@@ -3,25 +3,25 @@ import Styled from 'styled-components';
 import InstaPhoto from '../img/B&A-21-2.jpg';
 
 const InstaContainer = Styled.div`
+margin: 1em 0;
+  align-items: end;
   background-image: url(${InstaPhoto});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-color: #a89ca6;
-  width: 100vw;
-  height: 40vh;
   display: grid;
+  height: 50vh;
+  width: 100vw;
 
   p {
-      color: black;
-      align-self: end;
-      margin: 1em;
       filter: drop-shadow(16px 16px 20px black);
+  }
 
-      div {
-          font-weight: bold;
-          font-size: 1.5em;    
-      }
+  p:last-of-type {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 1em;
   }
 }
 `;
@@ -29,10 +29,10 @@ const InstaContainer = Styled.div`
 export default function Insta() {
   return (
     <InstaContainer>
-      <p>
-        Etiqueta tus fotos con nuestro hashtag
-        <div>#BRENDA&AARON2020</div>
-      </p>
+      <div>
+        <p>Etiqueta tus fotos con nuestro hashtag</p>
+        <p>#BRENDA&AARON2020</p>
+      </div>
     </InstaContainer>
   );
 }
