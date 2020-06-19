@@ -1,20 +1,14 @@
 import React from 'react';
-//import Counter from './Counter';
-
-//TODO
-// Relocate counter
-// Pick new main photo
+import Counter from './Counter';
 
 function Main() {
   return (
     <header>
-      <div>
-        <h1>Brenda & Aarón</h1>
-        <p>11 de octubre de 2020</p>
-        {/* `     <p>
+      <h1>Brenda & Aarón</h1>
+      <p>11 de octubre de 2020</p>
+      <p>
         Faltan <Counter /> días
-      </p>` */}
-      </div>
+      </p>
     </header>
   );
 }

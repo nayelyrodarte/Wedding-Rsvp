@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
 import db from './db.json';
 import Styled from 'styled-components';
-import FormPhoto from '../img/BA-Bus.jpg';
+import FormPhoto from '../img/BA-Horizon.jpg';
 import Message from './Message';
 
 //TODO
@@ -78,9 +78,9 @@ const Form = () => {
         ) : (
           <div>
             <div>
-              <h2>Confirma tu asistencia</h2>
-              {error}
               <form>
+                <h2>Confirma tu asistencia</h2>
+                {error}
                 <label htmlFor='name'>
                   Primer nombre:
                   <input
@@ -118,16 +118,14 @@ const Form = () => {
                     required
                   />
                 </label>
-                <div>
-                  <button
-                    className='searchButton'
-                    disabled={!enabled}
-                    onClick={getGuest}
-                    type='button'
-                  >
-                    Buscar
-                  </button>
-                </div>
+                <button
+                  className='searchButton'
+                  disabled={!enabled}
+                  onClick={getGuest}
+                  type='button'
+                >
+                  Buscar
+                </button>
               </form>
             </div>
           </div>
@@ -141,32 +139,30 @@ const Form = () => {
 const FormContainer = Styled.section`
   min-height: 50vh;
   background-image: url(${FormPhoto});
-  background-size: 130%;
+  background-size: 100%;
   background-position: bottom left;
   background-color: #cfd3d6;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: top;
-
-  form {
-    padding: 0.5em;
-  }
-
-  label {
-  display: block;
-  padding: .5em;
-  }
 
   button {
     margin: 1em;
     width: 10em;
   }
 
+  form {
+    position: absolute;
+    width: 50%;
+    right: 0;
+  }
+
   @media (max-width: 660px) {
-    min-height: 95vh;
+    min-height: 90vh;
     grid-template-columns: 1fr;
     background-size: cover;
-  background-position: bottom center;
+
+    form {
+      position: relative;
+      width: 100%;
+    }
   }
 
 `;
