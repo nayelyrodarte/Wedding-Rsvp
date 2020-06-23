@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CheckItem from './CheckItem';
 import Message from './Message';
 import Styled from 'styled-components';
+import { set } from 'mongoose';
 
 const Section = Styled.section`
 display: grid;
@@ -21,7 +22,6 @@ span {
 const Checkbox = ({ guest, phone }) => {
   const [register, setRegister] = useState(false);
   const [error, setError] = useState('');
-  const [checkboxes, setCheckboxes] = useState(null);
 
   console.log(guest);
 
@@ -30,7 +30,12 @@ const Checkbox = ({ guest, phone }) => {
   // Guest's family members / partner
   const guestParty = guest.guest_party;
 
-  // Save attending guests (selected from checkboxes)
+  // Checkboxes for each family member / partner
+  let list = guestParty.map((guest) => (
+    <CheckItem name={guest} key={guest} onChange={addAttendingGuest} />
+  ));
+
+  // Save attending guests (selected from checkboxes @ list binding)
   let attending = new Map();
 
   const addAttendingGuest = (e) => {
@@ -39,18 +44,12 @@ const Checkbox = ({ guest, phone }) => {
 
     list.map((item) => {
       if (item.props.name === name) {
-        attending.set(name, isChecked);
+        set.attending(name, isChecked);
       }
     });
+
+    console.log(attending);
   };
-
-  console.log(attending);
-
-  // Checkboxes for each family member / partner
-
-  let list = guestParty.map((guest) => (
-    <CheckItem name={guest} key={guest} onChange={addAttendingGuest} />
-  ));
 
   const sendRsvp = () => {
     console.log(attending);
@@ -71,7 +70,6 @@ const Checkbox = ({ guest, phone }) => {
     //   }, 8000);
     // }
     // console.log(guest);
-
     // Sending updated guest to DB
     // const put = {
     //   method: 'put',
@@ -80,7 +78,6 @@ const Checkbox = ({ guest, phone }) => {
     //     'Content-type': 'application/json',
     //   },
     // };
-
     // fetch(`http://localhost:8000/api/guests/${id}`, put)
     //   .then((response) => response.json())
     //   .then((data) => {
@@ -103,7 +100,7 @@ const Checkbox = ({ guest, phone }) => {
       ) : (
         <div>
           <p>Selecciona los invitados que asistirán:</p>
-          <span>{list}</span>
+          <div>{list}</div>
           <button onClick={sendRsvp}>Confirmar</button>
         </div>
       )}

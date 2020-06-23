@@ -7,12 +7,11 @@ import Styled from 'styled-components';
 const ItineraryContainer = Styled.div`
   display: grid;
   height: 50vh;
-  margin: auto;
   grid-template-columns: repeat(3, 30vw);
   grid-template-rows: 1fr;
   align-items: center;
-  grid-gap: 1em;
-
+  align-self: center;
+  padding: 1em;
 
   div {
     border-right: solid 1px lightgray;

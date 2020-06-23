@@ -1,37 +1,58 @@
 import React from 'react';
 import Styled from 'styled-components';
-import BoxPhoto from '../img/BA-Front.jpg';
+import backgroundImg from '../img/hojas3.png';
 
-const GiftsContainer = Styled.div`
-width: 90%;
-display: grid; 
+const GiftsContainer = Styled.section`
+background-image: url(${backgroundImg});
+background-repeat: no-repeat;
+background-size: 40%;
+background-position: center right;
+display: grid;
 grid-template-columns: repeat(3, 1fr);
-padding: 1em;
+grid-template-rows: repeat(2,1fr);
+height: 40vh;
 
+h2 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
 button {
-  width: 80%;
+  width: 50%;
+  height: 2em;
 }
 
-section {
-  border: 0.5em solid white;
-  background-color: gray;
-}
 
-img {
-  height:95%;
-  width: 100%;
-  object-fit: cover;
-  margin: auto;
+@media (max-width: 660px) {
+  background-position: top;
+  background-size: cover;
+min-height: 45vh;
+position: relative;
+justify-items: center;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(3, 1fr);
+margin-top: 1em;
+margin-left: 1em;
+
+  h2 {
+    transform: rotate(-90deg);
+    position: absolute;
+    left: -2em;
+    top: 3.5em;
+    }
+    
+  button {
+      width: 50%;
+    }
+  }
 }
 
 `;
 
 function Gifts() {
   return (
-    <GiftsContainer>
-      <section>
-        <h3> Mesa de regalos </h3>
-        <br></br>
+    <div>
+      <GiftsContainer>
+        <h2> Mesa de regalos </h2>
         <button>
           <a href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50345156'>
             Liverpool
@@ -42,25 +63,9 @@ function Gifts() {
             Amazon
           </a>
         </button>
-      </section>
-      <img src={BoxPhoto}></img>
-      <section>
-        <h3>Datos bancarios</h3>
-        <div>
-          <p>Brenda Judith </p>
-          <p>Arias Quintana</p>
-          <p>BANORTE</p>
-          <p>Tarjeta No. </p>
-          <p>4915 6664 7204 6550</p>
-        </div>
-        <br></br>
-        <div>
-          <p>Marcos Aaron Rivera Olivas</p>
-          <p>BBVA</p>
-          <p> Tarjeta No. 4152 3133 8061 3849</p>
-        </div>
-      </section>
-    </GiftsContainer>
+        <button>Datos bancarios</button>
+      </GiftsContainer>
+    </div>
   );
 }
 

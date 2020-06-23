@@ -1,28 +1,27 @@
 import React from 'react';
 import Styled from 'styled-components';
-import InstaPhoto from '../img/BA-Sunset.jpg';
+import InstaPhoto from '../img/BA-Horizon.jpg';
+import InstaLogo from '../img/noun_Camera_49605.svg';
 
 const InstaContainer = Styled.div`
-margin: 1em 0;
-  align-items: end;
+  align-items: center;
   background-image: url(${InstaPhoto});
   background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
+  background-position: bottom center;
+  background-size: 150%;
   background-color: #a89ca6;
   display: grid;
   height: 50vh;
   width: 100%;
 
-  p {
-      filter: drop-shadow(16px 16px 20px black);
-      color: white;
+  p:last-of-type {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 3em;
   }
 
-  p:last-of-type {
-    font-size: 1.5em;
-    font-weight: bold;
-    padding-bottom: 1em;
+  img {
+    width: 3rem; 
   }
 }
 `;
@@ -31,6 +30,7 @@ export default function Insta() {
   return (
     <InstaContainer>
       <div>
+        <img src={InstaLogo} alt='Instagram logo' />
         <p>Etiqueta tus fotos con nuestro hashtag</p>
         <p>#BRENDA&AARON2020</p>
       </div>

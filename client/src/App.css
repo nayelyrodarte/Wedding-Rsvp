@@ -67,23 +67,6 @@ h3 {
   font-size: 1.5em;
 }
 
-header {
-  align-items: start;
-  min-height: 70vh;
-  background-color: #d0d4d7;
-  background-image: url('./img/B&A-21-2.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #a89ca6;
-  width: 100%;
-}
-
-header>p {
-  font-weight: bold;
-  font-size: 1.5em;
-  margin: 0;
-}
 
 /* RSVP form */
 
