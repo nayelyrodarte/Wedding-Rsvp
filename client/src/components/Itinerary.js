@@ -1,5 +1,6 @@
 import React from 'react';
 import Styled from 'styled-components';
+import Flower from '../img/hojas3.png';
 
 //TODO
 // Fix main container alignment :$!
@@ -7,11 +8,16 @@ import Styled from 'styled-components';
 const ItineraryContainer = Styled.div`
   display: grid;
   height: 50vh;
+ _ background: url(${Flower});
+  _background-position: left bottom;
+  _background-repeat: no-repeat;
+  background-size: 40%;
   grid-template-columns: repeat(3, 30vw);
   grid-template-rows: 1fr;
   align-items: center;
   align-self: center;
   padding: 1em;
+  
 
   div {
     border-right: solid 1px lightgray;

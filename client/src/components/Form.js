@@ -129,11 +129,12 @@ const Form = () => {
 };
 
 const FormContainer = Styled.section`
-  min-height: 60vh;
+  min-height: 70vh;
   background-color: #CED2D5;
   background-image: url(${FormPhoto});
-  background-size: 150%;
-  background-position: bottom right;
+  background-size: 130%;
+  background-position: right bottom;
+
 
   button {
     margin: 1em;
@@ -142,12 +143,12 @@ const FormContainer = Styled.section`
 
   form {
   position: absolute;
-  width: 55%;
-  right: -2em;
+  width: 40%;
+  right: 0;
   }
 
   @media (max-width: 660px) {
-    min-height: 100vh;
+    min-height: 90vh;
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -155,8 +156,9 @@ const FormContainer = Styled.section`
     h2 {
     transform: rotate(-90deg);
     position: absolute;
-    left: -5em;
-    top: 4em;
+    left: -48%;
+    top: 35%;
+    padding-bottom: 1em;
   }
 
     form {
