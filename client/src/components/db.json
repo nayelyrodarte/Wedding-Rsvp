@@ -2,7 +2,12 @@
   {
     "_id": { "$oid": "5ec5b83fd0572caa39bc86dc" },
     "name": "CONRADO ARIAS",
-    "guest_party": ["OBDULIA QUINTANA", "KATHYA ARIAS"],
+    "guest_party": [
+      "OBDULIA QUINTANA",
+      "KATHYA ARIAS",
+      "NAYELY RODARTE",
+      "BLABLABLA"
+    ],
     "rsvpd": false,
     "phone": ""
   },

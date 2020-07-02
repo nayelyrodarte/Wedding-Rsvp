@@ -4,12 +4,11 @@ import closeIcon from '../img/close_icon.svg';
 
 const ModalStyling = Styled.div`
 display: none;
-justify-items: center;
 padding: 2em 1em;
 position: fixed;
 max-width: 45vw;
 max-height: fit-content;
-left: 20%;
+left: 10%;
 top: 30%;
 height: 50vh;
 background: white;

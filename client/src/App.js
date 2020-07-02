@@ -4,7 +4,8 @@ import Itinerary from './components/Itinerary';
 import Form from './components/Form';
 import Gifts from './components/Gifts';
 import Insta from './components/Insta';
-import './App.css';
+import './screen.css';
+import './mobile.css';
 
 //TODO
 // Add footer

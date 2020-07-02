@@ -2,12 +2,14 @@ import React from 'react';
 import Styled from 'styled-components';
 
 const CheckboxContainer = Styled.div`
-height: 2em;
+height: max-content;
 display: grid;
-margin: 0 1em;
-grid-template-columns: 20% 60%;
+grid-template-columns: 20% 80%;
+height: 1.5em;
 align-items: baseline;
 text-align: left;
+white-space: no-wrap;
+gap: 0.5em;
 
 label {
   margin: 0 1em;

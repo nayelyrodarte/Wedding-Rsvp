@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
 import db from './db.json';
-import Styled from 'styled-components';
-import FormPhoto from '../img/BA-Bus4.jpg';
 import Message from './Message';
 
 //TODO
@@ -51,7 +49,10 @@ const Form = () => {
         setError(
           <Message
             msg={
-              'No se encontró registro. Comunícate al 123 124 32 23 para recibir asistencia.'
+              <p>
+                No se encontró registro. <br /> Comunícate al 000 000 00 00 para
+                recibir asistencia.
+              </p>
             }
           />
         );
@@ -68,15 +69,15 @@ const Form = () => {
   return (
     <section>
       {loading && <Message msg={'Cargando'} />}
-      <FormContainer>
-        {guest ? (
-          <div>
-            {' '}
-            <Checkbox guest={guest} phone={phone} />
-          </div>
-        ) : (
+      {guest ? (
+        <div>
+          {' '}
+          <Checkbox guest={guest} phone={phone} />
+        </div>
+      ) : (
+        <section className='form__container'>
+          <h2>Confirma tu asistencia</h2>
           <form>
-            <h2>Confirma tu asistencia</h2>
             {error}
             <label htmlFor='name'>
               Primer nombre:
@@ -122,50 +123,10 @@ const Form = () => {
               Buscar
             </button>
           </form>
-        )}
-      </FormContainer>
+        </section>
+      )}
     </section>
   );
 };
-
-const FormContainer = Styled.section`
-  min-height: 70vh;
-  background-color: #CED2D5;
-  background-image: url(${FormPhoto});
-  background-size: 130%;
-  background-position: right bottom;
-
-
-  button {
-    margin: 1em;
-    width: 10em;
-  }
-
-  form {
-  position: absolute;
-  width: 40%;
-  right: 0;
-  }
-
-  @media (max-width: 660px) {
-    min-height: 90vh;
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-
-    h2 {
-    transform: rotate(-90deg);
-    position: absolute;
-    left: -48%;
-    top: 35%;
-    padding-bottom: 1em;
-  }
-
-    form {
-      width: 80%;
-    }
-  }
-
-`;
 
 export default Form;

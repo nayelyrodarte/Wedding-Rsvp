@@ -1,0 +1,53 @@
+@media screen and (min-width: 768px) {
+  p {
+    font-size: 1em;
+  }
+
+  section {}
+
+
+  .form__container.form__container {
+    position: relative;
+    min-height: 50vh;
+    max-height: 60vh;
+    background-position: left bottom;
+    background-size: 95em;
+    width: 100vw;
+    bottom: 0;
+  }
+
+  body button {
+    width: 20%;
+  }
+
+  body form {
+    position: relative;
+    width: 50%;
+    left: 0%;
+    top: 5%;
+  }
+
+  .form__container.form__container button {
+    margin-top: 1em;
+    width: 30%;
+    justify-self: center;
+  }
+
+  body .gifts__container {
+    background-size: 30em;
+    background-position: right;
+  }
+
+  .gifts__container_buttons.gifts__container_buttons {
+    color: green;
+    vertical-align: middle;
+  }
+
+  body h2 {
+    padding-right: 50%;
+    right: 0;
+    transform-origin: right;
+    transform: rotate(0deg);
+    white-space: nowrap;
+  }
+}

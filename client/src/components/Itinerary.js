@@ -5,38 +5,9 @@ import Flower from '../img/hojas3.png';
 //TODO
 // Fix main container alignment :$!
 
-const ItineraryContainer = Styled.div`
-  display: grid;
-  height: 50vh;
- _ background: url(${Flower});
-  _background-position: left bottom;
-  _background-repeat: no-repeat;
-  background-size: 40%;
-  grid-template-columns: repeat(3, 30vw);
-  grid-template-rows: 1fr;
-  align-items: center;
-  align-self: center;
-  padding: 1em;
-  
-
-  div {
-    border-right: solid 1px lightgray;
-  }
-
-  div:last-of-type {
-    border: none;
-  }
-
-  @media (max-width: 768px) {
-  height: fit-content;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat (3, 1fr);
-  }
-`;
-
 function Itinerary() {
   return (
-    <ItineraryContainer>
+    <section className='itinerary__container'>
       <div>
         <h3> Ceremonia </h3> <p> Templo de la Sagrada Familia </p>
         <p>Av.Venustiano Carranza #1810</p>
@@ -62,7 +33,7 @@ function Itinerary() {
         <p> FORMAL RIGUROSA </p>
         <p> Traje o vestido largo </p>
       </div>
-    </ItineraryContainer>
+    </section>
   );
 }
 
