@@ -8,7 +8,7 @@ const InstaContainer = Styled.div`
   background-image: url(${InstaPhoto});
   background-repeat: no-repeat;
   background-position: bottom center;
-  background-size: cover;
+  background-size: 85em;
   background-color: #a89ca6;
   display: grid;
   height: 50vh;

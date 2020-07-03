@@ -6,21 +6,22 @@
   .form__container.form__container {
     position: relative;
     min-height: 50vh;
-    max-height: 60vh;
+    height: auto;
     background-position: left bottom;
-    background-size: 95em;
+    background-size: 80em;
     width: 100vw;
     bottom: 0;
   }
 
-  body button {
-    width: 20%;
+  .form__container.form__container h2 {
+    position: relative;
   }
 
   body form {
     position: relative;
     width: 50%;
-    left: 0%;
+    height: auto;
+    left: 1%;
     top: 5%;
   }
 
@@ -36,25 +37,48 @@
   }
 
   body .gifts__container {
-    background-size: 30em;
+    height: 45vh;
+    background-size: 20em;
     background-position: right;
   }
 
   /*Buttons div*/
-  .gifts__container div:nth-of-type(2) {
-    width: 80%;
+  .gifts__container div {
+    display: grid;
+    width: auto;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3em;
+    gap: 2em;
     align-self: center;
     justify-self: center;
   }
 
   body h2 {
-    right: auto;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
     transform-origin: right;
     transform: rotate(0deg);
     white-space: nowrap;
   }
+
+  .itinerary__container.itinerary__container {
+    display: grid;
+    width: auto;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin: 2em;
+    height: min-content;
+  }
+
+  .itinerary__container.itinerary__container div {
+    border-right: 1px solid var(--disabled-color);
+  }
+
+  .itinerary__container.itinerary__container div:last-of-type {
+    border: none;
+  }
+
 
   .modal.modal {
     text-align: center;
@@ -76,6 +100,10 @@
 
   .modal.modal button {
     width: 10em;
+  }
+
+  body input[type='text'] {
+    width: 12em;
   }
 
 }

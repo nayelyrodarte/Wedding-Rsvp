@@ -65,7 +65,7 @@ form {
 .form__container {
   position: absolute;
   width: 100vw;
-  min-height: 90vh;
+  height: 100vh;
   background-color: #ced2d5;
   background-image: url('./img/BA-Bus4.jpg');
   background-size: cover;
@@ -77,13 +77,14 @@ form {
   background-image: url('./img/hojas3.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  min-height: fit-content;
+  background-size: 110%;
+  height: 60vh;
   display: grid;
+  align-content: center;
 }
 
 /*Buttons div*/
-.gifts__container div:nth-of-type(2) {
+.gifts__container div {
   justify-items: center;
   display: grid;
   grid-template-rows: auto;
@@ -165,7 +166,7 @@ input[type='text']:focus {
 }
 
 .modal {
-  display: block;
+  display: none;
   padding: 2em 1em;
   position: fixed;
   right: 0;
