@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   p {
     font-size: 1em;
   }
@@ -27,6 +27,11 @@
     top: 5%;
   }
 
+
+  .btn {
+    padding: 0;
+  }
+
   .form__container.form__container button {
     margin-top: 1em;
     width: 30%;
@@ -38,9 +43,13 @@
     background-position: right;
   }
 
-  .gifts__container_buttons.gifts__container_buttons {
-    color: green;
-    vertical-align: middle;
+  /*Buttons div*/
+  .gifts__container div:nth-of-type(2) {
+    width: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3em;
+    align-self: center;
+    justify-self: center;
   }
 
   body h2 {

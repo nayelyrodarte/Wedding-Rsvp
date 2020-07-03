@@ -9,11 +9,11 @@ color: black;
 margin: auto;
 padding: 0.2em;
 width: fit-content;
-z-index: 11;
+position: relative;
 `;
 
-function Message({ msg }) {
+const Message = ({ msg }) => {
   return <MessageContainer>{msg}</MessageContainer>;
-}
+};
 
 export default Message;

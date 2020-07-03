@@ -20,7 +20,8 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+.btn {
   background: black;
   border: none;
   border-radius: 12px;
@@ -28,10 +29,15 @@ button {
   color: white;
   font-family: var(--sub-font);
   font-size: 1rem;
-  margin: 1em;
+  margin: auto;
+  margin-bottom: 1.5em;
+  margin-top: 1em;
   outline: none;
   padding: 0.3em;
-  width: 60%;
+  width: 10em;
+  display: grid;
+  align-content: center;
+  align-self: center;
 }
 
 button:disabled {
@@ -73,12 +79,18 @@ form {
   background-position: center;
   background-size: cover;
   min-height: fit-content;
-  padding-left: 2em;
-  position: relative;
-  gap: 1.5em;
+  display: grid;
+}
+
+/*Buttons div*/
+.gifts__container div:nth-of-type(2) {
+  justify-items: center;
+  display: grid;
+  grid-template-rows: auto;
 }
 
 .itinerary__container {
+  margin: 2em;
   height: min-content;
 }
 
@@ -144,7 +156,7 @@ input[type='text'] {
   margin: auto;
   outline: none;
   padding: 0.8em 2.5em;
-  width: 8em;
+  width: 50%;
 }
 
 input[type='text']:focus {
@@ -152,9 +164,37 @@ input[type='text']:focus {
   background-color: var(--disabled-color);
 }
 
+.modal {
+  display: block;
+  padding: 2em 1em;
+  position: fixed;
+  min-width: 75%;
+  height: auto;
+  right: 5%;
+  top: 10%;
+  background: white;
+  border-radius: 20px;
+  text-align: right;
+  z-index: 2;
+  box-shadow: 37px 10px 200px 81px rgba(0, 0, 0, 0.76);
+}
+
+.modal hr {
+  position: relative;
+  width: 70%;
+  left: 30%;
+}
+
+.modal p {
+  user-select: all;
+}
+
+.modal p::selection {
+  background: var(--disabled-color);
+}
+
 label {
   display: block;
-  width: 90%;
   padding: 0.5em;
 }
 

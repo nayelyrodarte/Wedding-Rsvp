@@ -4,6 +4,7 @@ import Itinerary from './components/Itinerary';
 import Form from './components/Form';
 import Gifts from './components/Gifts';
 import Insta from './components/Insta';
+import Modal from './components/Modal';
 import './screen.css';
 import './mobile.css';
 
@@ -13,6 +14,7 @@ import './mobile.css';
 const App = () => {
   return (
     <div>
+      <Modal />
       <Main />
       <Itinerary />
       <Insta />

@@ -50,15 +50,13 @@ const Form = () => {
           <Message
             msg={
               <p>
-                No se encontró registro. <br /> Comunícate al 000 000 00 00 para
-                recibir asistencia.
+                No se encontró registro.
+                <br />
+                Comunícate al 000 000 00 00 para recibir asistencia.
               </p>
             }
           />
         );
-        setTimeout(function () {
-          setError('');
-        }, 8000);
       }
     });
   };
@@ -77,8 +75,8 @@ const Form = () => {
       ) : (
         <section className='form__container'>
           <h2>Confirma tu asistencia</h2>
+          {error}
           <form>
-            {error}
             <label htmlFor='name'>
               Primer nombre:
               <input

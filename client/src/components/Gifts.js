@@ -4,22 +4,30 @@ import Modal from './Modal';
 const Gifts = () => {
   return (
     <section className='gifts__container'>
-      <Modal />
       <h2> Mesa de regalos </h2>
-      <div className='gifts__container_buttons'>
-        <button>
-          <a href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50345156'>
-            Liverpool
-          </a>
-        </button>
-        <button>
-          <a href='https://www.amazon.com.mx/wedding/brenda-arias-aaron-rivera-chihuahua-october-2020/registry/2TZBNHT0S37PF'>
-            Amazon
-          </a>
-        </button>
+      <Modal />
+      <div>
+        <a
+          className='btn'
+          href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50345156'
+        >
+          <span> Liverpool </span>
+        </a>
+        <a
+          className='btn'
+          href='https://www.amazon.com.mx/wedding/brenda-arias-aaron-rivera-chihuahua-october-2020/registry/2TZBNHT0S37PF'
+        >
+          <span> Amazon </span>
+        </a>
+
         <button
-          onClick={(e) =>
-            (e.target.parentNode.childNodes[0].style.display = 'block')
+          onClick={
+            (e) =>
+              console.log(
+                (e.target.parentNode.parentNode.parentNode.firstChild.style.display =
+                  'block')
+              )
+            //e.target.parentNode.childNodes[0].style.display = 'block')
           }
         >
           Datos bancarios
