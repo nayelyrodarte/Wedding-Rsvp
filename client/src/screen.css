@@ -3,9 +3,6 @@
     font-size: 1em;
   }
 
-  section {}
-
-
   .form__container.form__container {
     position: relative;
     min-height: 50vh;
@@ -53,10 +50,32 @@
   }
 
   body h2 {
-    padding-right: 50%;
-    right: 0;
+    right: auto;
     transform-origin: right;
     transform: rotate(0deg);
     white-space: nowrap;
   }
+
+  .modal.modal {
+    text-align: center;
+    min-width: 100px;
+    top: 5%;
+  }
+
+
+  .modal.modal hr {
+    left: auto;
+    width: 100%;
+  }
+
+  .modal.modal h2 {
+    position: relative;
+    right: auto;
+    text-align: center;
+  }
+
+  .modal.modal button {
+    width: 10em;
+  }
+
 }

@@ -7,7 +7,7 @@
   text-align: center;
   --disabled-color: #cccccc;
   --main-font: 'Parisienne';
-  --sub-font: 'EB Garamond';
+  --sub-font: 'EB Garamond'
 }
 
 * {
@@ -168,10 +168,13 @@ input[type='text']:focus {
   display: block;
   padding: 2em 1em;
   position: fixed;
-  min-width: 75%;
+  right: 0;
+  left: 0;
+  top: 15%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
   height: auto;
-  right: 5%;
-  top: 10%;
   background: white;
   border-radius: 20px;
   text-align: right;
