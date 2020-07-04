@@ -82,13 +82,13 @@
 
   .modal.modal {
     text-align: center;
-    min-width: 100px;
+    min-width: 15vw;
+    min-height: 70%;
     top: 5%;
   }
 
 
   .modal.modal hr {
-    left: auto;
     width: 100%;
   }
 

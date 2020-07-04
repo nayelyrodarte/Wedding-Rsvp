@@ -1,18 +1,23 @@
-import React from 'react';
-
-//TODO
-// Fixed modal styling for screen
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 
 const Modal = () => {
-  return (
+  const modalRoot = document.getElementById('modal-root');
+  const element = document.createElement('div');
+
+  useEffect(() => {
+    modalRoot.appendChild(element);
+    return () => modalRoot.removeChild(element); // clean-up
+  }, [element, modalRoot]);
+
+  const modal = (
     <section className='modal'>
       <h2>Datos bancarios</h2>
       <div>
-        <p>
-          Brenda Judith <br /> Arias Quintana{' '}
-        </p>{' '}
+        <p>Brenda Judith </p>
+        <p> Arias Quintana </p>
         <p>Banorte</p>
-        No. de tarjeta: <br /> 4915 6664 7204 6550
+        <p>No. de tarjeta:</p> <br /> 4915 6664 7204 6550
         <br />
         <p />
         <br />
@@ -26,11 +31,11 @@ const Modal = () => {
           No. de tarjeta: <br /> 4152313380613849{' '}
         </p>
       </div>
-      <button onClick={(e) => (e.target.parentNode.style.display = 'none')}>
-        Cerrar
-      </button>
+      <button>Cerrar</button>
     </section>
   );
+
+  return ReactDOM.createPortal(modal, element);
 };
 
 export default Modal;

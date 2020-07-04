@@ -166,7 +166,7 @@ input[type='text']:focus {
 }
 
 .modal {
-  display: none;
+  display: block;
   padding: 2em 1em;
   position: fixed;
   right: 0;
@@ -186,7 +186,7 @@ input[type='text']:focus {
 .modal hr {
   position: relative;
   width: 70%;
-  left: 30%;
+  left: 10%;
 }
 
 .modal p {

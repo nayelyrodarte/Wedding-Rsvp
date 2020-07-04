@@ -1,9 +1,4 @@
 import React from 'react';
-import Styled from 'styled-components';
-import Flower from '../img/hojas3.png';
-
-//TODO
-// Fix main container alignment :$!
 
 function Itinerary() {
   return (

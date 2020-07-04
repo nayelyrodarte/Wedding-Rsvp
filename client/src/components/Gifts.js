@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from './Modal';
 
 const Gifts = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const handleModalClick = () => setModalOpen(false);
+
   return (
-    <section className='gifts__container'>
+    <section className='gifts__container' onClickCapture={handleModalClick}>
       <h2> Mesa de regalos </h2>
-      <Modal />
       <div>
         <a
           className='btn'
@@ -20,19 +22,12 @@ const Gifts = () => {
           <span> Amazon </span>
         </a>
 
-        <button
-          onClick={
-            (e) =>
-              console.log(
-                (e.target.parentNode.parentNode.parentNode.firstChild.style.display =
-                  'block')
-              )
-            //e.target.parentNode.childNodes[0].style.display = 'block')
-          }
-        >
+        <button onClick={(e) => setModalOpen(!isModalOpen)}>
           Datos bancarios
         </button>
       </div>
+
+      {isModalOpen && <Modal />}
     </section>
   );
 };
