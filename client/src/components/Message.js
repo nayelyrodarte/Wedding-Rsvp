@@ -13,7 +13,7 @@ margin: auto;
 margin-top: 0.3em;
 padding: 0.2em;
 width: 80%;
-position: relative;
+position: absolute;
 
 @media screen and (min-width: 767px) {
   margin-top: 0;

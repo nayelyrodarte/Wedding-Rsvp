@@ -3,7 +3,6 @@ import CheckItem from './CheckItem';
 import Message from './Message';
 
 //TODO
-// Add link to return button (maybe scroll?)
 // Add logic to a different file
 // Add loader when sending data (guest) to MONGO
 
@@ -49,21 +48,21 @@ const Checkbox = ({ guest, phone }) => {
       }
     }
 
-    function updateGuest() {
-      // Update guest
-      if (att.length) {
-        guest.rsvpd = true;
-        guest.phone = phone;
-        guest.guest_party = att;
-        setRegister(true);
-        console.log(guest);
-      } else {
-        setError(<Message msg={'Selecciona por lo menos a un invitado.'} />);
-      }
+    updateGuest(att);
+  };
+
+  function updateGuest(att) {
+    if (att.length) {
+      guest.rsvpd = true;
+      guest.phone = phone;
+      guest.guest_party = att;
+      setRegister(true);
+      console.log(guest);
+    } else {
+      setError(<Message msg={'Selecciona por lo menos a un invitado.'} />);
     }
 
-    updateGuest();
-
+    // Update guest
     // Sending updated guest to DB
     // const put = {
     //   method: 'put',
@@ -80,7 +79,11 @@ const Checkbox = ({ guest, phone }) => {
     //   .catch((error) => {
     //     console.error('Error:', error);
     //   });
-  };
+  }
+
+  function scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   return (
     <div>
@@ -94,7 +97,7 @@ const Checkbox = ({ guest, phone }) => {
               ¡Muchas gracias por acompañarnos!{' '}
             </p>
           </div>
-          <button>Volver al inicio</button>
+          <button onClick={scrollTop}>Volver al inicio</button>
         </section>
       ) : (
         <section className='form__container'>

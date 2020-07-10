@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 
-// TODO
-// Get click exclusively from modal close button
-
 const Gifts = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
