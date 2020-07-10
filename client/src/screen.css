@@ -8,7 +8,7 @@
     min-height: 50vh;
     height: auto;
     background-position: left bottom;
-    background-size: 80em;
+    background-size: 95em;
     width: 100vw;
     bottom: 0;
   }
@@ -21,10 +21,9 @@
     position: relative;
     width: 50%;
     height: auto;
-    left: 1%;
+    left: -5%;
     top: 5%;
   }
-
 
   .btn {
     padding: 0;
@@ -45,6 +44,7 @@
   /*Buttons div*/
   .gifts__container div {
     display: grid;
+    margin: 2em;
     width: auto;
     grid-template-columns: repeat(3, 1fr);
     gap: 2em;
@@ -60,6 +60,7 @@
     transform-origin: right;
     transform: rotate(0deg);
     white-space: nowrap;
+    padding-right: 0;
   }
 
   .itinerary__container.itinerary__container {
@@ -90,12 +91,13 @@
 
   .modal.modal hr {
     width: 100%;
+    left: auto;
   }
 
   .modal.modal h2 {
     position: relative;
     right: auto;
-    text-align: center;
+    margin: auto;
   }
 
   .modal.modal button {

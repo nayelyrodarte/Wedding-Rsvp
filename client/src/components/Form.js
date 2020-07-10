@@ -46,23 +46,19 @@ const Form = () => {
         setLoading(false);
       } else {
         setLoading(false);
-        setError(
-          <Message
-            msg={
-              <p>
-                No se encontró registro.
-                <br />
-                Comunícate al 000 000 00 00 para recibir asistencia.
-              </p>
-            }
-          />
-        );
+        setError(<Message msg={unregistered} />);
+        setName('');
+        setLastName('');
+        setPhone('');
       }
     });
   };
 
   // Disable / enable submit button
   const enabled = name.length && lastName.length && phone.length === 10;
+
+  const unregistered =
+    'No se encontró registro. Comunícate al 000 000 00 00 para recibir asistencia.';
 
   return (
     <section>
@@ -112,12 +108,7 @@ const Form = () => {
                 required
               />
             </label>
-            <button
-              className='searchButton'
-              disabled={!enabled}
-              onClick={getGuest}
-              type='button'
-            >
+            <button disabled={!enabled} onClick={getGuest} type='button'>
               Buscar
             </button>
           </form>

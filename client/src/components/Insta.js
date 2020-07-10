@@ -4,13 +4,11 @@ import InstaPhoto from '../img/BA-Horizon.jpg';
 import InstaLogo from '../img/noun_Camera_49605.svg';
 
 const InstaContainer = Styled.div`
-  align-items: center;
   background-image: url(${InstaPhoto});
   background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: 85em;
-  background-color: #a89ca6;
-  display: grid;
+  background-position: bottom;
+  background-size: 120%;
+  background-color: #E0E4E3;
   height: 50vh;
   width: 100%;
 

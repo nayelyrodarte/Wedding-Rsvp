@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 
+// TODO
+// Get click exclusively from modal close button
+
 const Gifts = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const handleModalClick = () => setModalOpen(false);
+
+  const handleModalClick = () => {
+    setModalOpen(!isModalOpen);
+  };
 
   return (
-    <section className='gifts__container' onClickCapture={handleModalClick}>
+    <section className='gifts__container'>
       <h2> Mesa de regalos </h2>
       <div>
         <a
@@ -22,12 +28,10 @@ const Gifts = () => {
           <span> Amazon </span>
         </a>
 
-        <button onClick={(e) => setModalOpen(!isModalOpen)}>
-          Datos bancarios
-        </button>
+        <button onClick={handleModalClick}>Datos bancarios</button>
       </div>
 
-      {isModalOpen && <Modal />}
+      {isModalOpen && <Modal isOpen={isModalOpen} />}
     </section>
   );
 };

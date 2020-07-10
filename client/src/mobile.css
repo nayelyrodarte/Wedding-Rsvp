@@ -73,11 +73,15 @@ form {
   background-repeat: no-repeat;
 }
 
+.form__container>div {
+  margin: 10% 0;
+}
+
 .gifts__container {
   background-image: url('./img/hojas3.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 110%;
+  background-size: cover;
   height: 60vh;
   display: grid;
   align-content: center;
@@ -157,6 +161,7 @@ input[type='text'] {
   margin: auto;
   outline: none;
   padding: 0.8em 2.5em;
+  text-align: center;
   width: 50%;
 }
 
@@ -171,10 +176,10 @@ input[type='text']:focus {
   position: fixed;
   right: 0;
   left: 0;
-  top: 15%;
+  top: 5%;
   margin-left: auto;
   margin-right: auto;
-  width: 15em;
+  width: 13em;
   height: auto;
   background: white;
   border-radius: 20px;
@@ -185,8 +190,9 @@ input[type='text']:focus {
 
 .modal hr {
   position: relative;
+  margin: 0.5em auto;
   width: 70%;
-  left: 10%;
+  left: 15%;
 }
 
 .modal p {

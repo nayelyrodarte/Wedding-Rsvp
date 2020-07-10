@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import CheckItem from './CheckItem';
 import Message from './Message';
-import Styled from 'styled-components';
 
 //TODO
 // Add link to return button (maybe scroll?)
-// set same background as parent component on screen view
+// Add logic to a different file
+// Add loader when sending data (guest) to MONGO
 
 const Checkbox = ({ guest, phone }) => {
   const [register, setRegister] = useState(false);
@@ -29,10 +29,9 @@ const Checkbox = ({ guest, phone }) => {
       if (guest.props.name === name) {
         attending[name] = isChecked;
       }
-      setError('');
     });
 
-    console.log('obj', attending);
+    console.log(attending);
   };
 
   // Create checkboxes for each family member / partner
@@ -59,7 +58,7 @@ const Checkbox = ({ guest, phone }) => {
         setRegister(true);
         console.log(guest);
       } else {
-        setError('Selecciona por lo menos un invitado.');
+        setError(<Message msg={'Selecciona por lo menos a un invitado.'} />);
       }
     }
 
@@ -86,7 +85,7 @@ const Checkbox = ({ guest, phone }) => {
   return (
     <div>
       {register ? (
-        <Section>
+        <section className='form__container'>
           <div>
             <p>
               {' '}
@@ -96,34 +95,20 @@ const Checkbox = ({ guest, phone }) => {
             </p>
           </div>
           <button>Volver al inicio</button>
-        </Section>
+        </section>
       ) : (
-        <Section>
-          <p>Selecciona los invitados que asistirán:</p>
-          <Message msg={error} />
-          <div>{guestList}</div>
-          <button onClick={sendRsvp}>Confirmar</button>
-        </Section>
+        <section className='form__container'>
+          <div>
+            {' '}
+            <p>Selecciona los invitados que asistirán:</p>
+            {error}
+            <div>{guestList}</div>
+            <button onClick={sendRsvp}>Confirmar</button>
+          </div>
+        </section>
       )}
     </div>
   );
 };
-
-const Section = Styled.section`
-background-color: #ced2d5;
-display: grid;
-grid-template-rows: auto;
-min-height: 45vh;
-height: fit-content;
-justify-content: center;
-align-content: center;
-gap: 1em;
-
-button {
-  margin: auto;
-  margin-top: 1em;
-}
-
-`;
 
 export default Checkbox;
