@@ -9,10 +9,9 @@ import Message from './Message';
 const Checkbox = ({ guest, phone }) => {
   const [register, setRegister] = useState(false);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState('');
 
   const id = guest._id;
-
-  // Guest's family members / partner
   const guestParty = guest.guest_party;
 
   // Save selected/unselected guests
@@ -22,49 +21,42 @@ const Checkbox = ({ guest, phone }) => {
     const name = e.target.value;
     const isChecked = e.target.checked;
 
-    // Save or overwrite guests w/their  value
-    // selected (true) / unselected (false)
+    // Save or overwrite guests status when clicked
+    // selected = going / unselected = not going
     guestList.forEach((guest) => {
       if (guest.props.name === name) {
         attending[name] = isChecked;
       }
     });
-
-    console.log(attending);
   };
 
-  // Create checkboxes for each family member / partner
+  // Create checkboxes for each family member or partner
   let guestList = guestParty.map((guest) => (
     <CheckItem name={guest} key={guest} onChange={addAttendingGuest} />
   ));
 
   const sendRsvp = () => {
-    // Save only guests with selected (true) value.
-    const att = [];
+    // Update guest
+    guest.rsvpd = true;
+    guest.guest_party = [];
+    guest.phone = phone;
 
-    for (let guest in attending) {
-      if (attending[guest]) {
-        att.push(guest);
+    // Save guests with selected (going) status.
+    if (attending.length) {
+      for (let selectedGuest in attending) {
+        if (attending[selectedGuest]) {
+          guest.guest_party.push(selectedGuest);
+        }
       }
-    }
-
-    updateGuest(att);
-  };
-
-  function updateGuest(att) {
-    if (att.length) {
-      guest.rsvpd = true;
-      guest.phone = phone;
-      guest.guest_party = att;
+      setLoading(true);
+      modifyGuest(id, guest); // send to MongoDB
+      setLoading(false);
       setRegister(true);
-      console.log(guest);
     } else {
       setError(<Message msg={'Selecciona por lo menos a un invitado.'} />);
+      return;
     }
-
-    // Update guest
-    // modifyGuest(id, guest);
-  }
+  };
 
   function scrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -72,6 +64,7 @@ const Checkbox = ({ guest, phone }) => {
 
   return (
     <div>
+      {loading && <Message msg={'Cargando'} />}
       {register ? (
         <section className='form__container guestlist'>
           <div>

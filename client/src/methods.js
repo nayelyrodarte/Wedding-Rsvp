@@ -1,7 +1,7 @@
-export function modifyGuest(id, guest) {
+export function modifyGuest(id, updatedGuest) {
   const config = {
     method: 'put',
-    body: JSON.stringify(guest),
+    body: JSON.stringify(updatedGuest),
     headers: {
       'Content-type': 'application/json',
     },

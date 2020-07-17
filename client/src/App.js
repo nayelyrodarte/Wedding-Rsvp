@@ -8,9 +8,6 @@ import Footer from './components/Footer';
 import './screen.css';
 import './mobile.css';
 
-//TODO
-// Add footer
-
 const App = () => {
   return (
     <div>
