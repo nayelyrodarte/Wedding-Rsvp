@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { modifyGuest } from '../methods';
 import CheckItem from './CheckItem';
 import Message from './Message';
 
 //TODO
-// Add logic to a different file
 // Add loader when sending data (guest) to MONGO
 
 const Checkbox = ({ guest, phone }) => {
@@ -63,22 +63,7 @@ const Checkbox = ({ guest, phone }) => {
     }
 
     // Update guest
-    // Sending updated guest to DB
-    // const put = {
-    //   method: 'put',
-    //   body: JSON.stringify(guest),
-    //   headers: {
-    //     'Content-type': 'application/json',
-    //   },
-    // };
-    // fetch(`http://localhost:8000/api/guests/${id}`, put)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error:', error);
-    //   });
+    // modifyGuest(id, guest);
   }
 
   function scrollTop() {
@@ -88,7 +73,7 @@ const Checkbox = ({ guest, phone }) => {
   return (
     <div>
       {register ? (
-        <section className='form__container'>
+        <section className='form__container guestlist'>
           <div>
             <p>
               {' '}
@@ -100,7 +85,7 @@ const Checkbox = ({ guest, phone }) => {
           <button onClick={scrollTop}>Volver al inicio</button>
         </section>
       ) : (
-        <section className='form__container'>
+        <section className='form__container guestlist'>
           <div>
             {' '}
             <p>Selecciona los invitados que asistirán:</p>

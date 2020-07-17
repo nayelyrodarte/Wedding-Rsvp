@@ -31,7 +31,7 @@ button,
   font-size: 1rem;
   margin: auto;
   margin-bottom: 1.5em;
-  margin-top: 1em;
+  margin-top: 1.5em;
   outline: none;
   padding: 0.3em;
   width: 10em;
@@ -48,11 +48,19 @@ button:disabled {
 
 footer {
   background: black;
-  color: white;
+  color: #ced2d5;
   font-size: 0.8em;
-  padding: 1.5em;
-  border: 1px solid black;
-  bottom: 0;
+  padding: 2em;
+  _border: 1px solid black;
+  position: relative;
+}
+
+footer span {
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #798b9a
 }
 
 form {
@@ -63,7 +71,7 @@ form {
 }
 
 .form__container {
-  position: absolute;
+  position: relative;
   width: 100vw;
   height: 100vh;
   background-color: #ced2d5;
@@ -73,8 +81,12 @@ form {
   background-repeat: no-repeat;
 }
 
-.form__container>div {
-  margin: 10% 0;
+.form__container.guestlist {
+  padding: 1.5em 0;
+}
+
+.form_container.guestlist button {
+  margin-top: 3em;
 }
 
 .gifts__container {
@@ -94,8 +106,31 @@ form {
   grid-template-rows: auto;
 }
 
+
+.instagram__container {
+  background-image: url('./img/BA-Hats.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100%;
+  background-color: #E0E4E3;
+  height: 50vh;
+  width: 100%;
+}
+
+
+.instagram__container p:last-of-type {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 3em;
+}
+
+.instagram__container img {
+  display: inline;
+  width: 3em;
+}
+
 .itinerary__container {
-  margin: 2em;
+  margin: 1em;
   height: min-content;
 }
 
@@ -123,11 +158,9 @@ h2 {
 
 header {
   align-items: start;
-  background-image: url('./img/B&A-21-2.jpg');
+  background-image: url('./img/B&A-93.jpg');
   background-position: center;
-  background-size: cover;
-  display: grid;
-  line-height: 3em;
+  background-size: 300%;
   min-height: 70vh;
   min-width: 100%;
   width: 100vw;
@@ -136,13 +169,8 @@ header {
 header p {
   font-weight: bold;
   font-size: 1.3em;
-  line-height: 1.5em;
+  line-height: 1em;
   margin: 0;
-}
-
-header p:first-of-type {
-  align-self: end;
-  position: relative;
 }
 
 input[type='checkbox'] {
@@ -171,7 +199,6 @@ input[type='text']:focus {
 }
 
 .modal {
-  display: block;
   padding: 2em 1em;
   position: fixed;
   right: 0;
@@ -206,8 +233,4 @@ input[type='text']:focus {
 label {
   display: block;
   padding: 0.5em;
-}
-
-section {
-  height: 45vh;
 }

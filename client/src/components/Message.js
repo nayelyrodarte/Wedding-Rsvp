@@ -10,14 +10,14 @@ border: 1.5px solid #D49504;
 border-radius: 10px;
 color: #D49504;
 margin: auto;
-margin-top: 0.3em;
-padding: 0.2em;
+margin-top: 0.5em;
+height: min-content;
+position: relative;
 width: 80%;
-position: absolute;
 
 @media screen and (min-width: 767px) {
-  margin-top: 0;
-  padding: 0;
+  width: 30%;
+  left: 5%;
 }
 `;
 

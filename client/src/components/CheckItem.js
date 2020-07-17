@@ -2,18 +2,23 @@ import React from 'react';
 import Styled from 'styled-components';
 
 const CheckboxContainer = Styled.div`
-height: max-content;
-display: grid;
-grid-template-columns: 20% 80%;
-height: 1.5em;
 align-items: baseline;
+display: grid;
+gap: 0.5em;
+grid-template-columns: 15% 70%;
+height: 1.5em;
+margin-top: 0.5em;
 text-align: left;
 white-space: no-wrap;
-gap: 0.5em;
 
 label {
-  margin: 0 1em;
+  margin: 0 2em;
 }
+
+@media screen and (min-width: 767px) {
+  grid-template-columns: 5% 95%;
+}
+
 
 `;
 

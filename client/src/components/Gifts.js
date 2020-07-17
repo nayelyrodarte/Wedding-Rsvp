@@ -28,7 +28,7 @@ const Gifts = () => {
         <button onClick={handleModalClick}>Datos bancarios</button>
       </div>
 
-      {isModalOpen && <Modal isOpen={isModalOpen} />}
+      {isModalOpen && <Modal />}
     </section>
   );
 };
