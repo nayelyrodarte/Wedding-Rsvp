@@ -17,25 +17,25 @@ const Form = () => {
   const [phone, setPhone] = useState('');
   const [guest, setGuest] = useState('');
 
-  useEffect(() => {
-    setGuests(db);
-  }, []);
+  // useEffect(() => {
+  //   setGuests(db);
+  // }, []);
 
   //Get all guests from DB
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetch('http://localhost:8000/api/guests')
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log('Success:', data);
-  //       setGuests(data);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error:', error);
-  //       setError(<Message msg='Error en la base de datos' />);
-  //     });
-  // }, []);
+  useEffect(() => {
+    setLoading(true);
+    fetch('http://localhost:8000/api/guests')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+        setGuests(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        setError(<Message msg='Error en la base de datos' />);
+      });
+  }, []);
 
   // Get registered guest
   const registerGuest = () => {
