@@ -42,19 +42,20 @@ const Checkbox = ({ guest, phone }) => {
     guest.phone = phone;
 
     // Save guests with selected (going) status.
-    if (attending.length) {
-      for (let selectedGuest in attending) {
-        if (attending[selectedGuest]) {
-          guest.guest_party.push(selectedGuest);
-        }
+    for (let selectedGuest in attending) {
+      if (attending[selectedGuest]) {
+        guest.guest_party.push(selectedGuest);
       }
-      setLoading(true);
-      modifyGuest(id, guest); // send to MongoDB
-      setLoading(false);
-      setRegister(true);
-    } else {
-      setError(<Message msg={'Selecciona por lo menos a un invitado.'} />);
-      return;
+
+      console.log(guest);
+      if (guest.guest_party.length) {
+        setLoading(true);
+        // modifyGuest(id, guest); // send to MongoDB
+        setLoading(false);
+        setRegister(true);
+      } else {
+        setError(<Message msg={'Selecciona por lo menos a un invitado.'} />);
+      }
     }
   };
 

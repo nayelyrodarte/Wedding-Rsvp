@@ -1,39 +1,15 @@
 @media screen and (min-width: 767px) {
-  p {
-    font-size: 1em;
-  }
 
-  .form__container.form__container {
-    position: relative;
-    min-height: 50vh;
-    max-height: 60vh;
-    background-position: left bottom;
-    background-size: 95em;
-    width: 100vw;
-    bottom: 0;
-  }
 
-  .form__container.form__container .classList {
-    padding: 2em;
-    width: 40%;
-  }
-
-  .form__container.form__container h2 {
-    position: relative;
-  }
-
-  .guestlist {
-    text-align: left;
-  }
-
-  .guestlist p {
-    padding: 1em;
-  }
-
-  .form__container.form__container.guestlist button {
-    margin-left: 2em;
-    margin-top: 3em;
-    width: 15%;
+  body h2 {
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    transform-origin: right;
+    transform: rotate(0deg);
+    white-space: nowrap;
+    padding-right: 0;
   }
 
   body form {
@@ -48,10 +24,40 @@
     padding: 0;
   }
 
+  .form__container.form__container {
+    position: relative;
+    min-height: fit-content;
+    max-height: 55vh;
+    background-position: left bottom;
+    background-size: 95em;
+    width: 100vw;
+    bottom: 0;
+  }
+
+
+  .form__container.form__container h2 {
+    position: relative;
+  }
+
+
   .form__container.form__container button {
     margin-top: 2em;
     width: 30%;
     justify-self: center;
+  }
+
+  .form__container.form__container.guestlist button {
+    margin-left: 2em;
+    margin-top: 3em;
+    width: 15%;
+  }
+
+  .guestlist {
+    text-align: left;
+  }
+
+  .guestlist p {
+    padding: 1em;
   }
 
   body .gifts__container {
@@ -71,20 +77,13 @@
     justify-self: center;
   }
 
-  body h2 {
-    right: 0;
-    left: 0;
-    margin-left: auto;
-    margin-right: auto;
-    transform-origin: right;
-    transform: rotate(0deg);
-    white-space: nowrap;
-    padding-right: 0;
-  }
-
   body header {
     min-height: 70vh;
     background-size: 100%;
+  }
+
+  body input[type='text'] {
+    width: 12em;
   }
 
   .instagram__container.instagram__container {
@@ -122,6 +121,9 @@
     top: 5%;
   }
 
+  .modal.modal button {
+    width: 10em;
+  }
 
   .modal.modal hr {
     width: 100%;
@@ -134,12 +136,8 @@
     margin: auto;
   }
 
-  .modal.modal button {
-    width: 10em;
-  }
-
-  body input[type='text'] {
-    width: 12em;
+  p {
+    font-size: 1em;
   }
 
 }

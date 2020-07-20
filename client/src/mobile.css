@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
 
 :root {
   font-family: 'EB Garamond';
@@ -7,7 +9,8 @@
   text-align: center;
   --disabled-color: #cccccc;
   --main-font: 'Parisienne';
-  --sub-font: 'EB Garamond'
+  --sub-font: 'EB Garamond';
+  --statement-font: 'Berkshire Swash'
 }
 
 * {
@@ -111,7 +114,7 @@ form {
   background-image: url('./img/BA-Hats.jpg');
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: 100%;
+  background-size: cover;
   background-color: #E0E4E3;
   height: 50vh;
   width: 100%;
@@ -142,7 +145,8 @@ h3 {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3em;
+  line-height: 0.8em;
 }
 
 h2 {

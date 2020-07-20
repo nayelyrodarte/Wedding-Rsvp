@@ -4,7 +4,7 @@ import Styled from 'styled-components';
 const CheckboxContainer = Styled.div`
 align-items: baseline;
 display: grid;
-gap: 0.5em;
+gap: 1.5em;
 grid-template-columns: 15% 70%;
 height: 1.5em;
 margin-top: 0.5em;
