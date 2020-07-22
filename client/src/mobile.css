@@ -48,6 +48,19 @@ button:disabled {
   color: #5e5d5d;
 }
 
+.charging {
+  animation: charging 1.5s infinite;
+}
+
+@keyframes charging {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 footer {
   position: relative;
   height: fit-content;
@@ -110,10 +123,10 @@ form {
 }
 
 .instagram__container {
-  background-image: url('./img/BA-Hats.jpg');
+  background-image: url('./img/B&A-7.jpg');
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: cover;
+  background-size: 110%;
   background-color: #e0e4e3;
   height: 50vh;
   width: 100%;

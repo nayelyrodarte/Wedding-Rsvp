@@ -1,8 +1,9 @@
 import React from 'react';
 import Styled from 'styled-components';
+import closeIcon from '../img/close_icon.svg';
 
 //TODO
-// Add settimeout & close btn
+// Add close btn
 
 const MessageContainer = Styled.div`
 background-color: #F3ECC3;
@@ -15,14 +16,28 @@ height: min-content;
 position: relative;
 width: 80%;
 
-@media screen and (min-width: 767px) {
+
+
+@media screen and (min-width: 768px) {
   width: 30%;
-  left: 5%;
+  right: 30%;
 }
 `;
 
 const Message = ({ msg }) => {
-  return <MessageContainer>{msg}</MessageContainer>;
+  if (msg === 'Cargando') {
+    return (
+      <MessageContainer>
+        <div className='charging'>{msg}</div>
+      </MessageContainer>
+    );
+  } else {
+    return (
+      <MessageContainer>
+        <div>{msg}</div>
+      </MessageContainer>
+    );
+  }
 };
 
 export default Message;

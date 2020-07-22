@@ -13,8 +13,7 @@ const Modal = () => {
     modalRoot.appendChild(element);
     return () => {
       modalRoot.removeChild(element);
-    };
-    // clean-up
+    }; // clean-up
   }, [element, modalRoot]);
 
   const closeModal = () => {

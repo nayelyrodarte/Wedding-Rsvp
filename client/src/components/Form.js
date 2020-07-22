@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
 import db from './db.json';
 import Message from './Message';
-import Footer from './Footer';
 
 //TODO
 // complete DB
-// Find loader gif
 // Testing
 
 const Form = () => {
@@ -20,6 +18,7 @@ const Form = () => {
 
   useEffect(() => {
     setGuests(db);
+    //setLoading(false);
   }, []);
 
   //Get all guests from DB
@@ -47,10 +46,10 @@ const Form = () => {
         console.log(guest);
         setGuest(guest);
         setLoading(false);
-        return guest;
       } else {
         setLoading(false);
         setError(<Message msg={unregistered} />);
+        setTimeout(() => setError(''), 8000);
         setName('');
         setLastName('');
         setPhone('');
@@ -61,30 +60,34 @@ const Form = () => {
   // Disable / enable submit button
   const enabled = name.length && lastName.length && phone.length === 10;
 
-  const unregistered =
-    'No se encontró registro. Comunícate al 000 000 00 00 para recibir asistencia.';
+  const unregistered = (
+    <p>
+      No se encontró registro. <br /> Inténtalo de nuevo o comunícate al 000 000
+      00 00 para recibir asistencia.
+    </p>
+  );
 
   return (
     <section className='form__container'>
       {loading && <Message msg={'Cargando'} />}
+      {error}
       {guest ? (
         <div>
           <Checkbox guest={guest} phone={phone} />
         </div>
       ) : (
         <div>
-          {error}
           <h2>Confirma tu asistencia</h2>
           <form>
             <label htmlFor='name'>
               Primer nombre:
               <input
-                id='nameInput'
                 type='text'
-                name='name'
+                name={name}
                 value={name}
                 autoComplete='off'
                 onChange={(e) => {
+                  setError('');
                   setName(e.target.value.toUpperCase().trim());
                 }}
                 required
@@ -94,7 +97,7 @@ const Form = () => {
               Apellido paterno:
               <input
                 type='text'
-                name='lastName'
+                name={lastName}
                 value={lastName}
                 autoComplete='off'
                 onChange={(e) =>
@@ -107,7 +110,7 @@ const Form = () => {
               Teléfono celular (10 dígitos):
               <input
                 type='text'
-                name='phone'
+                name={phone}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 maxLength='10'
