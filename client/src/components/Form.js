@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
 import db from './db.json';
 import Message from './Message';
+import Footer from './Footer';
 
 //TODO
 // complete DB

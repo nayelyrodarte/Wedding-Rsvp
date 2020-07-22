@@ -1,4 +1,4 @@
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
   body h2 {
     right: 0;
     left: 0;
@@ -11,6 +11,7 @@
   }
 
   body form {
+    position: relative;
     width: 50%;
     left: -5%;
     top: 5%;
@@ -22,12 +23,10 @@
 
   .form__container.form__container {
     position: relative;
-    min-height: fit-content;
-    max-height: 60vh;
+    height: auto;
     background-position: left bottom;
-    background-size: 95em;
+    background-size: 130%;
     width: 100vw;
-    bottom: 0;
   }
 
   .form__container.form__container button {
@@ -44,13 +43,7 @@
 
   .form__container.form__container h2 {
     left: -30%;
-    _margin-left: auto;
-    _margin-right: 10%;
     position: relative;
-    _transform-origin: right;
-    _transform: rotate(0deg);
-    _white-space: nowrap;
-    _padding-right: 0;
   }
 
   .guestlist {
