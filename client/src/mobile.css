@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 
-
 :root {
   font-family: 'EB Garamond';
   font-size: 18px;
@@ -10,7 +9,7 @@
   --disabled-color: #cccccc;
   --main-font: 'Parisienne';
   --sub-font: 'EB Garamond';
-  --statement-font: 'Berkshire Swash'
+  --statement-font: 'Berkshire Swash';
 }
 
 * {
@@ -63,13 +62,13 @@ footer span {
 }
 
 footer a:hover {
-  color: #798b9a
+  color: #798b9a;
 }
 
 form {
-  position: absolute;
+  position: relative;
   width: 80%;
-  right: 0.5em;
+  left: 15%;
   padding: 0.5em 0;
 }
 
@@ -109,17 +108,15 @@ form {
   grid-template-rows: auto;
 }
 
-
 .instagram__container {
   background-image: url('./img/BA-Hats.jpg');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
-  background-color: #E0E4E3;
+  background-color: #e0e4e3;
   height: 50vh;
   width: 100%;
 }
-
 
 .instagram__container p:last-of-type {
   font-size: 1.5rem;

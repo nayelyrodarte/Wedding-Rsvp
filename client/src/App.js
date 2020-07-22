@@ -7,6 +7,7 @@ import Insta from './components/Insta';
 import Footer from './components/Footer';
 import './screen.css';
 import './mobile.css';
+import './tablet.css';
 
 const App = () => {
   return (

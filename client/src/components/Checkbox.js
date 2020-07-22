@@ -3,9 +3,6 @@ import { modifyGuest } from '../methods';
 import CheckItem from './CheckItem';
 import Message from './Message';
 
-//TODO
-// Add loader when sending data (guest) to MONGO
-
 const Checkbox = ({ guest, phone }) => {
   const [register, setRegister] = useState(false);
   const [error, setError] = useState('');
@@ -21,8 +18,7 @@ const Checkbox = ({ guest, phone }) => {
     const name = e.target.value;
     const isChecked = e.target.checked;
 
-    // Save or overwrite guests status when clicked
-    // selected = going / unselected = not going
+    // Save or overwrite guests status when checked/unchecked
     guestList.forEach((guest) => {
       if (guest.props.name === name) {
         attending[name] = isChecked;

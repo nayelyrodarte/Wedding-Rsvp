@@ -17,33 +17,36 @@ const Form = () => {
   const [phone, setPhone] = useState('');
   const [guest, setGuest] = useState('');
 
-  // useEffect(() => {
-  //   setGuests(db);
-  // }, []);
+  useEffect(() => {
+    setGuests(db);
+  }, []);
 
   //Get all guests from DB
-  useEffect(() => {
-    setLoading(true);
-    fetch('http://localhost:8000/api/guests')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data);
-        setGuests(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        setError(<Message msg='Error en la base de datos' />);
-      });
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetch('http://localhost:8000/api/guests')
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log('Success:', data);
+  //       setGuests(data);
+  //       setLoading(false);
+  // return
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error:', error);
+  //       setError(<Message msg='Error en la base de datos' />);
+  //     });
+  // }, []);
 
   // Get registered guest
   const registerGuest = () => {
     guests.forEach((guest) => {
       setLoading(true);
       if (guest.name === name + ' ' + lastName) {
+        console.log(guest);
         setGuest(guest);
         setLoading(false);
+        return guest;
       } else {
         setLoading(false);
         setError(<Message msg={unregistered} />);
@@ -62,7 +65,6 @@ const Form = () => {
 
   return (
     <section className='form__container'>
-      <h2>Confirma tu asistencia</h2>
       {loading && <Message msg={'Cargando'} />}
       {guest ? (
         <div>
@@ -71,15 +73,19 @@ const Form = () => {
       ) : (
         <div>
           {error}
+          <h2>Confirma tu asistencia</h2>
           <form>
             <label htmlFor='name'>
               Primer nombre:
               <input
+                id='nameInput'
                 type='text'
-                name={name}
+                name='name'
                 value={name}
                 autoComplete='off'
-                onChange={(e) => setName(e.target.value.toUpperCase().trim())}
+                onChange={(e) => {
+                  setName(e.target.value.toUpperCase().trim());
+                }}
                 required
               />
             </label>
@@ -87,7 +93,7 @@ const Form = () => {
               Apellido paterno:
               <input
                 type='text'
-                name={lastName}
+                name='lastName'
                 value={lastName}
                 autoComplete='off'
                 onChange={(e) =>
