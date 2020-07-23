@@ -67,7 +67,7 @@ footer {
   background: black;
   color: #ced2d5;
   font-size: 0.8em;
-  padding: 2em;
+  padding: 1em;
   bottom: 0;
 }
 
@@ -89,7 +89,7 @@ form {
 .form__container {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   background-color: #ced2d5;
   background-image: url('./img/BA-Bus4.jpg');
   background-size: cover;

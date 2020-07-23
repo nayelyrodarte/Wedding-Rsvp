@@ -18,7 +18,6 @@ const Form = () => {
 
   useEffect(() => {
     setGuests(db);
-    //setLoading(false);
   }, []);
 
   //Get all guests from DB
@@ -43,13 +42,12 @@ const Form = () => {
     guests.forEach((guest) => {
       setLoading(true);
       if (guest.name === name + ' ' + lastName) {
-        console.log(guest);
         setGuest(guest);
         setLoading(false);
+        setError('');
       } else {
         setLoading(false);
         setError(<Message msg={unregistered} />);
-        setTimeout(() => setError(''), 8000);
         setName('');
         setLastName('');
         setPhone('');
@@ -70,13 +68,13 @@ const Form = () => {
   return (
     <section className='form__container'>
       {loading && <Message msg={'Cargando'} />}
-      {error}
       {guest ? (
         <div>
           <Checkbox guest={guest} phone={phone} />
         </div>
       ) : (
         <div>
+          {error}
           <h2>Confirma tu asistencia</h2>
           <form>
             <label htmlFor='name'>
@@ -100,9 +98,10 @@ const Form = () => {
                 name={lastName}
                 value={lastName}
                 autoComplete='off'
-                onChange={(e) =>
-                  setLastName(e.target.value.toUpperCase().trim())
-                }
+                onChange={(e) => {
+                  setError('');
+                  setLastName(e.target.value.toUpperCase().trim());
+                }}
                 required
               />
             </label>
@@ -112,7 +111,10 @@ const Form = () => {
                 type='text'
                 name={phone}
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => {
+                  setError('');
+                  setPhone(e.target.value);
+                }}
                 maxLength='10'
                 required
               />

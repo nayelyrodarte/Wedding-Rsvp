@@ -3,9 +3,12 @@ import { modifyGuest } from '../methods';
 import CheckItem from './CheckItem';
 import Message from './Message';
 
+//TODO
+// issue: Phone isn't returning from form
+// disable button
+
 const Checkbox = ({ guest, phone }) => {
   const [register, setRegister] = useState(false);
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState('');
 
   const id = guest._id;
@@ -34,24 +37,25 @@ const Checkbox = ({ guest, phone }) => {
   const sendRsvp = () => {
     // Update guest
     guest.rsvpd = true;
-    guest.guest_party = [];
     guest.phone = phone;
+    guest.guest_party = [];
 
     // Save guests with selected (going) status.
-    for (let selectedGuest in attending) {
-      if (attending[selectedGuest]) {
-        guest.guest_party.push(selectedGuest);
+    for (let attendee in attending) {
+      if (attending[attendee]) {
+        guest.guest_party.push(attendee);
+      } else if (!attending[attendee]) {
+        return;
       }
 
       console.log(guest);
-      if (guest.guest_party.length) {
-        setLoading(true);
-        // modifyGuest(id, guest); // send to MongoDB
-        setLoading(false);
-        setRegister(true);
-      } else {
-        setError(<Message msg={'Selecciona por lo menos a un invitado.'} />);
-      }
+      setRegister(true);
+
+      // setLoading(true);
+      // // modifyGuest(id, guest); // send to MongoDB
+      // setLoading(false);
+      // setRegister(true);
+      // setError('');
     }
   };
 
@@ -79,7 +83,6 @@ const Checkbox = ({ guest, phone }) => {
           <div>
             {' '}
             <p>Selecciona los invitados que asistirán:</p>
-            {error}
             <div>{guestList}</div>
             <button onClick={sendRsvp}>Confirmar</button>
           </div>
