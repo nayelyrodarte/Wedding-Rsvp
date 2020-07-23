@@ -5,9 +5,8 @@ import Form from './components/Form';
 import Gifts from './components/Gifts';
 import Insta from './components/Insta';
 import Footer from './components/Footer';
-import './screen.css';
-import './mobile.css';
-import './tablet.css';
+import './css/screen.css';
+import './css/mobile.css';
 
 const App = () => {
   return (

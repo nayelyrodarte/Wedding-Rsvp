@@ -91,7 +91,7 @@ form {
   width: 100vw;
   height: 110vh;
   background-color: #ced2d5;
-  background-image: url('./img/BA-Bus4.jpg');
+  background-image: url('../img/BA-Bus4.jpg');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -106,7 +106,7 @@ form {
 }
 
 .gifts__container {
-  background-image: url('./img/hojas3.png');
+  background-image: url('../img/hojas3.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -124,7 +124,7 @@ form {
 
 .instagram__container {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('./img/B&A-76-min.jpg');
+    url('../img/B&A-76-min.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #e0e4e3;
@@ -178,7 +178,7 @@ h2 {
 
 header {
   align-items: start;
-  background-image: url('./img/B&A-93.jpg');
+  background-image: url('../img/B&A-93.jpg');
   background-position: center;
   background-size: 300%;
   min-height: 70vh;
