@@ -28,7 +28,8 @@
 
   .form__container.form__container {
     position: relative;
-    height: auto;
+    min-height: auto;
+    max-height: 60vh;
     background-position: left bottom;
     background-size: 130%;
     width: 100vw;
@@ -43,7 +44,7 @@
   .form__container.form__container.guestlist button {
     margin-left: 2em;
     margin-top: 3em;
-    width: 15%;
+    width: 12em;
   }
 
   .form__container.form__container h2 {
@@ -55,8 +56,17 @@
     text-align: left;
   }
 
-  .guestlist p {
-    padding: 1em;
+  .form__container.form__container.guestlist p {
+    padding: 1.5em;
+  }
+
+  .form__container.form__container.guestlist.final p {
+    padding: 4.5em;
+    padding-bottom: 0;
+  }
+
+  .form__container.form__container.guestlist.final button {
+    margin-left: 4.5em;
   }
 
   body .gifts__container {

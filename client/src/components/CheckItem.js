@@ -16,7 +16,7 @@ label {
 }
 
 @media screen and (min-width: 767px) {
-  grid-template-columns: 5% 95%;
+  grid-template-columns: 5% 90%;
 }
 
 

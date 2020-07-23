@@ -3,7 +3,7 @@ import Checkbox from './Checkbox';
 import db from './db.json';
 import Message from './Message';
 
-//TODO
+//---------- TODO ------------
 // complete DB
 // Testing
 

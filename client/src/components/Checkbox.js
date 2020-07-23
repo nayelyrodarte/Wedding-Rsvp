@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { modifyGuest } from '../methods';
+import { modifyGuest } from '../functions';
 import CheckItem from './CheckItem';
 import Message from './Message';
 
-//TODO
+//-------- TODO ----------
 // issue: Phone isn't returning from form
 // disable button
 
@@ -67,7 +67,7 @@ const Checkbox = ({ guest, phone }) => {
     <div>
       {loading && <Message msg={'Cargando'} />}
       {register ? (
-        <section className='form__container guestlist'>
+        <section className='form__container guestlist final'>
           <div>
             <p>
               {' '}

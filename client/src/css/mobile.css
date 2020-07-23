@@ -101,7 +101,7 @@ form {
   padding: 1.5em 0;
 }
 
-.form_container.guestlist button {
+.form__container.guestlist button {
   margin-top: 3em;
 }
 
@@ -120,6 +120,10 @@ form {
   justify-items: center;
   display: grid;
   grid-template-rows: auto;
+}
+
+.guestlist p {
+  padding: 0.5em;
 }
 
 .instagram__container {
