@@ -123,23 +123,29 @@ form {
 }
 
 .instagram__container {
-  background-image: url('./img/B&A-7.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./img/B&A-76-min.jpg');
   background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 110%;
+  background-size: cover;
   background-color: #e0e4e3;
-  height: 50vh;
+  color: #d2d6d9;
+  height: 55vh;
   width: 100%;
+}
+
+.instagram__container div {
+  filter: drop-shadow(16px 16px 10px black);
+  position: relative;
+  top: 40%;
+}
+
+.instagram__container img {
+  display: none;
 }
 
 .instagram__container p:last-of-type {
   font-size: 1.5rem;
   font-weight: bold;
-  padding-bottom: 3em;
-}
-
-.instagram__container img {
-  width: 3em;
 }
 
 .itinerary__container {

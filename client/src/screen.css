@@ -13,12 +13,17 @@
   body form {
     position: relative;
     width: 50%;
-    left: -5%;
+    left: -3%;
     top: 5%;
   }
 
   .btn {
     padding: 0;
+  }
+
+  .filter {
+    filter: invert(100%) sepia(0%) saturate(6700%) hue-rotate(285deg)
+      brightness(105%) contrast(110%);
   }
 
   .form__container.form__container {
@@ -42,7 +47,7 @@
   }
 
   .form__container.form__container h2 {
-    left: -30%;
+    left: -28%;
     position: relative;
   }
 
@@ -56,7 +61,7 @@
 
   body .gifts__container {
     height: 40vh;
-    background-size: 30em;
+    background-size: 25em;
     background-position: right;
   }
 
@@ -82,12 +87,17 @@
 
   .instagram__container.instagram__container {
     background-size: cover;
-    background-position: center;
-    height: 45vh;
   }
 
   .instagram__container.instagram__container img {
-    padding-top: 2.5em;
+    display: block;
+    width: 3em;
+  }
+
+  .instagram__container div {
+    top: 15%;
+    left: 20%;
+    font-size: 1.3em;
   }
 
   .itinerary__container.itinerary__container {
