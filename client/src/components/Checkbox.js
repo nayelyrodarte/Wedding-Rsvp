@@ -4,7 +4,6 @@ import CheckItem from './CheckItem';
 import Message from './Message';
 
 //-------- TODO ----------
-// issue: Phone isn't returning from form
 // disable button
 
 const Checkbox = ({ guest, phone }) => {
@@ -29,7 +28,7 @@ const Checkbox = ({ guest, phone }) => {
     });
   };
 
-  // Create checkboxes for each family member or partner
+  // Create checkboxes for each family member / partner of guest
   let guestList = guestParty.map((guest) => (
     <CheckItem name={guest} key={guest} onChange={addAttendingGuest} />
   ));
