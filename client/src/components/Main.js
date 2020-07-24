@@ -1,5 +1,5 @@
 import React from 'react';
-import Counter from './Counter';
+import { counter } from '../functions';
 
 function Main() {
   return (
@@ -9,9 +9,7 @@ function Main() {
       </h1>
       <div>
         <p>11 de octubre de 2020</p>
-        <p>
-          Faltan <Counter /> días
-        </p>
+        <p> {counter()}</p>
       </div>
     </header>
   );
