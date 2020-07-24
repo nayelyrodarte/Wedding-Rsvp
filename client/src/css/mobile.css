@@ -132,17 +132,16 @@ form {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #e0e4e3;
+  width: 100vw;
   color: white;
   height: 55vh;
-  width: 100%;
+  width: 100vw;
 }
 
 .instagram__container div {
   filter: drop-shadow(16px 16px 10px black);
   position: relative;
-  width: 100vw;
   top: 40%;
-  left: auto;
 }
 
 .instagram__container img {
@@ -172,8 +171,8 @@ h1 {
 }
 
 h2 {
-  font-size: 1.7rem;
-  line-height: 3em;
+  font-size: 1.8rem;
+  line-height: 2em;
   position: absolute;
   padding-right: 1.5rem;
   right: 100%;

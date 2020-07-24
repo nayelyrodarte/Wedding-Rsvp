@@ -96,6 +96,7 @@
   }
 
   .instagram__container.instagram__container {
+    width: 100vw;
     background-size: cover;
   }
 
@@ -108,9 +109,7 @@
   }
 
   .instagram__container.instagram__container div {
-    width: auto;
     top: 25%;
-    left: 20%;
     font-size: 1.1em;
   }
 
