@@ -48,9 +48,6 @@ const Form = () => {
       } else {
         setLoading(false);
         setError(<Message msg={unregistered} />);
-        setName('');
-        setLastName('');
-        setPhone('');
       }
     });
   };
@@ -60,8 +57,8 @@ const Form = () => {
 
   const unregistered = (
     <p>
-      No se encontró registro. <br /> Inténtalo de nuevo o comunícate al 000 000
-      00 00 para recibir asistencia.
+      No se encontró registro. <br /> Comunícate al 000 000 00 00 para recibir
+      asistencia.
     </p>
   );
 
@@ -109,7 +106,7 @@ const Form = () => {
               Teléfono celular (10 dígitos):
               <input
                 type='text'
-                name={phone}
+                name='phone'
                 value={phone}
                 onChange={(e) => {
                   setError('');

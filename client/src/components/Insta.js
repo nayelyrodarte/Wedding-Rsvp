@@ -5,7 +5,7 @@ export default function Insta() {
   return (
     <section className='instagram__container'>
       <div>
-        <img src={InstaLogo} alt='Instagram logo' />
+        <img src={InstaLogo} alt='Instagram logo' className='filter' />
         <p>Etiqueta tus fotos con nuestro hashtag</p>
         <p>#BRENDA&AARON2020</p>
       </div>

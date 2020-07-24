@@ -108,8 +108,8 @@ form {
 .gifts__container {
   background-image: url('../img/hojas3.png');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-position: right top;
+  background-size: 90%;
   height: 60vh;
   display: grid;
   align-content: center;
@@ -132,7 +132,7 @@ form {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #e0e4e3;
-  color: #d2d6d9;
+  color: white;
   height: 55vh;
   width: 100%;
 }
@@ -140,7 +140,9 @@ form {
 .instagram__container div {
   filter: drop-shadow(16px 16px 10px black);
   position: relative;
+  width: 100vw;
   top: 40%;
+  left: auto;
 }
 
 .instagram__container img {
@@ -148,7 +150,7 @@ form {
 }
 
 .instagram__container p:last-of-type {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
@@ -170,10 +172,10 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
-  line-height: 2em;
+  font-size: 1.7rem;
+  line-height: 3em;
   position: absolute;
-  padding-right: 1rem;
+  padding-right: 1.5rem;
   right: 100%;
   transform-origin: right top;
   transform: rotate(270deg);

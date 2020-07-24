@@ -29,7 +29,7 @@
   .form__container.form__container {
     position: relative;
     min-height: auto;
-    max-height: 60vh;
+    max-height: 75vh;
     background-position: left bottom;
     background-size: 130%;
     width: 100vw;
@@ -100,14 +100,18 @@
   }
 
   .instagram__container.instagram__container img {
-    display: block;
-    width: 3em;
+    display: inline-flex;
+    width: 2.5em;
+    padding: 0;
+    margin: 0;
+    position: relative;
   }
 
-  .instagram__container div {
-    top: 15%;
+  .instagram__container.instagram__container div {
+    width: auto;
+    top: 25%;
     left: 20%;
-    font-size: 1.3em;
+    font-size: 1.1em;
   }
 
   .itinerary__container.itinerary__container {
