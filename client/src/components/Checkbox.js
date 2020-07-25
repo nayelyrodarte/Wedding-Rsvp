@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { modifyGuest } from '../functions';
+import { restMethods } from '../functions';
 import CheckItem from './CheckItem';
 import Message from './Message';
 
@@ -51,7 +51,7 @@ const Checkbox = ({ guest, phone }) => {
       setRegister(true);
 
       // setLoading(true);
-      // // modifyGuest(id, guest); // send to MongoDB
+      //restMethods.put(id, guest); // send to MongoDB
       // setLoading(false);
       // setRegister(true);
       // setError('');
