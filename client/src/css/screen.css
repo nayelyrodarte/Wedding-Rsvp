@@ -1,6 +1,6 @@
 @media screen and (min-width: 768px) {
   body h1 {
-    font-size: 5em;
+    font-size: 4em;
   }
 
   body h2 {
@@ -75,8 +75,8 @@
 
   body .gifts__container {
     height: 40vh;
-    background-size: 25em;
-    background-position: right;
+    background-size: 40em;
+    background-position: right top;
   }
 
   /*Buttons div*/
