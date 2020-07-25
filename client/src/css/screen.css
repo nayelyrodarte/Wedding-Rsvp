@@ -1,4 +1,8 @@
 @media screen and (min-width: 768px) {
+  body h1 {
+    font-size: 5em;
+  }
+
   body h2 {
     right: 0;
     left: 0;
