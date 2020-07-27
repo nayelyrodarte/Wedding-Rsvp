@@ -2,14 +2,17 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mr+De+Haviland&family=Mrs+Saint+Delafield&display=swap');
 
+/*--- General styling --- */
+
 :root {
   font-family: 'EB Garamond';
   font-size: 18px;
   text-align: center;
   --disabled-color: #cccccc;
+  --main-gray: #ced2d5;
+  --gold-pop: #e4b964;
   --main-font: 'Parisienne';
   --sub-font: 'EB Garamond';
-  --statement-font: 'Mr De Haviland', cursive;
 }
 
 * {
@@ -48,6 +51,33 @@ button:disabled {
   color: #5e5d5d;
 }
 
+h1,
+h2,
+h3 {
+  font-family: 'Parisienne';
+  padding-top: 0.3em;
+}
+
+h1 {
+  font-size: 2.5em;
+  letter-spacing: -0em;
+  font-family: var(--main-font);
+  line-height: 0.8em;
+  opacity: 1;
+  padding-top: 0.1em;
+}
+
+h2 {
+  font-size: 1.8rem;
+  line-height: 2em;
+  position: absolute;
+  padding-right: 1.5rem;
+  right: 100%;
+  transform-origin: right top;
+  transform: rotate(270deg);
+  white-space: nowrap;
+}
+
 .charging {
   animation: charging 1.5s infinite;
 }
@@ -61,23 +91,37 @@ button:disabled {
   }
 }
 
-footer {
-  position: relative;
-  height: fit-content;
-  background: black;
-  color: #ced2d5;
-  font-size: 0.8em;
-  padding: 1em;
-  bottom: 0;
+input[type='checkbox'] {
+  margin: 1em;
+  height: 15px;
 }
 
-footer span {
-  font-weight: bold;
+input[type='text'] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+  display: block;
+  font-family: inherit;
+  font-size: 1em;
+  height: 0.5em;
+  margin: auto;
+  outline: none;
+  padding: 0.8em 2.5em;
+  text-align: center;
+  width: 50%;
 }
 
-footer a:hover {
-  color: #798b9a;
+input[type='text']:focus {
+  background-blend-mode: lighten;
+  background-color: var(--disabled-color);
 }
+
+label {
+  display: block;
+  padding: 0.5em;
+}
+
+/*--- @FORM component --- */
 
 form {
   position: absolute;
@@ -90,12 +134,14 @@ form {
   position: relative;
   width: 100vw;
   height: 110vh;
-  background-color: #ced2d5;
+  background-color: var(--main-gray);
   background-image: url('../img/BA-Bus4.jpg');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
 }
+
+/*@FORM checkboxes*/
 
 .form__container.guestlist {
   padding: 1.5em 0;
@@ -104,6 +150,12 @@ form {
 .form__container.guestlist button {
   margin-top: 3em;
 }
+
+.guestlist p {
+  padding: 0.5em;
+}
+
+/*--- @GIFTS component --- */
 
 .gifts__container {
   background-image: url('../img/5a2a2b87b73959.4015470715127130957505.png');
@@ -116,27 +168,25 @@ form {
   align-content: center;
 }
 
-/*Buttons div*/
+.gifts__container h2 {
+  text-shadow: 0 1px 0 white;
+}
+
+/*@GIFTS buttons*/
+
 .gifts__container div {
   justify-items: center;
   display: grid;
   grid-template-rows: auto;
 }
 
-.gifts__container h2 {
-  text-shadow: 0 0.5px 0 black;
-}
-
-.guestlist p {
-  padding: 0.5em;
-}
-
+/*--- @INSTAGRAM component --- */
 .instagram__container {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('../img/B&A-76-min.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #e0e4e3;
+  background-color: var(--main-gray);
   width: 100vw;
   color: white;
   overflow: hidden;
@@ -166,37 +216,14 @@ form {
   font-family: var(--sub-font);
 }
 
+/*--- @ITINERARY component --- */
+
 .itinerary__container {
   margin: 1em;
   height: min-content;
 }
 
-h1,
-h2,
-h3 {
-  font-family: 'Parisienne';
-  padding-top: 0.3em;
-}
-
-h1 {
-  font-size: 2.5em;
-  letter-spacing: -0em;
-  font-family: var(--main-font);
-  line-height: 0.8em;
-  opacity: 1;
-  padding-top: 0.1em;
-}
-
-h2 {
-  font-size: 1.8rem;
-  line-height: 2em;
-  position: absolute;
-  padding-right: 1.5rem;
-  right: 100%;
-  transform-origin: right top;
-  transform: rotate(270deg);
-  white-space: nowrap;
-}
+/*--- @MAIN component --- */
 
 header {
   align-items: start;
@@ -226,30 +253,7 @@ header span {
   font-weight: lighter;
 }
 
-input[type='checkbox'] {
-  margin: 1em;
-  height: 15px;
-}
-
-input[type='text'] {
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid black;
-  display: block;
-  font-family: inherit;
-  font-size: 1em;
-  height: 0.5em;
-  margin: auto;
-  outline: none;
-  padding: 0.8em 2.5em;
-  text-align: center;
-  width: 50%;
-}
-
-input[type='text']:focus {
-  background-blend-mode: lighten;
-  background-color: var(--disabled-color);
-}
+/*--- @MODAL component --- */
 
 .modal {
   padding: 2em 1em;
@@ -283,7 +287,22 @@ input[type='text']:focus {
   background: var(--disabled-color);
 }
 
-label {
-  display: block;
-  padding: 0.5em;
+/*--- @FOOTER component --- */
+
+footer {
+  position: relative;
+  height: fit-content;
+  background: black;
+  color: var(--main-gray);
+  font-size: 0.8em;
+  padding: 1em;
+  bottom: 0;
+}
+
+footer span {
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: var(--gold-pop);
 }
