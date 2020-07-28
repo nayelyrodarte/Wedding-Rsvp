@@ -13,8 +13,9 @@ export function counter() {
   return `Falta${n} ${daysRemaining} día${s}`;
 }
 
-export const restMethods = {
-  put: function (id, updatedObj) {
+export const rest = {
+  getGuests: () => fetch('http://localhost:8000/api/guests'),
+  modifyGuest: function (id, updatedObj) {
     const config = {
       method: 'put',
       body: JSON.stringify(updatedObj),

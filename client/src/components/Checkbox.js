@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { restMethods } from '../functions';
+import { rest } from '../functions';
 import CheckItem from './CheckItem';
 import Message from './Message';
-
-//-------- TODO ----------
-// disable button
 
 const Checkbox = ({ guest, phone }) => {
   const [register, setRegister] = useState(false);
@@ -13,48 +10,44 @@ const Checkbox = ({ guest, phone }) => {
   const id = guest._id;
   const guestParty = guest.guest_party;
 
-  // Save selected/unselected guests
-  const attending = {};
+  // Save guests (key: name, value: selected/unselected)
+  const guestSelection = {};
 
-  const addAttendingGuest = (e) => {
+  const isGuestGoing = (e) => {
     const name = e.target.value;
     const isChecked = e.target.checked;
 
-    // Save or overwrite guests status when checked/unchecked
+    // Save or overwrite guests values
     guestList.forEach((guest) => {
       if (guest.props.name === name) {
-        attending[name] = isChecked;
+        guestSelection[name] = isChecked;
       }
     });
   };
 
-  // Create checkboxes for each family member / partner of guest
+  // Checkboxes for each family member / partner of registered guest
   let guestList = guestParty.map((guest) => (
-    <CheckItem name={guest} key={guest} onChange={addAttendingGuest} />
+    <CheckItem name={guest} key={guest} onChange={isGuestGoing} />
   ));
 
   const sendRsvp = () => {
-    // Update guest
+    // Update guest object from db
     guest.rsvpd = true;
     guest.phone = phone;
     guest.guest_party = [];
 
-    // Save guests with selected (going) status.
-    for (let attendee in attending) {
-      if (attending[attendee]) {
+    // Save only selected guests from checkboxes
+    for (let attendee in guestSelection) {
+      if (guestSelection[attendee]) {
         guest.guest_party.push(attendee);
-      } else if (!attending[attendee]) {
+      } else if (!guestSelection[attendee]) {
         return;
       }
 
-      console.log(guest);
+      setLoading(true);
+      rest.modifyGuest(id, guest); // send to MongoDB
+      setLoading(false);
       setRegister(true);
-
-      // setLoading(true);
-      //restMethods.put(id, guest); // send to MongoDB
-      // setLoading(false);
-      // setRegister(true);
-      // setError('');
     }
   };
 
