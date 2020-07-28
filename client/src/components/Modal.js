@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 
-// TODO
-// Try copy to clipboard functionality
-
 const Modal = () => {
   const modalRoot = document.getElementById('modal-root');
   const element = document.createElement('div');

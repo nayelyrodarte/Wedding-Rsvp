@@ -1,22 +1,22 @@
 import React from 'react';
-import Styled from 'styled-components';
+import styled from 'styled-components';
 
-const MessageContainer = Styled.div`
-background-color: #F3ECC3;
-border: 1.5px solid #D49504;
-border-radius: 10px;
-box-sizing: border-box;
-padding: 0.2em;
-color: #D49504;
-margin: auto;
-height: min-content;
-position: relative;
-width: 75%;
+const MessageContainer = styled.div`
+  background-color: #f3ecc3;
+  border: 1.5px solid #d49504;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 0.2em;
+  color: #d49504;
+  margin: auto;
+  height: min-content;
+  position: relative;
+  width: 75%;
 
-@media screen and (min-width: 768px) {
-  width: 30%;
-  right: 30%;
-}
+  @media screen and (min-width: 768px) {
+    width: 30%;
+    right: 30%;
+  }
 `;
 
 const Message = ({ msg }) => {

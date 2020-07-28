@@ -1,5 +1,5 @@
 import React from 'react';
-import InstaLogo from '../img/noun_Camera_49605.svg';
+import InstaLogo from '../img/insta_logo.svg';
 
 export default function Insta() {
   return (

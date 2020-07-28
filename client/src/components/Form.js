@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
-import db from './db.json';
 import Message from './Message';
 import { rest } from '../functions';
-
-//---------- TODO ------------
-// complete DB
-// Testing
 
 const Form = () => {
   const [error, setError] = useState('');
@@ -16,10 +11,6 @@ const Form = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [guest, setGuest] = useState('');
-
-  // useEffect(() => {
-  //   setGuests(db);
-  // }, []);
 
   //Get all guests from DB
   useEffect(() => {
@@ -37,7 +28,7 @@ const Form = () => {
       });
   }, []);
 
-  // Get registered guest
+  // Get registered guest @ form
   const registerGuest = () => {
     console.log(guests);
     guests.forEach((guest) => {
