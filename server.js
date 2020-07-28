@@ -5,9 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 
-dotenv.config();
-
-const db = process.env.MONGODB || process.env.MONGODB_URI;
+const db = process.env.MONGODB;
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

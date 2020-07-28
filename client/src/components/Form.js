@@ -15,7 +15,8 @@ const Form = () => {
   //Get all guests from DB
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:8000/api/guests')
+    rest
+      .getGuests()
       .then((res) => res.json())
       .then((res) => {
         setGuests(res);
