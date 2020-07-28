@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-const dotenv = require('dotenv').config();
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 
-const db = process.env.MONGODB_URI || process.env.MONGODB;
+dotenv.config();
+
+const db = process.env.MONGODB || process.env.MONGODB_URI;
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
