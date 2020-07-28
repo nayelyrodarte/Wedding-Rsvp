@@ -15,8 +15,7 @@ const Form = () => {
   //Get all guests from DB
   useEffect(() => {
     setLoading(true);
-    rest
-      .getGuests()
+    fetch('http://localhost:8000/api/guests')
       .then((res) => res.json())
       .then((res) => {
         setGuests(res);
@@ -24,7 +23,8 @@ const Form = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
-        setError(<Message msg='Error en la base de datos' />);
+        setLoading(false);
+        setError(<Message msg={`Error en la base de datos: ${error}`} />);
       });
   }, []);
 
