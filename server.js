@@ -12,6 +12,7 @@ app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 // Define routes
 app.use('/api/guests', require('./routes/guests'));
+app.use(ignoreFavicon);
 
 // Serve static assets in production (react)
 if (process.env.NODE_ENV === 'production') {
@@ -22,6 +23,14 @@ if (process.env.NODE_ENV === 'production') {
     (res) =>
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')))
   );
+}
+
+function ignoreFavicon(req, res, next) {
+  if (req.originalUrl === '/favicon.ico') {
+    res.status(204).json({ nope: true });
+  } else {
+    next();
+  }
 }
 
 mongoose
