@@ -34,6 +34,8 @@ mongoose
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true,
+    keepAlive: true,
+    keepAliveInitialDelay: 300000,
   })
   .then(() => {
     console.log('connected with Mongo');
