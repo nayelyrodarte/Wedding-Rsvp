@@ -14,7 +14,7 @@ export function counter() {
 }
 
 export const rest = {
-  getGuests: () => fetch('http://localhost:8000/api/guests'),
+  getGuests: () => fetch('api/guests'),
   modifyGuest: function (id, updatedObj) {
     const config = {
       method: 'put',
@@ -24,7 +24,7 @@ export const rest = {
       },
     };
 
-    fetch(`http://localhost:8000/api/guests/${id}`, config)
+    fetch(`/api/guests/${id}`, config)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

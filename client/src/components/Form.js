@@ -19,6 +19,7 @@ const Form = () => {
       .getGuests()
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         setGuests(res);
         setLoading(false);
       })

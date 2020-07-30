@@ -1,17 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Guest = require('../models/Guest');
-const bodyParser = require('body-parser');
 
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
-
-router.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', '*');
-  res.header('Access-Control-Allow-Methods', '*');
-  next();
-});
+// router.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', '*');
+//   res.header('Access-Control-Allow-Methods', '*');
+//   next();
+// });
 
 // @route GET api/guests
 // Get all guests
