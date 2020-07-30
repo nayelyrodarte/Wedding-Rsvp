@@ -10,7 +10,6 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 dotenv.config();
-cors();
 
 const db = process.env.MONGODB;
 const PORT = process.env.PORT || 3000;
@@ -32,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
 mongoose
   .connect(db, {
     useNewUrlParser: true,
-    useUnifiedTopology: false,
+    useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true,
   })
