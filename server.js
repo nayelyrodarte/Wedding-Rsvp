@@ -13,7 +13,7 @@ dotenv.config();
 cors();
 
 const db = process.env.MONGODB;
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 const host = '0.0.0.0' || localhost;
 
 app.listen(PORT, host, () => console.log(`Server started on port ${PORT}`));
