@@ -44,8 +44,9 @@ const Form = () => {
     });
   };
 
-  // Disable / enable submit button
+  // Disable / enable submit button & text inputs
   const enabled = name.length && lastName.length && phone.length === 10;
+  const inputEnabled = guests.length;
 
   const unregistered = (
     <p>
@@ -78,6 +79,7 @@ const Form = () => {
                   setName(e.target.value.toUpperCase().trim());
                 }}
                 required
+                disabled={!inputEnabled}
               />
             </label>
             <label htmlFor='lastName'>
@@ -92,6 +94,7 @@ const Form = () => {
                   setLastName(e.target.value.toUpperCase().trim());
                 }}
                 required
+                disabled={!inputEnabled}
               />
             </label>
             <label htmlFor='phone'>
@@ -106,6 +109,7 @@ const Form = () => {
                 }}
                 maxLength='10'
                 required
+                disabled={!inputEnabled}
               />
             </label>
             <button disabled={!enabled} onClick={registerGuest} type='button'>
