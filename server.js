@@ -14,9 +14,9 @@ cors();
 
 const db = process.env.MONGODB;
 const PORT = process.env.PORT || 8000;
-const HOST = '0.0.0.0';
+const host = '0.0.0.0' || localhost;
 
-app.listen(PORT, HOST, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, host, () => console.log(`Server started on port ${PORT}`));
 
 // Define routes
 app.use('/api/guests', require('./router'));
@@ -34,6 +34,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
+    useCreateIndex: true,
   })
   .then(() => {
     console.log('connected with Mongo');
