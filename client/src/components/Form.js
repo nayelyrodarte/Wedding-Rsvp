@@ -25,7 +25,8 @@ const Form = () => {
       })
       .catch((error) => {
         console.error('Error:', error);
-        setError(<Message msg='Error en la base de datos' />);
+        setLoading(false);
+        setError(<Message msg={`Error en la base de datos: ${error}`} />);
       });
   }, []);
 
