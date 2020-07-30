@@ -162,13 +162,14 @@ form {
   background-position: top;
   background-size: 130%;
   overflow: hidden;
-  height: 60vh;
+  height: 50vh;
   display: grid;
   align-content: center;
 }
 
 .gifts__container h2 {
   text-shadow: 0 1px 0 white;
+  margin: 1em;
 }
 
 /*@GIFTS buttons*/
@@ -219,7 +220,7 @@ form {
 
 .itinerary__container {
   margin: 1em;
-  height: min-content;
+  height: 55vh;
 }
 
 /*--- @MAIN component --- */

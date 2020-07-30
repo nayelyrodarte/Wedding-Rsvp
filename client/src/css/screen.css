@@ -82,7 +82,6 @@
   /*--- @GIFTS component --- */
 
   body .gifts__container {
-    height: 40vh;
     background-size: 40em;
     background-position: right top;
   }
