@@ -14,7 +14,7 @@ cors();
 
 const db = process.env.MONGODB;
 const PORT = process.env.PORT || 8000;
-const HOST = process.env.HOST || '0.0.0.0';
+const HOST = '0.0.0.0';
 
 app.listen(PORT, HOST, () => console.log(`Server started on port ${PORT}`));
 
@@ -27,14 +27,6 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) =>
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   );
-}
-
-function ignoreFavicon(req, res, next) {
-  if (req.originalUrl === '/favicon.ico') {
-    res.status(204).json({ nope: true });
-  } else {
-    next();
-  }
 }
 
 mongoose
