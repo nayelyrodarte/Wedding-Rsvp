@@ -19,7 +19,6 @@ const Form = () => {
       .getGuests()
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         setGuests(res);
         setLoading(false);
       })
@@ -32,7 +31,6 @@ const Form = () => {
 
   // Get registered guest @ form
   const registerGuest = () => {
-    console.log(guests);
     guests.forEach((guest) => {
       setLoading(true);
       if (guest.name === name + ' ' + lastName) {
