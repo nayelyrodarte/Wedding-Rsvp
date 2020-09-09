@@ -158,8 +158,12 @@
   body .modal {
     text-align: center;
     min-width: 15vw;
-    min-height: 70%;
-    top: 5%;
+    min-height: 50%;
+    top: 10%;
+  }
+
+  .modal div {
+    margin-top: 5em;
   }
 
   body modal button {
