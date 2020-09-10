@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
 import Message from './Message';
 import { rest } from '../functions';
+import CheckboxForGuests from './CheckboxForGuests';
 
 const Form = () => {
-  const [error, setError] = useState('');
   const [guestsDatabase, setGuestsDatabase] = useState([]);
-  const [guestLastName, setGuestLastName] = useState('');
-  const [loading, setLoading] = useState(false);
   const [guestName, setGuestName] = useState('');
+  const [guestLastName, setGuestLastName] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
   const [registeredGuest, setRegisteredGuest] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -50,14 +51,17 @@ const Form = () => {
   );
 
   const enableSubmitButton =
-    guestName.length && guestLastName.length && guestPhone.length === 10;
+    guestName.length && guestLastName.length && guestPhone.length === 1;
 
   return (
     <section className='form__container'>
       {loading && <Message msg={'Cargando'} />}
       {registeredGuest ? (
         <div>
-          <Checkbox registeredGuest={registeredGuest} guestPhone={guestPhone} />
+          <CheckboxForGuests
+            registeredGuest={registeredGuest}
+            guestPhone={guestPhone}
+          />
         </div>
       ) : (
         <div>
