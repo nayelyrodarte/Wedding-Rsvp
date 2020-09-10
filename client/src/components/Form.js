@@ -5,114 +5,112 @@ import { rest } from '../functions';
 
 const Form = () => {
   const [error, setError] = useState('');
-  const [guests, setGuests] = useState([]);
-  const [lastName, setLastName] = useState('');
+  const [guestsDatabase, setGuestsDatabase] = useState([]);
+  const [guestLastName, setGuestLastName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [guest, setGuest] = useState('');
+  const [guestName, setGuestName] = useState('');
+  const [guestPhone, setGuestPhone] = useState('');
+  const [registeredGuest, setRegisteredGuest] = useState('');
 
-  //Get all guests from DB
   useEffect(() => {
     setLoading(true);
     rest
       .getGuests()
       .then((res) => res.json())
       .then((res) => {
-        setGuests(res);
+        setGuestsDatabase(res);
         setLoading(false);
       })
       .catch((error) => {
         console.error('Error:', error);
         setLoading(false);
-        setError(<Message msg={`Error en la base de datos: ${error}`} />);
+        setError(<Message msg={`Error en la base de datos`} />);
       });
   }, []);
 
-  // Get registered guest @ form
-  const registerGuest = () => {
-    guests.forEach((guest) => {
+  const getRegisteredGuest = () => {
+    guestsDatabase.forEach((guest) => {
       setLoading(true);
-      if (guest.name === name + ' ' + lastName) {
-        setGuest(guest);
+      if (guest.name === guestName + ' ' + guestLastName) {
+        setRegisteredGuest(guest);
         setLoading(false);
         setError('');
       } else {
         setLoading(false);
-        setError(<Message msg={unregistered} />);
+        setError(<Message msg={unregisteredGuestMessage} />);
       }
     });
   };
 
-  // Disable / enable submit button & text inputs
-  const enabled = name.length && lastName.length && phone.length === 10;
-  const inputEnabled = guests.length;
-
-  const unregistered = (
+  const unregisteredGuestMessage = (
     <p>
       No se encontró registro. <br /> Comunícate al 000 000 00 00 para recibir
       asistencia.
     </p>
   );
 
+  const enableSubmitButton =
+    guestName.length && guestLastName.length && guestPhone.length === 10;
+
   return (
     <section className='form__container'>
       {loading && <Message msg={'Cargando'} />}
-      {guest ? (
+      {registeredGuest ? (
         <div>
-          <Checkbox guest={guest} phone={phone} />
+          <Checkbox registeredGuest={registeredGuest} guestPhone={guestPhone} />
         </div>
       ) : (
         <div>
           {error}
           <h2>Confirma tu asistencia</h2>
-          <form>
-            <label htmlFor='name'>
+          <form data-test='form-component'>
+            <label htmlFor='guest-name'>
               Primer nombre:
               <input
                 type='text'
-                name={name}
-                value={name}
+                name={guestName}
+                value={guestName}
                 autoComplete='off'
                 onChange={(e) => {
                   setError('');
-                  setName(e.target.value.toUpperCase().trim());
+                  setGuestName(e.target.value.toUpperCase().trim());
                 }}
                 required
-                disabled={!inputEnabled}
               />
             </label>
-            <label htmlFor='lastName'>
+            <label htmlFor='guest-lastName'>
               Apellido paterno:
               <input
                 type='text'
-                name={lastName}
-                value={lastName}
+                name={guestLastName}
+                value={guestLastName}
                 autoComplete='off'
                 onChange={(e) => {
                   setError('');
-                  setLastName(e.target.value.toUpperCase().trim());
+                  setGuestLastName(e.target.value.toUpperCase().trim());
                 }}
                 required
-                disabled={!inputEnabled}
               />
             </label>
             <label htmlFor='phone'>
               Teléfono celular (10 dígitos):
               <input
                 type='text'
-                name='phone'
-                value={phone}
+                name={guestPhone}
+                value={guestPhone}
                 onChange={(e) => {
                   setError('');
-                  setPhone(e.target.value);
+                  setGuestPhone(e.target.value);
                 }}
                 maxLength='10'
                 required
-                disabled={!inputEnabled}
               />
             </label>
-            <button disabled={!enabled} onClick={registerGuest} type='button'>
+            <button
+              disabled={!enableSubmitButton}
+              onClick={getRegisteredGuest}
+              type='button'
+            >
               Buscar
             </button>
           </form>
