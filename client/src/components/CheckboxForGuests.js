@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { rest } from '../functions';
 import Checkbox from './Checkbox';
 import Message from './Message';
 
-const CheckboxForGuests = ({ registeredGuest, guestPhone }) => {
-  const [register, setRegister] = useState(false);
-  const [loading, setLoading] = useState('');
-
+const CheckboxForGuests = ({
+  registeredGuest,
+  updateConfirmedGuest,
+  confirmedGuest,
+  guestPhone,
+  updateLoading,
+}) => {
+  const guestName = registeredGuest.name;
   const guestId = registeredGuest._id;
   const guestParty = registeredGuest.guest_party;
 
@@ -24,17 +28,16 @@ const CheckboxForGuests = ({ registeredGuest, guestPhone }) => {
   };
 
   let addGuestPartyCheckboxes = guestParty.map((guest) => (
-    <Checkbox name={guest} key={guest} onChange={isGuestPartyGoing} />
+    <Checkbox name={guestName} key={guestName} onChange={isGuestPartyGoing} />
   ));
 
   const sendRsvpToDatabase = () => {
     updateRegisteredGuest();
 
-    setLoading(true);
+    updateLoading(true);
     rest.modifyGuest(guestId, registeredGuest); // send to MongoDB
-    setLoading(false);
-    setRegister(true);
-    console.log('guest sent');
+    updateLoading(false);
+    updateConfirmedGuest(true);
   };
 
   const updateRegisteredGuest = () => {
@@ -57,32 +60,27 @@ const CheckboxForGuests = ({ registeredGuest, guestPhone }) => {
 
   return (
     <div>
-      {loading && <Message msg={'Cargando'} />}
-      {register ? (
-        <section className='form__container guestlist final'>
-          <div>
-            <p>
-              {' '}
-              Tu registro ha quedado confirmado.
-              <br />
-              ¡Muchas gracias por acompañarnos!{' '}
-            </p>
-          </div>
-          <button onClick={scrollTop}>Volver al inicio</button>
-        </section>
+      {confirmedGuest ? (
+        <div>
+          <Message
+            msg={
+              <p>
+                Tu registro ha quedado confirmado. <br /> ¡Muchas gracias por
+                acompañarnos!
+              </p>
+            }
+          />
+        </div>
       ) : (
-        <section className='form__container guestlist'>
-          <div>
-            {' '}
-            <p>Selecciona los invitados que asistirán:</p>
-            <div>{addGuestPartyCheckboxes}</div>
-            <button onClick={sendRsvpToDatabase}>Confirmar</button>
-          </div>
-        </section>
+        <div>
+          <p>Selecciona los invitados que asistirán:</p>
+          <div>{addGuestPartyCheckboxes}</div>
+          <button onClick={sendRsvpToDatabase}>Confirmar</button>
+        </div>
       )}
+      <button onClick={scrollTop}>Volver al inicio</button>
     </div>
   );
 };
-//};
 
 export default CheckboxForGuests;

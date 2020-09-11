@@ -21,7 +21,6 @@ const CheckboxContainer = styled.div`
 `;
 
 const Checkbox = ({ name, onChange, checked }) => {
-  console.log(name, 'checkbox component');
   return (
     <CheckboxContainer>
       <label htmlFor={name}>
