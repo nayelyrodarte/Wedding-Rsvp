@@ -140,6 +140,19 @@ form {
   background-repeat: no-repeat;
 }
 
+.message {
+  background-color: #f3ecc3;
+  border: 1.5px solid #d49504;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 0.2em;
+  color: #d49504;
+  margin: auto;
+  height: min-content;
+  position: relative;
+  width: 75%;
+}
+
 /*@FORM checkboxes*/
 
 .form__container.guestlist {
