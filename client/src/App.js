@@ -18,14 +18,22 @@ import './css/mobile.css';
 const App = () => {
   const [guestsDatabase, setGuestsDatabase] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [notification, setNotification] = useState('');
   const [registeredGuest, setRegisteredGuest] = useState('');
   const [confirmedGuest, setConfirmedGuest] = useState('');
   const [openModal, setOpenModal] = useState(false);
 
   // state management
-  const updateLoading = (boolean) => setLoading(boolean);
-  const updateError = (msg) => setError(msg);
+  const updateLoading = (boolean) => {
+    if (boolean === true) {
+      setNotification(<Message msg='Cargando...' type='charging' />);
+    } else {
+      setNotification('');
+    }
+    setLoading(boolean);
+  };
+
+  const updateNotification = (msg) => setNotification(msg);
   const updateRegisteredGuest = (registeredGuest) =>
     setRegisteredGuest(registeredGuest);
   const updateConfirmedGuest = (boolean) => setConfirmedGuest(boolean);
@@ -43,7 +51,9 @@ const App = () => {
       .catch((error) => {
         console.error('Error:', error);
         updateLoading(false);
-        updateError('Error en la base de datos');
+        setNotification(
+          <Message msg={'Error en la base de datos'} type='error' />
+        );
       });
   }, []);
 
@@ -62,15 +72,15 @@ const App = () => {
             confirmedGuest={confirmedGuest}
             updateConfirmedGuest={updateConfirmedGuest}
             updateLoading={updateLoading}
-            updateError={updateError}
+            updateNotification={updateNotification}
           />
         ) : (
           <Form
             guestsDatabase={guestsDatabase}
             updateRegisteredGuest={updateRegisteredGuest}
             updateLoading={updateLoading}
-            updateError={updateError}
-            error={error}
+            updateNotification={updateNotification}
+            notification={notification}
           />
         )}
       </FormLayout>

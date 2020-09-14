@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import Message from './Message';
 
 function Form({
   updateLoading,
-  updateError,
+  updateNotification,
   guestsDatabase,
   updateRegisteredGuest,
-  error,
+  notification,
 }) {
   const [guestName, setGuestName] = useState('');
   const [guestLastName, setGuestLastName] = useState('');
@@ -17,15 +18,18 @@ function Form({
       if (guest.name === guestName + ' ' + guestLastName) {
         updateRegisteredGuest(guest);
         updateLoading(false);
-        updateError('');
       } else {
         updateLoading(false);
-        updateError(
-          <p>
-            {' '}
-            No se encontró registro. <br />
-            Comunícate al 000 000 00 00 para recibir asistencia.
-          </p>
+        updateNotification(
+          <Message
+            msg={
+              <p>
+                No se encontró registro.
+                <br />
+                Comunícate al 000 000 00 00 para recibir asistencia.'
+              </p>
+            }
+          />
         );
       }
     });
@@ -37,7 +41,7 @@ function Form({
   return (
     <div>
       <h2>Confirma tu asistencia</h2>
-      {error}
+      {notification}
       <form data-test='form-component'>
         <label htmlFor='guest-name'>
           Primer nombre:
@@ -47,7 +51,7 @@ function Form({
             value={guestName}
             autoComplete='off'
             onChange={(e) => {
-              updateError('');
+              updateNotification('');
               setGuestName(e.target.value.toUpperCase().trim());
             }}
             required
@@ -61,7 +65,7 @@ function Form({
             value={guestLastName}
             autoComplete='off'
             onChange={(e) => {
-              updateError('');
+              updateNotification('');
               setGuestLastName(e.target.value.toUpperCase().trim());
             }}
             required
@@ -74,7 +78,7 @@ function Form({
             name={guestPhone}
             value={guestPhone}
             onChange={(e) => {
-              updateError('');
+              updateNotification('');
               setGuestPhone(e.target.value);
             }}
             maxLength='10'
