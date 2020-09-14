@@ -90,6 +90,20 @@
     justify-self: center;
   }
 
+  .form-layout-component h2 {
+    position: relative;
+    left: -28%;
+  }
+
+  .rsvp {
+    position: relative;
+    right: 28%;
+  }
+
+  .rsvp button {
+    width: 5em;
+  }
+
   body form {
     position: relative;
     width: 50%;
