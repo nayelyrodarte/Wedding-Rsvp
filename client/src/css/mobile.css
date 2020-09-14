@@ -7,7 +7,7 @@
   text-align: center;
   --disabled-color: #cccccc;
   --main-gray: #ced2d5;
-  --gold-pop: #e4b964;
+  --gold-pop: #d49504;
   --main-font: 'Parisienne';
   --sub-font: 'EB Garamond';
 }
@@ -79,7 +79,8 @@ header {
   align-items: start;
   background-image: url('../img/B&A-93.jpg');
   background-position: center;
-  background-size: 300%;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   min-width: 100%;
   width: 100vw;
@@ -211,7 +212,7 @@ header span {
 form {
   position: absolute;
   width: 80%;
-  left: 15%;
+  left: 20%;
   padding: 0.5em 0;
 }
 
@@ -246,11 +247,11 @@ label {
 }
 
 .message {
-  background-color: #f3ecc3;
-  border: 1.5px solid #d49504;
+  background-color: var(--gold-pop);
+  border: 1.5px solid var(--gold-pop);
   border-radius: 10px;
   padding: 0.2em;
-  color: #d49504;
+  color: white;
   margin: auto;
   height: min-content;
   position: relative;
