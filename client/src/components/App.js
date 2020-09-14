@@ -47,6 +47,7 @@ const App = () => {
       .then((res) => {
         setGuestsDatabase(res);
         updateLoading(false);
+        throw 'error';
       })
       .catch((error) => {
         console.error('Error:', error);
