@@ -40,7 +40,6 @@ function Form({
 
   return (
     <div>
-      <h2>Confirma tu asistencia</h2>
       {notification}
       <form data-test='form-component'>
         <label htmlFor='guest-name'>
