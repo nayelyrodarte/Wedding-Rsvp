@@ -3,7 +3,7 @@ import Message from './Message';
 
 const FormLayout = ({ children, error }) => {
   return (
-    <section className='form__container'>
+    <section className='form-layout-component'>
       {error && <Message msg={error} />}
       {children}
     </section>

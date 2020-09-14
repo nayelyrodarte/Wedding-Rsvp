@@ -3,7 +3,7 @@ import InstaLogo from '../img/insta_logo.svg';
 
 export default function Insta() {
   return (
-    <section className='instagram__container'>
+    <section className='instagram-component'>
       <div>
         <img src={InstaLogo} alt='Instagram logo' className='filter' />
         <p>Etiqueta tus fotos con nuestro hashtag</p>

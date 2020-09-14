@@ -1,5 +1,4 @@
 @media screen and (min-width: 768px) {
-  /*--- General styling --- */
   body h1 {
     font-size: 4em;
   }
@@ -23,120 +22,12 @@
     width: 12em;
   }
 
-  /*--- @FORM component --- */
-
-  body form {
-    position: relative;
-    width: 50%;
-    left: -3%;
-    top: 5%;
-  }
-
-  body .form__container {
-    position: relative;
-    min-height: auto;
-    max-height: 75vh;
-    background-position: left bottom;
-    background-size: 130%;
-    width: 100vw;
-  }
-
-  body .form__container button {
-    margin-top: 2em;
-    width: 30%;
-    justify-self: center;
-  }
-
-  /*@FORM checkboxes*/
-
-  body .form__container.guestlist button {
-    margin-left: 2em;
-    margin-top: 3em;
-    width: 12em;
-  }
-
-  body .form__container h2 {
-    left: -28%;
-    position: relative;
-  }
-
-  .guestlist {
-    text-align: left;
-  }
-
-  body .form__container.guestlist p {
-    padding: 1.5em;
-  }
-
-  /*@FORM final confirmation msg*/
-
-  body .form__container.final p {
-    padding: 4.5em;
-    padding-bottom: 0;
-  }
-
-  body .form__container.final button {
-    margin-left: 4.5em;
-  }
-
-  /*--- @GIFTS component --- */
-
-  body .gifts__container {
-    background-size: 40em;
-    background-position: right top;
-  }
-
-  /*@GIFTS buttons*/
-
-  body .gifts__container div {
-    display: grid;
-    margin: 2em;
-    width: auto;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5em;
-    align-self: center;
-    justify-self: center;
-  }
-
-  body .gifts__container h2 {
-    text-shadow: 0 0px 0 black;
-  }
-
-  /*--- @HEADER component --- */
-
   body header {
     min-height: 70vh;
     background-size: 100%;
   }
 
-  /*--- @INSTAGRAM component --- */
-
-  body .instagram__container {
-    width: 100vw;
-    background-size: cover;
-  }
-
-  body .instagram__container img {
-    display: inline-flex;
-    width: 2.5em;
-    padding: 0;
-    margin: 0;
-    position: relative;
-  }
-
-  body .instagram__container div {
-    top: 25%;
-    font-size: 1.1em;
-  }
-
-  .filter {
-    filter: invert(100%) sepia(0%) saturate(6700%) hue-rotate(285deg)
-      brightness(105%) contrast(110%);
-  }
-
-  /*--- @ITINERARY component --- */
-
-  body .itinerary__container {
+  body .itinerary-component {
     display: grid;
     min-width: auto;
     grid-template-columns: repeat(3, 1fr);
@@ -145,15 +36,18 @@
     height: 35vh;
   }
 
-  body .itinerary__container div {
+  body .itinerary-component div {
     border-right: 1px solid var(--disabled-color);
   }
 
-  body .itinerary__container div:last-of-type {
+  body .itinerary-component div:last-of-type {
     border: none;
   }
 
-  /*--- @MODAL component --- */
+  body .gifts-component {
+    background-size: 40em;
+    background-position: right top;
+  }
 
   body .modal {
     text-align: center;
@@ -179,5 +73,50 @@
     position: relative;
     right: auto;
     margin: auto;
+  }
+
+  body .form-layout-component {
+    position: relative;
+    min-height: auto;
+    max-height: 75vh;
+    background-position: left bottom;
+    background-size: 130%;
+    width: 100vw;
+  }
+
+  body .form-layout-component button {
+    margin-top: 2em;
+    width: 30%;
+    justify-self: center;
+  }
+
+  body form {
+    position: relative;
+    width: 50%;
+    left: -3%;
+    top: 5%;
+  }
+
+  body .instagram-component {
+    width: 100vw;
+    background-size: cover;
+  }
+
+  body .instagram-component img {
+    display: inline-flex;
+    width: 2.5em;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+
+  body .instagram-component div {
+    top: 25%;
+    font-size: 1.1em;
+  }
+
+  .filter {
+    filter: invert(100%) sepia(0%) saturate(6700%) hue-rotate(285deg)
+      brightness(105%) contrast(110%);
   }
 }

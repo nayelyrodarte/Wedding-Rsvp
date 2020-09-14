@@ -9,9 +9,9 @@ const Gifts = () => {
   };
 
   return (
-    <section className='gifts__container'>
+    <section className='gifts-component'>
       <h2> Mesa de regalos </h2>
-      <div>
+      <div className='buttons'>
         <a
           className='btn'
           href='https://mesaderegalos.liverpool.com.mx/milistaderegalos/50345156'
