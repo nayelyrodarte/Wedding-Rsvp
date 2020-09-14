@@ -6,7 +6,11 @@ const Message = ({ msg, type }) => {
       return <div className='error message'>{msg}</div>;
       break;
     case 'charging':
-      return <div className='charging message'>{msg}</div>;
+      return (
+        <div className='message'>
+          <span className='charging'>{msg}</span>
+        </div>
+      );
       break;
     default:
       return <div className='message'>{msg}</div>;

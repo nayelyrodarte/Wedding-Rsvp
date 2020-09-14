@@ -153,6 +153,12 @@ form {
   width: 75%;
 }
 
+.error {
+  background-color: red;
+  border: red;
+  color: white;
+}
+
 /*@FORM checkboxes*/
 
 .form__container.guestlist {
