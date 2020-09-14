@@ -25,8 +25,14 @@ function Itinerary() {
       </div>
       <div>
         <h3> Vestimenta </h3>
+        <br />
+        <br />
         <p> FORMAL RIGUROSA </p>
         <p> Traje o vestido largo </p>
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </section>
   );
