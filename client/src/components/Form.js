@@ -53,6 +53,7 @@ function Form({
               updateNotification('');
               setGuestName(e.target.value.toUpperCase().trim());
             }}
+            disabled={!guestsDatabase.length}
             required
           />
         </label>
@@ -67,6 +68,7 @@ function Form({
               updateNotification('');
               setGuestLastName(e.target.value.toUpperCase().trim());
             }}
+            disabled={!guestsDatabase.length}
             required
           />
         </label>
@@ -81,6 +83,7 @@ function Form({
               setGuestPhone(e.target.value);
             }}
             maxLength='10'
+            disabled={!guestsDatabase.length}
             required
           />
         </label>
