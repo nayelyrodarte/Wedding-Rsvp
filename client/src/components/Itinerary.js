@@ -2,7 +2,7 @@ import React from 'react';
 
 function Itinerary() {
   return (
-    <section className='itinerary__container'>
+    <section className='itinerary-component'>
       <div>
         <h3> Ceremonia </h3> <p> Templo de la Sagrada Familia </p>
         <p>Av.Venustiano Carranza #1810</p>
@@ -25,8 +25,14 @@ function Itinerary() {
       </div>
       <div>
         <h3> Vestimenta </h3>
+        <br />
+        <br />
         <p> FORMAL RIGUROSA </p>
         <p> Traje o vestido largo </p>
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </section>
   );

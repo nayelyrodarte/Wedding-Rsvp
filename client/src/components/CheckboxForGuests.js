@@ -59,7 +59,7 @@ const CheckboxForGuests = ({
   }
 
   return (
-    <div>
+    <div className='rsvp'>
       {confirmedGuest ? (
         <div>
           <Message

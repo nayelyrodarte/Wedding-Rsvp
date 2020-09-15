@@ -1,15 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
 
-/*--- General styling --- */
-
 :root {
   font-family: 'EB Garamond';
   font-size: 18px;
   text-align: center;
   --disabled-color: #cccccc;
   --main-gray: #ced2d5;
-  --gold-pop: #e4b964;
+  --gold-pop: #d49504;
   --main-font: 'Parisienne';
   --sub-font: 'EB Garamond';
 }
@@ -77,159 +75,12 @@ h2 {
   white-space: nowrap;
 }
 
-.charging {
-  animation: charging 1.5s infinite;
-}
-
-@keyframes charging {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-input[type='checkbox'] {
-  margin: 1em;
-  height: 15px;
-}
-
-input[type='text'] {
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid black;
-  display: block;
-  font-family: inherit;
-  font-size: 1em;
-  height: 0.5em;
-  margin: auto;
-  outline: none;
-  padding: 0.8em 2.5em;
-  text-align: center;
-  width: 50%;
-}
-
-input[type='text']:focus {
-  background-blend-mode: lighten;
-  background-color: var(--disabled-color);
-}
-
-label {
-  display: block;
-  padding: 0.5em;
-}
-
-/*--- @FORM component --- */
-
-form {
-  position: absolute;
-  width: 80%;
-  left: 15%;
-  padding: 0.5em 0;
-}
-
-.form__container {
-  position: relative;
-  width: 100vw;
-  height: 90vh;
-  background-color: var(--main-gray);
-  background-image: url('../img/B&A-Bus.jpg');
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-}
-
-/*@FORM checkboxes*/
-
-.form__container.guestlist {
-  padding: 1.5em 0;
-}
-
-.form__container.guestlist button {
-  margin-top: 3em;
-}
-
-.guestlist p {
-  padding: 0.5em;
-}
-
-/*--- @GIFTS component --- */
-
-.gifts__container {
-  background-image: url('../img/floral_yellow_background.png');
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: 130%;
-  overflow: hidden;
-  height: 50vh;
-  display: grid;
-  align-content: center;
-}
-
-.gifts__container h2 {
-  text-shadow: 0 1px 0 white;
-  margin: 1em;
-}
-
-/*@GIFTS buttons*/
-
-.gifts__container div {
-  justify-items: center;
-  display: grid;
-  grid-template-rows: auto;
-}
-
-/*--- @INSTAGRAM component --- */
-.instagram__container {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../img/B&A-Hats.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: var(--main-gray);
-  width: 100vw;
-  color: white;
-  overflow: hidden;
-  height: 55vh;
-  width: 100vw;
-}
-
-.instagram__container div {
-  filter: drop-shadow(16px 16px 10px black);
-  position: relative;
-  top: 40%;
-}
-
-.instagram__container img {
-  display: none;
-}
-
-.instagram__container p {
-  font-family: var(--main-font);
-  font-size: 1.2em;
-  line-height: 1em;
-}
-
-.instagram__container p:last-of-type {
-  font-size: 1.6rem;
-  font-weight: bold;
-  font-family: var(--sub-font);
-}
-
-/*--- @ITINERARY component --- */
-
-.itinerary__container {
-  margin: 1em;
-  height: 55vh;
-}
-
-/*--- @MAIN component --- */
-
 header {
   align-items: start;
   background-image: url('../img/B&A-93.jpg');
   background-position: center;
-  background-size: 300%;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   min-width: 100%;
   width: 100vw;
@@ -253,7 +104,67 @@ header span {
   font-weight: lighter;
 }
 
-/*--- @MODAL component --- */
+.itinerary-component {
+  margin: 1em;
+  min-height: 55vh;
+  position: relative;
+}
+
+.instagram-component {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../img/B&A-Hats.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--main-gray);
+  width: 100vw;
+  color: white;
+  overflow: hidden;
+  height: 55vh;
+  width: 100vw;
+}
+
+.instagram-component div {
+  filter: drop-shadow(16px 16px 10px black);
+  position: relative;
+  top: 40%;
+}
+
+.instagram-component img {
+  display: none;
+}
+
+.instagram-component p {
+  font-family: var(--main-font);
+  font-size: 1.2em;
+  line-height: 1em;
+}
+
+.instagram-component p:last-of-type {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: var(--sub-font);
+}
+
+.gifts-component {
+  background-image: url('../img/floral_yellow_background.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 130%;
+  overflow: hidden;
+  height: 50vh;
+  display: grid;
+  align-content: center;
+}
+
+.gifts-component h2 {
+  text-shadow: 0 1px 0 white;
+}
+
+.gifts-component buttons {
+  justify-items: center;
+  display: grid;
+  grid-template-rows: auto;
+}
 
 .modal {
   padding: 2em 1em;
@@ -287,7 +198,84 @@ header span {
   background: var(--disabled-color);
 }
 
-/*--- @FOOTER component --- */
+.form-layout-component {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  background-color: var(--main-gray);
+  background-image: url('../img/B&A-Bus.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+form {
+  position: absolute;
+  width: 80%;
+  left: 20%;
+  padding: 0.5em 0;
+}
+
+input[type='text'] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+  display: block;
+  font-family: inherit;
+  font-size: 1em;
+  height: 0.5em;
+  margin: auto;
+  outline: none;
+  padding: 0.8em 2.5em;
+  text-align: center;
+  width: 50%;
+}
+
+input[type='text']:focus {
+  background-blend-mode: lighten;
+  background-color: var(--disabled-color);
+}
+
+input[type='checkbox'] {
+  margin: 1em;
+  height: 15px;
+}
+
+label {
+  display: block;
+  padding: 0.5em;
+}
+
+.message {
+  background-color: var(--gold-pop);
+  border: 1.5px solid var(--gold-pop);
+  border-radius: 10px;
+  padding: 0.2em;
+  color: white;
+  margin: auto;
+  height: min-content;
+  position: relative;
+  width: 75%;
+}
+
+.charging {
+  animation: charging 1.5s infinite;
+}
+
+@keyframes charging {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.error {
+  background-color: red;
+  border: red;
+  color: white;
+}
 
 footer {
   position: relative;

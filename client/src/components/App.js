@@ -1,31 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { rest } from './functions';
+import { rest } from '../functions';
 
-import Main from './components/Main';
-import Itinerary from './components/Itinerary';
-import FormLayout from './components/FormLayout';
-import Form from './components/Form';
-import CheckboxForGuests from './components/CheckboxForGuests';
-import Gifts from './components/Gifts';
-import Insta from './components/Insta';
-import Footer from './components/Footer';
-import Message from './components/Message';
-import Modal from './components/Modal';
+import Main from './Main';
+import Itinerary from './Itinerary';
+import FormLayout from './FormLayout';
+import Form from './Form';
+import CheckboxForGuests from './CheckboxForGuests';
+import Gifts from './Gifts';
+import Insta from './Insta';
+import Footer from './Footer';
+import Message from './Message';
+import Modal from './Modal';
 
-import './css/screen.css';
-import './css/mobile.css';
+import '../css/screen.css';
+import '../css/mobile.css';
 
 const App = () => {
   const [guestsDatabase, setGuestsDatabase] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [notification, setNotification] = useState('');
   const [registeredGuest, setRegisteredGuest] = useState('');
   const [confirmedGuest, setConfirmedGuest] = useState('');
   const [openModal, setOpenModal] = useState(false);
 
   // state management
-  const updateLoading = (boolean) => setLoading(boolean);
-  const updateError = (msg) => setError(msg);
+  const updateLoading = (boolean) => {
+    if (boolean === true) {
+      setNotification(<Message msg='Cargando...' type='charging' />);
+    } else {
+      setNotification('');
+    }
+    setLoading(boolean);
+  };
+
+  const updateNotification = (msg) => setNotification(msg);
   const updateRegisteredGuest = (registeredGuest) =>
     setRegisteredGuest(registeredGuest);
   const updateConfirmedGuest = (boolean) => setConfirmedGuest(boolean);
@@ -39,11 +47,14 @@ const App = () => {
       .then((res) => {
         setGuestsDatabase(res);
         updateLoading(false);
+        throw 'error';
       })
       .catch((error) => {
         console.error('Error:', error);
         updateLoading(false);
-        updateError('Error en la base de datos');
+        setNotification(
+          <Message msg={'Error en la base de datos'} type='error' />
+        );
       });
   }, []);
 
@@ -62,15 +73,15 @@ const App = () => {
             confirmedGuest={confirmedGuest}
             updateConfirmedGuest={updateConfirmedGuest}
             updateLoading={updateLoading}
-            updateError={updateError}
+            updateNotification={updateNotification}
           />
         ) : (
           <Form
             guestsDatabase={guestsDatabase}
             updateRegisteredGuest={updateRegisteredGuest}
             updateLoading={updateLoading}
-            updateError={updateError}
-            error={error}
+            updateNotification={updateNotification}
+            notification={notification}
           />
         )}
       </FormLayout>
