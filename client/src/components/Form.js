@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Message from './Message';
+import { rest } from '../functions';
 
 function Form({
   updateLoading,
   updateNotification,
-  guestsDatabase,
   updateRegisteredGuest,
   notification,
 }) {
+  const [guestsDatabase, setGuestsDatabase] = useState([]);
   const [guestName, setGuestName] = useState('');
   const [guestLastName, setGuestLastName] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
+
+  useEffect(() => {
+    //updateLoading(true);
+    rest
+      .getGuests()
+      .then((res) => res.json())
+      .then((res) => {
+        setGuestsDatabase(res);
+        updateLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        updateLoading(false);
+        setNotification(
+          <Message msg={'Error en la base de datos'} type='error' />
+        );
+      });
+  }, []);
 
   const getRegisteredGuest = () => {
     guestsDatabase.forEach((guest) => {
@@ -36,17 +55,17 @@ function Form({
   };
 
   const enableSubmitButton =
-    guestName.length && guestLastName.length && guestPhone.length === 1;
+    guestName.length && guestLastName.length && guestPhone.length === 10;
 
   return (
     <div>
       {notification}
-      <form data-test='form-component'>
+      <form>
         <label htmlFor='guest-name'>
           Primer nombre:
           <input
             type='text'
-            name={guestName}
+            name=''
             value={guestName}
             autoComplete='off'
             onChange={(e) => {
