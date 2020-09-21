@@ -1,35 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Message from './Message';
-import { rest } from '../functions';
 
 function Form({
+  guestsDatabase,
   updateLoading,
   updateNotification,
   updateRegisteredGuest,
   notification,
 }) {
-  const [guestsDatabase, setGuestsDatabase] = useState([]);
   const [guestName, setGuestName] = useState('');
   const [guestLastName, setGuestLastName] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
-
-  useEffect(() => {
-    //updateLoading(true);
-    rest
-      .getGuests()
-      .then((res) => res.json())
-      .then((res) => {
-        setGuestsDatabase(res);
-        updateLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        updateLoading(false);
-        setNotification(
-          <Message msg={'Error en la base de datos'} type='error' />
-        );
-      });
-  }, []);
 
   const getRegisteredGuest = () => {
     guestsDatabase.forEach((guest) => {
