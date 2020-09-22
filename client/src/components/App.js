@@ -37,28 +37,6 @@ const App = () => {
   const updateConfirmedGuest = (boolean) => setConfirmedGuest(boolean);
   const isModalOpen = (boolean) => setOpenModal(boolean);
 
-<<<<<<< HEAD
-  useEffect(() => {
-    updateLoading(true);
-    rest
-      .getGuests()
-      .then((res) => res.json())
-      .then((res) => {
-        setGuestsDatabase(res);
-        updateLoading(false);
-        console.log(res);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        updateLoading(false);
-        setNotification(
-          <Message msg={'Error en la base de datos'} type='error' />
-        );
-      });
-  }, []);
-
-=======
->>>>>>> refactor
   return (
     <div>
       <Main />
