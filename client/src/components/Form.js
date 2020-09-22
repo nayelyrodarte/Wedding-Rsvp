@@ -98,7 +98,6 @@ function Form({
               setGuestPhone(e.target.value);
             }}
             maxLength='10'
-            disabled={!enableInput}
             required
           />
         </label>
