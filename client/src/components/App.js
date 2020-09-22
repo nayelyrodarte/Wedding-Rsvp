@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { rest } from '../functions';
+import React, { useState } from 'react';
 
 import Main from './Main';
 import Itinerary from './Itinerary';
@@ -16,7 +15,6 @@ import '../css/screen.css';
 import '../css/mobile.css';
 
 const App = () => {
-  const [guestsDatabase, setGuestsDatabase] = useState([]);
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState('');
   const [registeredGuest, setRegisteredGuest] = useState('');
@@ -39,25 +37,6 @@ const App = () => {
   const updateConfirmedGuest = (boolean) => setConfirmedGuest(boolean);
   const isModalOpen = (boolean) => setOpenModal(boolean);
 
-  useEffect(() => {
-    updateLoading(true);
-    rest
-      .getGuests()
-      .then((res) => res.json())
-      .then((res) => {
-        setGuestsDatabase(res);
-        updateLoading(false);
-        throw 'error';
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        updateLoading(false);
-        setNotification(
-          <Message msg={'Error en la base de datos'} type='error' />
-        );
-      });
-  }, []);
-
   return (
     <div>
       <Main />
@@ -77,7 +56,6 @@ const App = () => {
           />
         ) : (
           <Form
-            guestsDatabase={guestsDatabase}
             updateRegisteredGuest={updateRegisteredGuest}
             updateLoading={updateLoading}
             updateNotification={updateNotification}
