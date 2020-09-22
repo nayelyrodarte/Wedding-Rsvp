@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Message from './Message';
+import { rest } from '../functions';
 
 function Form({
   guestsDatabase,
@@ -12,8 +13,25 @@ function Form({
   const [guestLastName, setGuestLastName] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
 
-  const getRegisteredGuest = () => {
-    guestsDatabase.forEach((guest) => {
+  const getDatabase = () => {
+    updateLoading(true);
+    rest
+      .getGuests()
+      .then((res) => res.json())
+      .then((res) => {
+        getRegisteredGuest(res);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        updateLoading(false);
+        updateNotification(
+          <Message msg={'Error en la base de datos'} type='error' />
+        );
+      });
+  };
+
+  const getRegisteredGuest = (database) => {
+    database.forEach((guest) => {
       updateLoading(true);
       if (guest.name === guestName + ' ' + guestLastName) {
         updateRegisteredGuest(guest);
@@ -53,7 +71,6 @@ function Form({
               updateNotification('');
               setGuestName(e.target.value.toUpperCase().trim());
             }}
-            disabled={!guestsDatabase.length}
             required
           />
         </label>
@@ -68,7 +85,6 @@ function Form({
               updateNotification('');
               setGuestLastName(e.target.value.toUpperCase().trim());
             }}
-            disabled={!guestsDatabase.length}
             required
           />
         </label>
@@ -83,13 +99,12 @@ function Form({
               setGuestPhone(e.target.value);
             }}
             maxLength='10'
-            disabled={!guestsDatabase.length}
             required
           />
         </label>
         <button
           disabled={!enableSubmitButton}
-          onClick={getRegisteredGuest}
+          onClick={getDatabase}
           type='button'
         >
           Buscar
