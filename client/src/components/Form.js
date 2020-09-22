@@ -53,9 +53,7 @@ function Form({
   };
 
   const enableSubmitButton =
-    guestName.length && guestLastName.length && guestPhone.length === 1;
-
-  const enableInput = true;
+    guestName.length && guestLastName.length && guestPhone.length === 10;
 
   return (
     <div>
