@@ -7,7 +7,7 @@ const Message = ({ msg, type }) => {
     case 'charging':
       return (
         <div className='message'>
-          <span className='charging'>{msg}</span>
+          <span className='charging'>Cargando...</span>
         </div>
       );
     default:
