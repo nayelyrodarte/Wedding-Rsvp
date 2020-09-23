@@ -254,8 +254,7 @@ label {
   color: white;
   margin: auto;
   height: min-content;
-  position: relative;
-  width: 75%;
+  width: 60%;
 }
 
 .charging {
