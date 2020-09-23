@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { rest } from '../functions';
 import Checkbox from './Checkbox';
 import Message from './Message';
 
 const CheckboxForGuests = ({
   registeredGuest,
-  updateConfirmedGuest,
-  confirmedGuest,
   guestPhone,
-  updateLoading,
+  updateNotification,
 }) => {
+  const [confirmedGuest, setConfirmedGuest] = useState('');
+
   const guestName = registeredGuest.name;
   const guestId = registeredGuest._id;
   const guestParty = registeredGuest.guest_party;
@@ -34,10 +34,10 @@ const CheckboxForGuests = ({
   const sendRsvpToDatabase = () => {
     updateRegisteredGuest();
 
-    updateLoading(true);
+    updateNotification(<Message type='charging' />);
     rest.modifyGuest(guestId, registeredGuest); // send to MongoDB
-    updateLoading(false);
-    updateConfirmedGuest(true);
+    updateNotification('');
+    setConfirmedGuest(true);
   };
 
   const updateRegisteredGuest = () => {

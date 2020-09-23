@@ -15,26 +15,22 @@ import '../css/screen.css';
 import '../css/mobile.css';
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState('');
   const [registeredGuest, setRegisteredGuest] = useState('');
-  const [confirmedGuest, setConfirmedGuest] = useState('');
   const [openModal, setOpenModal] = useState(false);
 
   // state management
   const updateLoading = (boolean) => {
     if (boolean === true) {
-      setNotification(<Message msg='Cargando...' type='charging' />);
+      setNotification(<Message type='charging' />);
     } else {
       setNotification('');
     }
-    setLoading(boolean);
   };
 
   const updateNotification = (msg) => setNotification(msg);
   const updateRegisteredGuest = (registeredGuest) =>
     setRegisteredGuest(registeredGuest);
-  const updateConfirmedGuest = (boolean) => setConfirmedGuest(boolean);
   const isModalOpen = (boolean) => setOpenModal(boolean);
 
   return (
@@ -49,9 +45,6 @@ const App = () => {
         {registeredGuest ? (
           <CheckboxForGuests
             registeredGuest={registeredGuest}
-            confirmedGuest={confirmedGuest}
-            updateConfirmedGuest={updateConfirmedGuest}
-            updateLoading={updateLoading}
             updateNotification={updateNotification}
           />
         ) : (
