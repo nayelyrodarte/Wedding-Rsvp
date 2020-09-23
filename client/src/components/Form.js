@@ -3,11 +3,10 @@ import Message from './Message';
 import { rest } from '../functions';
 
 function Form({
-  guestsDatabase,
+  notification,
   updateLoading,
   updateNotification,
   updateRegisteredGuest,
-  notification,
 }) {
   const [guestName, setGuestName] = useState('');
   const [guestLastName, setGuestLastName] = useState('');
@@ -15,24 +14,25 @@ function Form({
 
   const getDatabase = () => {
     updateLoading(true);
-    rest
-      .getGuests()
-      .then((res) => res.json())
-      .then((res) => {
-        getRegisteredGuest(res);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        updateLoading(false);
-        updateNotification(
-          <Message msg={'Error en la base de datos'} type='error' />
-        );
-      });
+    try {
+      rest
+        .getGuests()
+        .then((res) => res.json())
+        .then((res) => {
+          getRegisteredGuest(res);
+          console.log(res);
+        });
+    } catch (error) {
+      console.error('Error:', error);
+      updateLoading(false);
+      updateNotification(
+        <Message msg={'Error en la base de datos'} type='error' />
+      );
+    }
   };
 
   const getRegisteredGuest = (database) => {
     database.forEach((guest) => {
-      updateLoading(true);
       if (guest.name === guestName + ' ' + guestLastName) {
         updateRegisteredGuest(guest);
         updateLoading(false);
@@ -68,7 +68,7 @@ function Form({
             value={guestName}
             autoComplete='off'
             onChange={(e) => {
-              updateNotification('');
+              //updateNotification('');
               setGuestName(e.target.value.toUpperCase().trim());
             }}
             required
@@ -82,7 +82,7 @@ function Form({
             value={guestLastName}
             autoComplete='off'
             onChange={(e) => {
-              updateNotification('');
+              //updateNotification('');
               setGuestLastName(e.target.value.toUpperCase().trim());
             }}
             required
@@ -95,7 +95,7 @@ function Form({
             name={guestPhone}
             value={guestPhone}
             onChange={(e) => {
-              updateNotification('');
+              //updateNotification('');
               setGuestPhone(e.target.value);
             }}
             maxLength='10'

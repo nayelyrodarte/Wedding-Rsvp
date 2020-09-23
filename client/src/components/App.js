@@ -59,7 +59,6 @@ const App = () => {
             updateRegisteredGuest={updateRegisteredGuest}
             updateLoading={updateLoading}
             updateNotification={updateNotification}
-            notification={notification}
           />
         )}
       </FormLayout>
