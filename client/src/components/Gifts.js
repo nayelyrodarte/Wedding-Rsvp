@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Modal from './Modal';
+import React from 'react';
 
 const Gifts = ({ isModalOpen }) => {
   return (
