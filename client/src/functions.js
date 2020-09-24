@@ -14,7 +14,7 @@ export function counter() {
 }
 
 export const rest = {
-  getGuests: () => fetch('api/guests'),
+  getGuests: (params) => fetch('api/guests', params),
   modifyGuest: function (id, updatedObj) {
     const config = {
       method: 'put',
