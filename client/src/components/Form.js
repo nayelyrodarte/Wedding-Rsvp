@@ -55,13 +55,8 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
 
   return (
     <div>
-<<<<<<< HEAD
-      {notification}
-      <form>
-=======
       <form data-test='form-component'>
         {notification}
->>>>>>> master
         <label htmlFor='guest-name'>
           Primer nombre:
           <input
@@ -70,10 +65,6 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
             value={guestName}
             autoComplete='off'
             onChange={(e) => {
-<<<<<<< HEAD
-              //updateNotification('');
-=======
->>>>>>> master
               setGuestName(e.target.value.toUpperCase().trim());
             }}
             required
@@ -87,10 +78,6 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
             value={guestLastName}
             autoComplete='off'
             onChange={(e) => {
-<<<<<<< HEAD
-              //updateNotification('');
-=======
->>>>>>> master
               setGuestLastName(e.target.value.toUpperCase().trim());
             }}
             required
@@ -103,10 +90,6 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
             name={guestPhone}
             value={guestPhone}
             onChange={(e) => {
-<<<<<<< HEAD
-              //updateNotification('');
-=======
->>>>>>> master
               setGuestPhone(e.target.value);
             }}
             maxLength='10'

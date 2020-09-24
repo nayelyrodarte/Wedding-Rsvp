@@ -36,12 +36,7 @@
     ]
   },
   "devDependencies": {
-    "css-loader": "^3.6.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.4",
     "msw": "^0.21.2",
-    "nodemon": "^2.0.4",
-    "style-loader": "^1.2.1",
     "swr": "^0.3.3",
     "whatwg-fetch": "^3.4.1"
   },
