@@ -28,7 +28,7 @@ const CheckboxForGuests = ({
   };
 
   let addGuestPartyCheckboxes = guestParty.map((guest) => (
-    <Checkbox name={guestName} key={guestName} onChange={isGuestPartyGoing} />
+    <Checkbox name={guest} key={guest} onChange={isGuestPartyGoing} />
   ));
 
   const sendRsvpToDatabase = () => {
