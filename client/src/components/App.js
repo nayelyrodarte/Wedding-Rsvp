@@ -8,7 +8,6 @@ import CheckboxForGuests from './CheckboxForGuests';
 import Gifts from './Gifts';
 import Insta from './Insta';
 import Footer from './Footer';
-import Message from './Message';
 import Modal from './Modal';
 
 import '../css/screen.css';
@@ -18,20 +17,6 @@ const App = () => {
   const [notification, setNotification] = useState('');
   const [registeredGuest, setRegisteredGuest] = useState('');
   const [openModal, setOpenModal] = useState(false);
-
-  // state management
-  const updateLoading = (boolean) => {
-    if (boolean === true) {
-      setNotification(<Message type='charging' />);
-    } else {
-      setNotification('');
-    }
-  };
-
-  const updateNotification = (msg) => setNotification(msg);
-  const updateRegisteredGuest = (registeredGuest) =>
-    setRegisteredGuest(registeredGuest);
-  const isModalOpen = (boolean) => setOpenModal(boolean);
 
   return (
     <div>
@@ -45,13 +30,12 @@ const App = () => {
         {registeredGuest ? (
           <CheckboxForGuests
             registeredGuest={registeredGuest}
-            updateNotification={updateNotification}
+            updateNotification={setNotification}
           />
         ) : (
           <Form
-            updateRegisteredGuest={updateRegisteredGuest}
-            updateLoading={updateLoading}
-            updateNotification={updateNotification}
+            updateRegisteredGuest={setRegisteredGuest}
+            updateNotification={setNotification}
             notification={notification}
           />
         )}
