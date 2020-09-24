@@ -23,9 +23,8 @@ const App = () => {
       <Main />
       <Itinerary />
       <Insta />
-      <Gifts isModalOpen={isModalOpen}>
-        <Modal />
-      </Gifts>
+      <Gifts isModalOpen={setOpenModal} />
+      {openModal && <Modal isModalOpen={setOpenModal} />}
       <FormLayout>
         {registeredGuest ? (
           <CheckboxForGuests

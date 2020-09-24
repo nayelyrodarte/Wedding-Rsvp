@@ -1,21 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 
-const Modal = () => {
+const Modal = ({ isModalOpen }) => {
   const modalRoot = document.getElementById('modal-root');
   const element = document.createElement('div');
   const modalEl = useRef('null');
 
   useEffect(() => {
     modalRoot.appendChild(element);
+    // clean-up
     return () => {
       modalRoot.removeChild(element);
-    }; // clean-up
+    };
   }, [element, modalRoot]);
-
-  const closeModal = () => {
-    modalEl.current.style.display = 'none';
-  };
 
   const modal = (
     <section ref={modalEl} className='modal'>
@@ -45,7 +42,7 @@ const Modal = () => {
           4152 3133 8061 3849
         </p>
       </div>
-      <button onClick={closeModal}>Cerrar</button>
+      <button onClick={() => isModalOpen(false)}>Cerrar</button>
     </section>
   );
 
