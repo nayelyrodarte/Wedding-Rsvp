@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Guest = require('../models/Guest');
+const Guest = require('../mongoose-models/Guest');
 
 // Get all guests
 

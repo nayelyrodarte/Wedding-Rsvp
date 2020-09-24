@@ -17,7 +17,7 @@ const host = '0.0.0.0' || localhost;
 app.listen(PORT, host, () => console.log(`Server started on port ${PORT}`));
 
 // Define routes
-app.use('/api/guests', require('./router'));
+app.use('/api/guests', require('./server/router/index'));
 
 // Serve static assets in production (react)
 if (process.env.NODE_ENV === 'production') {
