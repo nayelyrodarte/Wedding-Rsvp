@@ -7,11 +7,13 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
   const [guestLastName, setGuestLastName] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
 
+  const abortController = new AbortController();
+
   const getDatabase = () => {
     try {
       updateNotification(<Message type='charging' />);
       rest
-        .getGuests()
+        .getGuests({ signal: abortController.signal })
         .then((res) => res.json())
         .then((res) => {
           updateNotification('');
@@ -39,7 +41,7 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
               <p>
                 No se encontró registro.
                 <br />
-                Comunícate al 000 000 00 00 para recibir asistencia.'
+                Comunícate al 000 000 00 00 para recibir asistencia.
               </p>
             }
           />
