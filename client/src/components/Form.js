@@ -2,29 +2,25 @@ import React, { useState } from 'react';
 import Message from './Message';
 import { rest } from '../functions';
 
-function Form({
-  notification,
-  updateLoading,
-  updateNotification,
-  updateRegisteredGuest,
-}) {
+function Form({ updateNotification, updateRegisteredGuest, notification }) {
   const [guestName, setGuestName] = useState('');
   const [guestLastName, setGuestLastName] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
 
+  const abortController = new AbortController();
+
   const getDatabase = () => {
-    updateLoading(true);
     try {
+      updateNotification(<Message type='charging' />);
       rest
-        .getGuests()
+        .getGuests({ signal: abortController.signal })
         .then((res) => res.json())
         .then((res) => {
-          getRegisteredGuest(res);
-          console.log(res);
+          updateNotification('');
+          return getRegisteredGuest(res);
         });
     } catch (error) {
       console.error('Error:', error);
-      updateLoading(false);
       updateNotification(
         <Message msg={'Error en la base de datos'} type='error' />
       );
@@ -35,16 +31,17 @@ function Form({
     database.forEach((guest) => {
       if (guest.name === guestName + ' ' + guestLastName) {
         updateRegisteredGuest(guest);
-        updateLoading(false);
       } else {
-        updateLoading(false);
+        setGuestName('');
+        setGuestLastName('');
+        setGuestPhone('');
         updateNotification(
           <Message
             msg={
               <p>
                 No se encontró registro.
                 <br />
-                Comunícate al 000 000 00 00 para recibir asistencia.'
+                Comunícate al 000 000 00 00 para recibir asistencia.
               </p>
             }
           />
@@ -58,8 +55,13 @@ function Form({
 
   return (
     <div>
+<<<<<<< HEAD
       {notification}
       <form>
+=======
+      <form data-test='form-component'>
+        {notification}
+>>>>>>> master
         <label htmlFor='guest-name'>
           Primer nombre:
           <input
@@ -68,7 +70,10 @@ function Form({
             value={guestName}
             autoComplete='off'
             onChange={(e) => {
+<<<<<<< HEAD
               //updateNotification('');
+=======
+>>>>>>> master
               setGuestName(e.target.value.toUpperCase().trim());
             }}
             required
@@ -82,7 +87,10 @@ function Form({
             value={guestLastName}
             autoComplete='off'
             onChange={(e) => {
+<<<<<<< HEAD
               //updateNotification('');
+=======
+>>>>>>> master
               setGuestLastName(e.target.value.toUpperCase().trim());
             }}
             required
@@ -95,7 +103,10 @@ function Form({
             name={guestPhone}
             value={guestPhone}
             onChange={(e) => {
+<<<<<<< HEAD
               //updateNotification('');
+=======
+>>>>>>> master
               setGuestPhone(e.target.value);
             }}
             maxLength='10'

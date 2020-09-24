@@ -251,11 +251,11 @@ label {
   border: 1.5px solid var(--gold-pop);
   border-radius: 10px;
   padding: 0.2em;
+  position: relative;
   color: white;
   margin: auto;
   height: min-content;
-  position: relative;
-  width: 75%;
+  width: 60%;
 }
 
 .charging {
