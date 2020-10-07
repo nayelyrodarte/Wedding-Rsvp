@@ -252,10 +252,9 @@ label {
   border-radius: 10px;
   padding: 0.2em;
   position: relative;
-  color: white;
   margin: auto;
   height: min-content;
-  width: 60%;
+  width: max-content;
 }
 
 .charging {
