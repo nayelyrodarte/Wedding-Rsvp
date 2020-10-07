@@ -16,6 +16,7 @@ import '../css/mobile.css';
 const App = () => {
   const [notification, setNotification] = useState('');
   const [registeredGuest, setRegisteredGuest] = useState('');
+  const [guestPhone, setGuestPhone] = useState('');
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -29,12 +30,15 @@ const App = () => {
         {registeredGuest ? (
           <CheckboxForGuests
             registeredGuest={registeredGuest}
+            guestPhone={guestPhone}
             updateNotification={setNotification}
           />
         ) : (
           <Form
             updateRegisteredGuest={setRegisteredGuest}
             updateNotification={setNotification}
+            guestPhone={guestPhone}
+            updateGuestPhone={setGuestPhone}
             notification={notification}
           />
         )}

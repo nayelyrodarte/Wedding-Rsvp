@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import Message from './Message';
 import { rest } from '../functions';
 
-function Form({ updateNotification, updateRegisteredGuest, notification }) {
+function Form({
+  updateNotification,
+  updateRegisteredGuest,
+  updateGuestPhone,
+  notification,
+  guestPhone,
+}) {
   const [guestName, setGuestName] = useState('');
   const [guestLastName, setGuestLastName] = useState('');
-  const [guestPhone, setGuestPhone] = useState('');
 
   const abortController = new AbortController();
 
@@ -34,7 +39,7 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
       } else {
         setGuestName('');
         setGuestLastName('');
-        setGuestPhone('');
+        updateGuestPhone('');
         updateNotification(
           <Message
             msg={
@@ -90,7 +95,7 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
             name={guestPhone}
             value={guestPhone}
             onChange={(e) => {
-              setGuestPhone(e.target.value);
+              updateGuestPhone(e.target.value);
             }}
             maxLength='10'
             required
