@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Message from './Message';
 import { rest } from '../functions';
 
-function Form({ updateNotification, updateRegisteredGuest, notification }) {
+const Form = ({ updateNotification, updateRegisteredGuest, notification }) => {
   const [guestName, setGuestName] = useState('');
   const [guestLastName, setGuestLastName] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
@@ -17,6 +17,7 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
         .then((res) => res.json())
         .then((res) => {
           updateNotification('');
+          console.log(res);
           return getRegisteredGuest(res);
         });
     } catch (error) {
@@ -25,6 +26,9 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
         <Message msg={'Error en la base de datos'} type='error' />
       );
     }
+    return function cleanup() {
+      abortController.abort();
+    };
   };
 
   const getRegisteredGuest = (database) => {
@@ -106,6 +110,6 @@ function Form({ updateNotification, updateRegisteredGuest, notification }) {
       </form>
     </div>
   );
-}
+};
 
 export default Form;
