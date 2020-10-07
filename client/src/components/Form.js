@@ -15,21 +15,20 @@ function Form({
   const abortController = new AbortController();
 
   const getDatabase = () => {
-    try {
-      updateNotification(<Message type='charging' />);
-      rest
-        .getGuests({ signal: abortController.signal })
-        .then((res) => res.json())
-        .then((res) => {
-          updateNotification('');
-          return getRegisteredGuest(res);
-        });
-    } catch (error) {
-      console.error('Error:', error);
-      updateNotification(
-        <Message msg={'Error en la base de datos'} type='error' />
-      );
-    }
+    updateNotification(<Message type='charging' />);
+    rest
+      .getGuests({ signal: abortController.signal })
+      .then((res) => res.json())
+      .then((res) => {
+        updateNotification('');
+        return getRegisteredGuest(res);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        updateNotification(
+          <Message msg={'Error en la base de datos'} type='error' />
+        );
+      });
   };
 
   const getRegisteredGuest = (database) => {
