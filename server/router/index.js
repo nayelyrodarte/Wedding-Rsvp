@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Guest = require('../mongoose-models/Guest');
 
-// Get all guests
-
+// @route GET api/guests
 router.get('/', async (req, res) => {
   try {
     const guests = await Guest.find({ rsvpd: false });
     res.json(guests);
+    res.status(200).json('Base de datos actualizada');
   } catch (err) {
     console.error(err.message);
     res.status(500).json('Error del servidor').end();
