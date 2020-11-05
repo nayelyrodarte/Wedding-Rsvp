@@ -94,7 +94,7 @@ function Form({
             name={guestPhone}
             value={guestPhone}
             onChange={(e) => {
-              updateGuestPhone(e.target.value);
+              /^\d*$/g.test(e.target.value) && updateGuestPhone(e.target.value);
             }}
             maxLength='10'
             required
@@ -103,7 +103,7 @@ function Form({
         <button
           disabled={!enableSubmitButton}
           onClick={getDatabase}
-          type='button'
+          type='submit'
         >
           Buscar
         </button>
