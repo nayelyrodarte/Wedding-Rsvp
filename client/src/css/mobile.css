@@ -232,8 +232,7 @@ input[type='text'] {
 }
 
 input[type='text']:focus {
-  background-blend-mode: lighten;
-  background-color: var(--disabled-color);
+  outline: solid 2px var(--gold-pop);
 }
 
 input[type='checkbox'] {
