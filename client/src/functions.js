@@ -1,5 +1,5 @@
 export function counter() {
-  const wedDay = new Date('2020,10,11 00:00:00');
+  const wedDay = new Date('2021,10,11 00:00:00');
   let dateNow = Date.now();
   let n = 'n';
   let s = 's';
