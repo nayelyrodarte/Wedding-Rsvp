@@ -5,12 +5,14 @@ export function counter() {
   let s = 's';
 
   let daysRemaining = Math.round((wedDay - dateNow) / (1000 * 60 * 60 * 24));
-  if (daysRemaining === 1) {
-    n = '';
-    s = '';
-  }
 
-  return `Falta${n} ${daysRemaining} día${s}`;
+  while (daysRemaining > 0) {
+    if (daysRemaining === 1) {
+      n = '';
+      s = '';
+    }
+    return `Falta${n} ${daysRemaining} día${s}`;
+  }
 }
 
 export const rest = {
