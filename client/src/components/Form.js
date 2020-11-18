@@ -103,7 +103,7 @@ function Form({
         <button
           disabled={!enableSubmitButton}
           onClick={getDatabase}
-          type='submit'
+          type='button'
         >
           Buscar
         </button>
