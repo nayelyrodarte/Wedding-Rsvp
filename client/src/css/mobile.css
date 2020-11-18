@@ -232,8 +232,7 @@ input[type='text'] {
 }
 
 input[type='text']:focus {
-  background-blend-mode: lighten;
-  background-color: var(--disabled-color);
+  outline: solid 2px var(--gold-pop);
 }
 
 input[type='checkbox'] {
@@ -252,10 +251,9 @@ label {
   border-radius: 10px;
   padding: 0.2em;
   position: relative;
-  color: white;
   margin: auto;
   height: min-content;
-  width: 60%;
+  width: max-content;
 }
 
 .charging {

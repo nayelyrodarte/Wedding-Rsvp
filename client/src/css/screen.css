@@ -23,7 +23,7 @@
   }
 
   body header {
-    min-height: 70vh;
+    min-height: 100vh;
     background-size: 100%;
   }
 
@@ -98,10 +98,6 @@
   .rsvp {
     position: relative;
     right: 28%;
-  }
-
-  .rsvp button {
-    width: 5em;
   }
 
   body form {

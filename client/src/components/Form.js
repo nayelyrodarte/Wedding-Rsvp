@@ -2,33 +2,33 @@ import React, { useState } from 'react';
 import Message from './Message';
 import { rest } from '../functions';
 
-const Form = ({ updateNotification, updateRegisteredGuest, notification }) => {
+function Form({
+  updateNotification,
+  updateRegisteredGuest,
+  updateGuestPhone,
+  notification,
+  guestPhone,
+}) {
   const [guestName, setGuestName] = useState('');
   const [guestLastName, setGuestLastName] = useState('');
-  const [guestPhone, setGuestPhone] = useState('');
 
   const abortController = new AbortController();
 
   const getDatabase = () => {
-    try {
-      updateNotification(<Message type='charging' />);
-      rest
-        .getGuests({ signal: abortController.signal })
-        .then((res) => res.json())
-        .then((res) => {
-          updateNotification('');
-          console.log(res);
-          return getRegisteredGuest(res);
-        });
-    } catch (error) {
-      console.error('Error:', error);
-      updateNotification(
-        <Message msg={'Error en la base de datos'} type='error' />
-      );
-    }
-    return function cleanup() {
-      abortController.abort();
-    };
+    updateNotification(<Message type='charging' />);
+    rest
+      .getGuests({ signal: abortController.signal })
+      .then((res) => res.json())
+      .then((res) => {
+        updateNotification('');
+        return getRegisteredGuest(res);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        updateNotification(
+          <Message msg={'Error en la base de datos'} type='error' />
+        );
+      });
   };
 
   const getRegisteredGuest = (database) => {
@@ -38,7 +38,7 @@ const Form = ({ updateNotification, updateRegisteredGuest, notification }) => {
       } else {
         setGuestName('');
         setGuestLastName('');
-        setGuestPhone('');
+        updateGuestPhone('');
         updateNotification(
           <Message
             msg={
@@ -94,7 +94,7 @@ const Form = ({ updateNotification, updateRegisteredGuest, notification }) => {
             name={guestPhone}
             value={guestPhone}
             onChange={(e) => {
-              setGuestPhone(e.target.value);
+              /^\d*$/g.test(e.target.value) && updateGuestPhone(e.target.value);
             }}
             maxLength='10'
             required
@@ -110,6 +110,6 @@ const Form = ({ updateNotification, updateRegisteredGuest, notification }) => {
       </form>
     </div>
   );
-};
+}
 
 export default Form;
