@@ -12,16 +12,14 @@ function Form({
   const [guestName, setGuestName] = useState('');
   const [guestLastName, setGuestLastName] = useState('');
 
-  const abortController = new AbortController();
-
   const getDatabase = () => {
     updateNotification(<Message type='charging' />);
     rest
-      .getGuests({ signal: abortController.signal })
+      .getGuests()
       .then((res) => res.json())
       .then((res) => {
-        updateNotification('');
-        return getRegisteredGuest(res);
+       updateNotification('');
+        //return getRegisteredGuest(res);
       })
       .catch((error) => {
         console.error('Error:', error);
