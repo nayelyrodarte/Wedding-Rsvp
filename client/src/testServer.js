@@ -1,4 +1,4 @@
-//import { SWRConfig, cache } from 'swr';
+import { SWRConfig, cache } from 'swr';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import '@testing-library/react';
@@ -22,6 +22,6 @@ const handlers = [
 
 const server = setupServer(...handlers);
 
-//afterEach(() => cache.clear());
+afterEach(() => cache.clear());
 
 export { server, rest };
