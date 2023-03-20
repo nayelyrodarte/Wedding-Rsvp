@@ -14,18 +14,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "concurrently": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "concurrently": "^7.6.0",
     "config": "^3.3.1",
     "cors": "^2.8.5",
     "dot-prop": "^5.2.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.7",
-    "nodemon": "^2.0.2",
+    "express": "^4.18.2",
+    "mongoose": "^5.13.15",
+    "nodemon": "^2.0.20",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "enzyme-adapter-react-16": "^1.15.2"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }

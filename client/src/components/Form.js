@@ -14,7 +14,8 @@ function Form({
 
   const abortController = new AbortController();
 
-  const getDatabase = () => {
+  const getDatabase = (event) => {
+    event.preventDefault();
     updateNotification(<Message type='charging' />);
     rest
       .getGuests({ signal: abortController.signal })

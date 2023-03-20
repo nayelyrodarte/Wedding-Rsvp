@@ -31,7 +31,8 @@ const CheckboxForGuests = ({
     <Checkbox name={guestName} key={guestName} onChange={isGuestPartyGoing} />
   ));
 
-  const sendRsvpToDatabase = () => {
+  const sendRsvpToDatabase = (event) => {
+    event.preventDefault();
     updateRegisteredGuest();
 
     updateNotification(<Message type='charging' />);
